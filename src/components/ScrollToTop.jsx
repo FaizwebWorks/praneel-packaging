@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
 function ScrollToTop() {
@@ -29,21 +28,27 @@ function ScrollToTop() {
         <AnimatePresence>
             {isVisible && (
                 <motion.button
-                    initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.5, y: 20 }}
-                    whileHover={{ 
-                        scale: 1.1, 
-                        backgroundColor: "#fff",
-                        color: "#000",
-                        boxShadow: "0 0 20px rgba(255,255,255,0.3)"
-                    }}
-                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    whileHover={{ y: -5, backgroundColor: "#fff", color: "#000" }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-[60] flex h-12 w-12 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/80 text-white shadow-2xl backdrop-blur-md transition-colors cursor-pointer"
+                    className="fixed bottom-8 right-8 z-[60] flex h-12 w-12 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950 text-white shadow-2xl transition-all duration-300 cursor-pointer group"
                     aria-label="Scroll to top"
                 >
-                    <ChevronUp size={24} strokeWidth={2.5} />
+                    <svg 
+                        width="20" 
+                        height="20" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"
+                    >
+                        <path d="M12 19V5M5 12l7-7 7 7"/>
+                    </svg>
                 </motion.button>
             )}
         </AnimatePresence>

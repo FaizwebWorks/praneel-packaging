@@ -1,7 +1,6 @@
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-export function PrimaryButton({ children, icon: Icon = ArrowRight, className = "" }) {
+export function PrimaryButton({ children, icon: Icon, className = "" }) {
     return (
         <motion.button
             whileHover={{ scale: 1.02 }}

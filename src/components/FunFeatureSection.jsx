@@ -1,68 +1,159 @@
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, TrendingUp, Heart, Share2, Eye, Zap, Plus } from "lucide-react";
 import { PrimaryButton } from "./Button";
-import { motion } from "framer-motion";
-import { AnimatedText, FadeIn, ScaleIn } from "./AnimatedText";
+import { motion, AnimatePresence } from "framer-motion";
+import { AnimatedText, FadeIn } from "./AnimatedText";
+import { useState } from "react";
 
-const features = [
-    { emoji: "📦", title: "Customers keeping the box forever" },
-    { emoji: "📱", title: "Extra Instagram unboxing videos" },
-    { emoji: "✨", title: "Your product looking 10x more premium" },
-    { emoji: "😎", title: "Competitors getting jealous" }
+const effects = [
+    { 
+        id: 1,
+        emoji: "📦", 
+        title: "Eternal Storage", 
+        desc: "Customers physically cannot throw the box away. It becomes a permanent part of their home decor.",
+        stat: "94%",
+        statLabel: "Retention Rate",
+        icon: Heart,
+        color: "amber"
+    },
+    { 
+        id: 2,
+        emoji: "🤳", 
+        title: "The Viral Effect", 
+        desc: "Unboxing videos increase by 300%. Your brand reaches people you didn't even know existed.",
+        stat: "+320%",
+        statLabel: "Social Reach",
+        icon: Share2,
+        color: "blue"
+    },
+    { 
+        id: 3,
+        emoji: "💎", 
+        title: "Luxury Perception", 
+        desc: "Your product feels 10x more expensive the second the lid is lifted. Instant price-tag justification.",
+        stat: "10x",
+        statLabel: "Value Boost",
+        icon: TrendingUp,
+        color: "purple"
+    },
+    { 
+        id: 4,
+        emoji: "😒", 
+        title: "Competitor Envy", 
+        desc: "Your competitors will spend hours studying your packaging in their boardrooms. They'll be very stressed.",
+        stat: "High",
+        statLabel: "Stress Levels",
+        icon: Eye,
+        color: "emerald"
+    }
 ];
 
 function FunFeatureSection() {
+    const [hoveredId, setHoveredId] = useState(null);
+
     return (
-        <section className="relative z-10 mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32 overflow-hidden">
-            <div className="text-center mb-16">
-                <FadeIn direction="none">
-                    <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-zinc-500">
-                        Fun Feature
-                    </span>
-                </FadeIn>
-                <AnimatedText 
-                    text="Warning: Our Boxes May Cause…"
-                    className="heading-font mx-auto max-w-3xl text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl justify-center"
-                />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {features.map((feature, i) => (
-                    <FadeIn key={i} delay={0.2 + i * 0.1} direction="up">
-                        <motion.div 
-                            whileHover={{ 
-                                y: -12,
-                                transition: { type: "spring", stiffness: 400, damping: 10 }
-                            }}
-                            className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60 p-8 transition-all duration-500 hover:border-zinc-400 hover:bg-zinc-900/80"
-                        >
-                            <motion.div 
-                                initial={{ opacity: 0 }}
-                                whileHover={{ opacity: 1 }}
-                                className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-transparent" 
-                            />
-                            <div className="relative z-10">
-                                <motion.div 
-                                    whileHover={{ scale: 1.2, rotate: [0, -10, 10, -10, 0] }}
-                                    className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800/50 group-hover:bg-zinc-700/50 group-hover:border-zinc-500 transition-all duration-300"
-                                >
-                                    <span className="text-2xl">{feature.emoji}</span>
-                                </motion.div>
-                                <h3 className="mb-3 text-lg font-semibold text-white group-hover:text-white transition-colors leading-snug">{feature.title}</h3>
-                            </div>
-                        </motion.div>
+        <section className="relative z-10 w-full overflow-hidden py-24 sm:py-32">
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex flex-col items-center text-center mb-20">
+                    <motion.div 
+                        animate={{ rotate: [0, -10, 10, -10, 0] }}
+                        transition={{ duration: 4, repeat: Infinity }}
+                        className="mb-6 rounded-full bg-amber-500/10 p-4 border border-amber-500/20"
+                    >
+                        <AlertTriangle className="h-8 w-8 text-amber-500" />
+                    </motion.div>
+                    
+                    <FadeIn direction="none">
+                        <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-zinc-500 font-bold">
+                            Safety Warning: High Impact Packaging
+                        </span>
                     </FadeIn>
-                ))}
-            </div>
+                    <AnimatedText 
+                        text="Documented Side Effects"
+                        className="heading-font text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl"
+                    />
+                </div>
 
-            <FadeIn delay={0.8} direction="up" className="mt-12 text-center">
-                <p className="text-lg italic leading-relaxed text-zinc-400">
-                    We're not saying it's magic… but it's definitely close.
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    {effects.map((effect) => (
+                        <motion.div
+                            key={effect.id}
+                            onMouseEnter={() => setHoveredId(effect.id)}
+                            onMouseLeave={() => setHoveredId(null)}
+                            whileHover={{ scale: 1.02 }}
+                            className={`relative overflow-hidden rounded-[2rem] border transition-all duration-500 p-8 lg:p-10 ${
+                                hoveredId === effect.id 
+                                ? "border-zinc-500 bg-zinc-900 shadow-2xl" 
+                                : "border-zinc-800 bg-zinc-900/90 backdrop-blur-md"
+                            }`}
+                        >
+                            <div className="relative z-10 flex flex-col h-full">
+                                <div className="flex items-start justify-between mb-8">
+                                    <div className={`rounded-2xl p-4 bg-zinc-800/50 border border-zinc-700`}>
+                                        <span className="text-4xl">{effect.emoji}</span>
+                                    </div>
+                                    <div className="text-right">
+                                        <div className="text-xs uppercase tracking-widest text-zinc-500 mb-1">{effect.statLabel}</div>
+                                        <div className={`text-3xl font-bold text-white`}>{effect.stat}</div>
+                                    </div>
+                                </div>
+
+                                <h3 className="text-2xl font-bold text-white mb-4">{effect.title}</h3>
+                                <p className="text-zinc-400 leading-relaxed mb-8 flex-grow">
+                                    {effect.desc}
+                                </p>
+
+                                <div className="flex items-center gap-4 pt-6 border-t border-zinc-800">
+                                    <effect.icon className={`h-5 w-5 ${hoveredId === effect.id ? "text-white" : "text-zinc-600"}`} />
+                                    <div className="flex-grow h-1.5 bg-zinc-800 rounded-full overflow-hidden">
+                                        <motion.div 
+                                            initial={{ width: 0 }}
+                                            animate={{ width: hoveredId === effect.id ? "100%" : "30%" }}
+                                            className={`h-full bg-gradient-to-r ${
+                                                effect.color === 'amber' ? 'from-amber-500' : 
+                                                effect.color === 'blue' ? 'from-blue-500' : 
+                                                effect.color === 'purple' ? 'from-purple-500' : 'from-emerald-500'
+                                            } to-zinc-400 opacity-60`}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Background Number */}
+                            <span className="absolute -right-4 -top-8 text-[12rem] font-black text-white/[0.02] pointer-events-none select-none">
+                                0{effect.id}
+                            </span>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Premium Impact Dashboard Footer */}
+                <FadeIn delay={0.6} direction="up">
+                    <div className="mt-20 rounded-3xl border border-zinc-800 bg-zinc-900/60 p-8 lg:p-12 backdrop-blur-sm relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-8 opacity-10">
+                            <Zap className="h-24 w-24 text-white" />
+                        </div>
+                        
+                        <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
+                            <div>
+                                <h4 className="text-2xl font-bold text-white mb-4">Ready to trigger these effects?</h4>
+                                <p className="text-zinc-400">
+                                    Our packaging laboratory is ready to engineer your brand's next major unboxing event. 
+                                    Side effects are guaranteed.
+                                </p>
+                            </div>
+                            <div className="flex flex-col sm:flex-row gap-4 md:justify-end">
+                                <PrimaryButton className="px-10 py-5 text-lg rounded-2xl group">
+                                    Start Engineering <TrendingUp className="ml-2 h-5 w-5 group-hover:translate-y-[-2px] transition-transform" />
+                                </PrimaryButton>
+                            </div>
+                        </div>
+                    </div>
+                </FadeIn>
+                
+                <p className="mt-12 text-center text-zinc-600 text-sm flex items-center justify-center gap-2 italic">
+                    <Zap className="h-3 w-3" /> Packaging side effects may vary by brand ambition.
                 </p>
-            </FadeIn>
-
-            <FadeIn delay={1} direction="up" className="mt-10 flex justify-center">
-                <PrimaryButton className="px-8 py-4 text-base">Order Now</PrimaryButton>
-            </FadeIn>
+            </div>
         </section>
     );
 }

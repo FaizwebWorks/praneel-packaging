@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-// import logo from "/logo.png";
 
 const NAV_LINKS = [
   { label: "About", href: "#" },
@@ -80,14 +79,27 @@ function Navbar() {
         initial={false}
         animate={isOpen ? "open" : "closed"}
         variants={containerVariants}
-        className="w-56 max-w-[92vw] overflow-hidden border border-white/10 bg-black/70 p-2 text-zinc-100 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.78)] backdrop-blur-2xl supports-backdrop-filter:bg-black/55"
+        className="group relative overflow-hidden border border-zinc-800 bg-zinc-950/70 p-2 text-zinc-100 shadow-[0_20px_80px_-15px_rgba(0,0,0,0.9)] backdrop-blur-md"
       >
-        <div className="flex items-center justify-between gap-2">
-          <motion.div className="px-3">
-            <span className="heading-font text-base font-semibold tracking-[0.18em] text-white">
+        {/* Animated Border Glow */}
+        <motion.div 
+          animate={{ 
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{ 
+            duration: 4, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute inset-0 rounded-[inherit] border border-amber-500/10 pointer-events-none"
+        />
+
+        <div className="relative z-10 flex items-center justify-between gap-2">
+          <motion.div className="px-3 flex items-center gap-2">
+            {/* <div className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" /> */}
+            <span className="heading-font text-base font-bold tracking-[0.18em] text-white">
               Praneel
             </span>
-            {/* <img src={logo} alt="Praneel" className="w-10 h-10 object-cover" /> */}
           </motion.div>
 
           <motion.button
@@ -95,7 +107,7 @@ function Navbar() {
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             onClick={() => setIsOpen((prev) => !prev)}
             whileTap={{ scale: 0.94 }}
-            className="relative grid h-11 w-11 place-items-center rounded-full bg-zinc-800/90 transition-colors hover:bg-zinc-700/90 cursor-pointer"
+            className="relative grid h-11 w-11 place-items-center rounded-full bg-zinc-900 border border-zinc-800 transition-all hover:bg-zinc-800 cursor-pointer"
           >
             <AnimatePresence mode="wait" initial={false}>
               {isOpen ? (
@@ -133,14 +145,14 @@ function Navbar() {
               initial="closed"
               animate="open"
               exit="closed"
-              className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2 px-4 pb-3 sm:flex-nowrap sm:gap-x-8"
+              className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2 px-4 pb-3 sm:flex-nowrap sm:gap-x-8 relative z-10"
             >
               {NAV_LINKS.map((item) => (
                 <motion.li key={item.label} variants={linkItemVariants}>
                   <motion.a
                     href={item.href}
                     whileTap={{ scale: 0.98 }}
-                    className="block py-2 text-sm font-medium uppercase tracking-[0.13em] text-zinc-400 transition-colors hover:text-white"
+                    className="block py-2 text-sm font-semibold uppercase tracking-[0.13em] text-zinc-500 transition-colors hover:text-white"
                   >
                     {item.label}
                   </motion.a>

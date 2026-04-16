@@ -58,7 +58,7 @@ function AboutSection() {
                             ].map((item, i) => (
                                 <FadeIn key={i} delay={0.5 + i * 0.1} direction="left">
                                     <motion.div 
-                                        whileHover={{ x: 10 }}
+                                        // whileHover={{ x: 10 }}
                                         className="flex items-start gap-4 group cursor-default"
                                     >
                                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800/50 group-hover:border-zinc-400 group-hover:bg-zinc-700/50 transition-all duration-300">
