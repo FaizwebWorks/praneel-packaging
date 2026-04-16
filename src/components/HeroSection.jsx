@@ -53,16 +53,16 @@ function HeroSection() {
                     </div>
                 </div>
 
-                <ScaleIn delay={0.5} className="relative">
+                <ScaleIn delay={0.5} className="relative flex justify-center items-center">
                     <motion.div 
                         whileHover={{ scale: 1.02 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        className="rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden shadow-2xl shadow-black/50"
+                        className="w-full"
                     >
                         <img
                             src={custom}
                             alt="Custom Packaging Design"
-                            className="w-full h-full object-cover"
+                            className="w-full h-auto"
                         />
                     </motion.div>
                 </ScaleIn>
