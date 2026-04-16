@@ -5,6 +5,31 @@
 *{
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
+    box-sizing: border-box;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 .heading-font {

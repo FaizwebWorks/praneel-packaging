@@ -5,6 +5,7 @@ import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import ProcessSection from "./components/ProcessSection";
 import SmoothCursor from "./components/SmoothCursor";
+import SmoothScroll from "./components/SmoothScroll";
 import WhyRigidBoxes from "./components/WhyRigidBoxes";
 import ServicesSection from "./components/ServicesSection";
 import FunFeatureSection from "./components/FunFeatureSection";
@@ -12,6 +13,7 @@ import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
+    <SmoothScroll>
     <main className="relative min-h-screen bg-zinc-950 text-zinc-100">
       <ScrollToTop />
       <div className="absolute inset-0 bg-zinc-950" />
@@ -35,6 +37,7 @@ function App() {
       </div>
       <Footer />
     </main>
+    </SmoothScroll>
   );
 }
 

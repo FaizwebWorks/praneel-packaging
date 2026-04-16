@@ -43,8 +43,8 @@ function CTASection() {
                 </FadeIn>
 
                 <FadeIn delay={0.8} direction="up" className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <PrimaryButton className="px-8 py-4 text-base">Get a Quote</PrimaryButton>
-                    <SecondaryButton icon={MessageCircle} className="px-8 py-4 text-base">Contact Us</SecondaryButton>
+                    <PrimaryButton href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging" className="px-8 py-4 text-base">Get a Quote</PrimaryButton>
+                    <SecondaryButton icon={MessageCircle} href="https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services" className="px-8 py-4 text-base">Contact Us</SecondaryButton>
                 </FadeIn>
             </div>
         </section>

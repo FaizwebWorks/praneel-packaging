@@ -5,7 +5,7 @@ import { AnimatedText, FadeIn, ScaleIn } from "./AnimatedText";
 
 function AboutSection() {
     return (
-        <section className="relative z-10 w-full overflow-hidden">
+        <section id="about" className="relative z-10 w-full overflow-hidden">
             <motion.div 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

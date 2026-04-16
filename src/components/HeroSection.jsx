@@ -28,8 +28,8 @@ function HeroSection() {
                     </FadeIn>
 
                     <FadeIn delay={0.6} className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                        <PrimaryButton icon={ArrowRight} className="px-8 py-4 text-base">Start Your Project</PrimaryButton>
-                        <SecondaryButton icon={MessageCircleMore} className="px-8 py-4 text-base text-zinc-300">Consult Our Designers</SecondaryButton>
+                        <PrimaryButton icon={ArrowRight} href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20start%20a%20packaging%20project%20with%20Praneel%20Packaging" className="px-8 py-4 text-base">Start Your Project</PrimaryButton>
+                        <SecondaryButton icon={MessageCircleMore} href="https://wa.me/919023827460?text=Hi,%20I%20have%20some%20questions%20about%20custom%20packaging%20designs" className="px-8 py-4 text-base text-zinc-300">Consult Our Designers</SecondaryButton>
                     </FadeIn>
 
                     {/* Trust Badges */}

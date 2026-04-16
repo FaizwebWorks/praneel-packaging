@@ -21,10 +21,20 @@ const TwitterIcon = (props) => (
 );
 
 const footerLinks = {
-    explore: ["About Us", "Our Process", "Box Gallery", "Sustainability"],
-    services: ["Magnetic Boxes", "Drawer Boxes", "Gift Packaging", "Custom Inserts"],
+    explore: [
+        { label: "About Us", href: "#about" },
+        { label: "Our Process", href: "#process" },
+        { label: "Box Gallery", href: "#services" },
+        { label: "Contact", href: "#process" }
+    ],
+    services: [
+        { label: "Magnetic Boxes", href: "#services" },
+        { label: "Drawer Boxes", href: "#services" },
+        { label: "Gift Packaging", href: "#services" },
+        { label: "Custom Inserts", href: "#services" }
+    ],
     contact: [
-        { icon: Mail, label: "hello@praneelpackaging.com" },
+        { icon: Mail, label: "hello@praneelpackaging.com", href: "mailto:hello@praneelpackaging.com" },
         { icon: MapPin, label: "Gujarat, India" }
     ]
 };
@@ -55,10 +65,16 @@ function Footer() {
                             Engineering the art of unboxing. We create structural masterpieces that protect your product and elevate your brand's luxury perception.
                         </p>
                         <div className="flex items-center gap-4">
-                            {[InstagramIcon, LinkedinIcon, TwitterIcon].map((Icon, i) => (
+                            {[
+                                { Icon: InstagramIcon, href: "https://instagram.com/praneelpackaging" },
+                                { Icon: LinkedinIcon, href: "https://linkedin.com/company/praneelpackaging" },
+                                { Icon: TwitterIcon, href: "https://twitter.com/praneelpackaging" }
+                            ].map(({ Icon, href }, i) => (
                                 <motion.a 
                                     key={i}
-                                    href="#" 
+                                    href={href} 
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     whileHover={{ y: -3, color: "#f59e0b" }}
                                     className="h-10 w-10 flex items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900/50 text-zinc-400 transition-colors"
                                 >
@@ -73,13 +89,13 @@ function Footer() {
                         <h4 className="mb-8 text-xs font-black text-white uppercase tracking-widest">Navigation</h4>
                         <ul className="space-y-4">
                             {footerLinks.explore.map((link) => (
-                                <li key={link}>
+                                <li key={link.label}>
                                     <motion.a 
-                                        href="#" 
+                                        href={link.href}
                                         whileHover={{ x: 5, color: "#fff" }}
                                         className="text-sm text-zinc-500 hover:text-white transition-colors flex items-center group"
                                     >
-                                        {link}
+                                        {link.label}
                                         <ArrowUpRight className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-all" />
                                     </motion.a>
                                 </li>
@@ -91,13 +107,13 @@ function Footer() {
                         <h4 className="mb-8 text-xs font-black text-white uppercase tracking-widest">Expertise</h4>
                         <ul className="space-y-4">
                             {footerLinks.services.map((link) => (
-                                <li key={link}>
+                                <li key={link.label}>
                                     <motion.a 
-                                        href="#" 
+                                        href={link.href}
                                         whileHover={{ x: 5, color: "#fff" }}
                                         className="text-sm text-zinc-500 hover:text-white transition-colors"
                                     >
-                                        {link}
+                                        {link.label}
                                     </motion.a>
                                 </li>
                             ))}
@@ -117,7 +133,17 @@ function Footer() {
                                         <p className="text-xs uppercase tracking-tighter text-zinc-600 mb-1">
                                             {item.icon === Mail ? "Email Us" : "Visit Us"}
                                         </p>
-                                        <p className="text-sm text-zinc-300 font-medium">{item.label}</p>
+                                        {item.href ? (
+                                            <motion.a 
+                                                href={item.href}
+                                                whileHover={{ color: "#fff" }}
+                                                className="text-sm text-zinc-300 font-medium hover:text-white transition-colors"
+                                            >
+                                                {item.label}
+                                            </motion.a>
+                                        ) : (
+                                            <p className="text-sm text-zinc-300 font-medium">{item.label}</p>
+                                        )}
                                     </div>
                                 </li>
                             ))}
@@ -140,7 +166,7 @@ function Footer() {
                         <div className="flex items-center gap-8 text-[10px] uppercase tracking-widest font-black text-zinc-600">
                             <a href="#" className="hover:text-white transition-colors">Privacy</a>
                             <a href="#" className="hover:text-white transition-colors">Terms</a>
-                            <a href="#" className="hover:text-amber-500 transition-colors">Get a Quote</a>
+                            <a href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">Get a Quote</a>
                         </div>
                     </div>
                 </FadeIn>

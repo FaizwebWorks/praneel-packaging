@@ -1,6 +1,6 @@
-import { AlertTriangle, TrendingUp, Heart, Share2, Eye, Zap, Plus } from "lucide-react";
+import { AlertTriangle, TrendingUp, Heart, Share2, Eye, Zap } from "lucide-react";
 import { PrimaryButton } from "./Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { AnimatedText, FadeIn } from "./AnimatedText";
 import { useState } from "react";
 
@@ -54,13 +54,9 @@ function FunFeatureSection() {
         <section className="relative z-10 w-full overflow-hidden py-24 sm:py-32">
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center text-center mb-20">
-                    <motion.div 
-                        animate={{ rotate: [0, -10, 10, -10, 0] }}
-                        transition={{ duration: 4, repeat: Infinity }}
-                        className="mb-6 rounded-full bg-amber-500/10 p-4 border border-amber-500/20"
-                    >
+                    <div className="mb-6 rounded-full bg-amber-500/10 p-4 border border-amber-500/20">
                         <AlertTriangle className="h-8 w-8 text-amber-500" />
-                    </motion.div>
+                    </div>
                     
                     <FadeIn direction="none">
                         <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-zinc-500 font-bold">
@@ -106,8 +102,8 @@ function FunFeatureSection() {
                                     <effect.icon className={`h-5 w-5 ${hoveredId === effect.id ? "text-white" : "text-zinc-600"}`} />
                                     <div className="flex-grow h-1.5 bg-zinc-800 rounded-full overflow-hidden">
                                         <motion.div 
-                                            initial={{ width: 0 }}
                                             animate={{ width: hoveredId === effect.id ? "100%" : "30%" }}
+                                            transition={{ duration: 0.3 }}
                                             className={`h-full bg-gradient-to-r ${
                                                 effect.color === 'amber' ? 'from-amber-500' : 
                                                 effect.color === 'blue' ? 'from-blue-500' : 
@@ -118,7 +114,6 @@ function FunFeatureSection() {
                                 </div>
                             </div>
 
-                            {/* Background Number */}
                             <span className="absolute -right-4 -top-8 text-[12rem] font-black text-white/[0.02] pointer-events-none select-none">
                                 0{effect.id}
                             </span>
@@ -126,7 +121,6 @@ function FunFeatureSection() {
                     ))}
                 </div>
 
-                {/* Premium Impact Dashboard Footer */}
                 <FadeIn delay={0.6} direction="up">
                     <div className="mt-20 rounded-3xl border border-zinc-800 bg-zinc-900/60 p-8 lg:p-12 backdrop-blur-sm relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-8 opacity-10">
@@ -142,7 +136,7 @@ function FunFeatureSection() {
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 md:justify-end">
-                                <PrimaryButton className="px-10 py-5 text-lg rounded-2xl group">
+                                <PrimaryButton href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20start%20engineering%20my%20custom%20packaging" className="px-10 py-5 text-lg rounded-2xl group">
                                     Start Engineering <TrendingUp className="ml-2 h-5 w-5 group-hover:translate-y-[-2px] transition-transform" />
                                 </PrimaryButton>
                             </div>

@@ -3,10 +3,10 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const NAV_LINKS = [
-  { label: "About", href: "#" },
-  { label: "Services", href: "#" },
-  { label: "Projects", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Process", href: "#process" },
+  { label: "Contact", href: "https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services" },
 ];
 
 const shellSpring = {
@@ -151,6 +151,8 @@ function Navbar() {
                 <motion.li key={item.label} variants={linkItemVariants}>
                   <motion.a
                     href={item.href}
+                    target={item.href.startsWith('http') ? "_blank" : undefined}
+                    rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
                     whileTap={{ scale: 0.98 }}
                     className="block py-2 text-sm font-semibold uppercase tracking-[0.13em] text-zinc-500 transition-colors hover:text-white"
                   >

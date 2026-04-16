@@ -1,8 +1,6 @@
 import { MessageSquare, PenTool, Factory, ArrowRight, CheckCircle2 } from "lucide-react";
 import { PrimaryButton } from "./Button";
-import { motion, useScroll, useSpring } from "framer-motion";
-import { useRef } from "react";
-import { AnimatedText, FadeIn } from "./AnimatedText";
+import { FadeIn } from "./AnimatedText";
 
 const steps = [
     {
@@ -29,21 +27,8 @@ const steps = [
 ];
 
 function ProcessSection() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start center", "end center"]
-    });
-
-    const scaleY = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    });
-
     return (
-        <section className="relative z-10 w-full overflow-hidden py-24 sm:py-32">
-            {/* Background Blueprint Grid */}
+        <section id="process" className="relative z-10 w-full overflow-hidden py-24 sm:py-32">
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
                 style={{
                     backgroundImage: `radial-gradient(circle, #fff 1px, transparent 1px)`,
@@ -58,48 +43,39 @@ function ProcessSection() {
                             Production Pipeline
                         </span>
                     </FadeIn>
-                    <AnimatedText 
-                        text="From Vision to Unboxing"
-                        className="heading-font text-4xl font-semibold leading-tight text-white sm:text-5xl"
-                    />
+                    <FadeIn direction="none" delay={0.2}>
+                        <h2 className="heading-font text-4xl font-semibold leading-tight text-white sm:text-5xl">
+                            From Vision to Unboxing
+                        </h2>
+                    </FadeIn>
                 </div>
 
-                <div ref={containerRef} className="relative">
-                    {/* Vertical Connection Line */}
+                <div className="relative">
                     <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-zinc-800 -translate-x-1/2" />
-                    
-                    {/* Animated Progress Line */}
-                    <motion.div 
-                        style={{ scaleY, originY: 0 }}
-                        className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-amber-500 via-amber-200 to-transparent -translate-x-1/2 z-10" 
-                    />
 
                     <div className="space-y-24">
                         {steps.map((step, i) => (
                             <div key={step.id} className={`relative flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24`}>
-                                {/* Node Dot */}
-                                <div className="absolute left-8 lg:left-1/2 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-950 border-2 border-zinc-800 z-20 group-hover:border-amber-500 transition-colors duration-500" />
+                                <div className="absolute left-8 lg:left-1/2 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-950 border-2 border-zinc-800 z-20" />
                                 
-                                {/* Content Card */}
                                 <div className={`w-full lg:w-1/2 pl-16 lg:pl-0 ${i % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
                                     <FadeIn direction={i % 2 === 0 ? "right" : "left"}>
                                         <div className="group relative">
-                                            <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/50 backdrop-blur-xl group-hover:border-zinc-600 transition-all duration-500 ${i % 2 === 0 ? 'lg:ml-auto' : ''}`}>
-                                                <step.icon className="h-6 w-6 text-zinc-400 group-hover:text-white transition-colors" />
+                                            <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/50 backdrop-blur-xl ${i % 2 === 0 ? 'lg:ml-auto' : ''}`}>
+                                                <step.icon className="h-6 w-6 text-zinc-400" />
                                             </div>
                                             <div className={`flex items-center gap-3 mb-4 ${i % 2 === 0 ? 'lg:justify-end' : ''}`}>
-                                                <span className="text-xs font-black tracking-widest text-zinc-600 group-hover:text-amber-500 transition-colors">{step.id}</span>
+                                                <span className="text-xs font-black tracking-widest text-zinc-600">{step.id}</span>
                                                 <div className="h-px w-8 bg-zinc-800" />
                                             </div>
-                                            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-200 transition-colors">{step.title}</h3>
-                                            <p className="text-zinc-400 leading-relaxed text-sm group-hover:text-zinc-300 transition-colors">
+                                            <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
+                                            <p className="text-zinc-400 leading-relaxed text-sm">
                                                 {step.desc}
                                             </p>
                                         </div>
                                     </FadeIn>
                                 </div>
 
-                                {/* Decorative Placeholder for balanced layout */}
                                 <div className="hidden lg:block lg:w-1/2" />
                             </div>
                         ))}
@@ -113,7 +89,7 @@ function ProcessSection() {
                             <span>Average turnaround: <span className="text-white font-medium">12-15 business days</span></span>
                         </div>
                         
-                        <PrimaryButton className="px-12 py-5 text-lg rounded-2xl shadow-2xl shadow-amber-500/5 group">
+                        <PrimaryButton href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20start%20the%20discovery%20process%20for%20my%20packaging%20project" className="px-12 py-5 text-lg rounded-2xl shadow-2xl shadow-amber-500/5 group">
                             Start Your Discovery <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                         </PrimaryButton>
                     </div>

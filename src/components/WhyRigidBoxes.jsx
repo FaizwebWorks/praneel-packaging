@@ -120,7 +120,7 @@ function WhyRigidBoxes() {
                                     </div>
                                 ))}
                             </div>
-                            <PrimaryButton icon={ArrowRight} className="px-10 py-5 text-lg rounded-2xl shadow-xl shadow-amber-500/10">
+                            <PrimaryButton icon={ArrowRight} href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20upgrade%20my%20brand%20with%20premium%20packaging" className="px-10 py-5 text-lg rounded-2xl shadow-xl shadow-amber-500/10">
                                 Start Your Brand Upgrade
                             </PrimaryButton>
                         </div>
