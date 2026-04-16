@@ -97,21 +97,6 @@ function FunFeatureSection() {
                                 <p className="text-zinc-400 leading-relaxed mb-8 flex-grow">
                                     {effect.desc}
                                 </p>
-
-                                <div className="flex items-center gap-4 pt-6 border-t border-zinc-800">
-                                    <effect.icon className={`h-5 w-5 ${hoveredId === effect.id ? "text-white" : "text-zinc-600"}`} />
-                                    <div className="flex-grow h-1.5 bg-zinc-800 rounded-full overflow-hidden">
-                                        <motion.div 
-                                            animate={{ width: hoveredId === effect.id ? "100%" : "30%" }}
-                                            transition={{ duration: 0.3 }}
-                                            className={`h-full bg-gradient-to-r ${
-                                                effect.color === 'amber' ? 'from-amber-500' : 
-                                                effect.color === 'blue' ? 'from-blue-500' : 
-                                                effect.color === 'purple' ? 'from-purple-500' : 'from-emerald-500'
-                                            } to-zinc-400 opacity-60`}
-                                        />
-                                    </div>
-                                </div>
                             </div>
 
                             <span className="absolute -right-4 -top-8 text-[12rem] font-black text-white/[0.02] pointer-events-none select-none">
