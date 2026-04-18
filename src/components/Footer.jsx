@@ -4,19 +4,19 @@ import { FadeIn } from "./AnimatedText";
 
 const InstagramIcon = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
     </svg>
 );
 
 const LinkedinIcon = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" />
     </svg>
 );
 
 const TwitterIcon = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
     </svg>
 );
 
@@ -46,17 +46,17 @@ function Footer() {
     const y2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
     return (
-        <motion.footer 
+        <motion.footer
             className="relative z-20 w-full overflow-hidden mt-8 pt-24 pb-12 bg-[#F5F5F5] rounded-t-[3rem] sm:rounded-t-[5rem]"
             initial={{ opacity: 1 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
         >
-            <div className="absolute inset-0 pointer-events-none opacity-[0.10] z-0" 
+            <div className="absolute inset-0 pointer-events-none opacity-[0.10] z-0"
                 style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-                }} 
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                }}
             />
 
             <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -64,9 +64,6 @@ function Footer() {
                     {/* Brand Column */}
                     <FadeIn direction="up" className="lg:col-span-1">
                         <div className="mb-8">
-                            {/* <span className="heading-font text-2xl font-bold tracking-tight text-[#1E56A0] block mb-2">
-                                PRANEEL
-                            </span> */}
                             <img src="/logo.png" alt="Praneel Packaging Logo" className="h-14 w-auto mb-2" />
                         </div>
                         <p className="text-sm leading-relaxed text-[#455A64] max-w-xs mb-8">
@@ -78,9 +75,9 @@ function Footer() {
                                 { Icon: LinkedinIcon, href: "https://linkedin.com/company/praneelpackaging" },
                                 { Icon: TwitterIcon, href: "https://twitter.com/praneelpackaging" }
                             ].map(({ Icon, href }, i) => (
-                                <motion.a 
+                                <motion.a
                                     key={i}
-                                    href={href} 
+                                    href={href}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     whileHover={{ y: -3 }}
@@ -98,7 +95,7 @@ function Footer() {
                         <ul className="space-y-4">
                             {footerLinks.explore.map((link) => (
                                 <li key={link.label}>
-                                    <motion.a 
+                                    <motion.a
                                         href={link.href}
                                         whileHover={{ x: 5 }}
                                         className="text-sm text-[#455A64] hover:text-[#1E56A0] transition-colors flex items-center group"
@@ -116,7 +113,7 @@ function Footer() {
                         <ul className="space-y-4">
                             {footerLinks.services.map((link) => (
                                 <li key={link.label}>
-                                    <motion.a 
+                                    <motion.a
                                         href={link.href}
                                         whileHover={{ x: 5 }}
                                         className="text-sm text-[#455A64] hover:text-[#1E56A0] transition-colors"
@@ -134,7 +131,7 @@ function Footer() {
                         <ul className="space-y-6">
                             {footerLinks.contact.map((item, i) => (
                                 <li key={i} className="flex items-start gap-4">
-                                    <div className="mt-1 h-8 w-8 flex items-center justify-center rounded-lg border border-[#455A64]/20 bg-[#1E56A0]/5 text-[#1E56A0]">
+                                    <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#455A64]/20 bg-[#1E56A0]/5 text-[#1E56A0]">
                                         <item.icon className="h-4 w-4" />
                                     </div>
                                     <div>
@@ -142,7 +139,7 @@ function Footer() {
                                             {item.icon === Mail ? "Email Us" : "Visit Us"}
                                         </p>
                                         {item.href ? (
-                                            <motion.a 
+                                            <motion.a
                                                 href={item.href}
                                                 whileHover={{ color: "#1E56A0" }}
                                                 className="text-sm text-[#455A64] font-medium hover:text-[#1E56A0] transition-colors"
@@ -170,7 +167,7 @@ function Footer() {
                                 Designed and developed by Trovant solution.
                             </p>
                         </div>
-                        
+
                         <div className="flex items-center gap-8 text-[10px] uppercase tracking-widest font-black text-[#455A64]">
                             <a href="#" className="hover:text-[#1E56A0] transition-colors">Privacy</a>
                             <a href="#" className="hover:text-[#1E56A0] transition-colors">Terms</a>

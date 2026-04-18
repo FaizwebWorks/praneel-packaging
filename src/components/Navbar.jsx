@@ -10,17 +10,19 @@ const NAV_LINKS = [
   { label: "Contact", href: "https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services", icon: Phone },
 ];
 
+const customEase = [0.4, 0.0, 0.2, 1];
+
 const menuVariants = {
   closed: { x: "100%", opacity: 0 },
   open: {
     x: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 260, damping: 26, mass: 0.9 }
+    transition: { type: "spring", stiffness: 180, damping: 22, mass: 0.8 }
   },
   exit: {
     x: "100%",
     opacity: 0,
-    transition: { duration: 0.25 }
+    transition: { duration: 0.35, ease: customEase }
   }
 };
 
@@ -126,7 +128,7 @@ function Navbar() {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="fixed right-0 top-0 bottom-0 z-[70] w-full max-w-sm bg-[#F5F5F5] shadow-2xl lg:hidden flex flex-col"
+              className="fixed left-0 right-0 top-0 bottom-0 z-[70] w-full bg-[#F5F5F5] shadow-2xl lg:hidden flex flex-col"
             >
               <div className="flex h-20 items-center justify-between px-6">
                 <span className="text-sm font-bold text-[#1E56A0] tracking-widest">MENU</span>
@@ -154,7 +156,7 @@ function Navbar() {
                 ))}
               </div>
 
-              <div className="pb-12 px-6">
+              <div className="px-6 pb-8">
                 <motion.div custom={NAV_LINKS.length + 1} variants={linkVariants}>
                   <PrimaryButton
                     href="https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services"
