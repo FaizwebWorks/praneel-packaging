@@ -9,22 +9,20 @@ function CTASection() {
     const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0.6]);
 
     return (
-        <section className="sticky top-0 z-[5] mx-4 sm:mx-6 lg:mx-10 rounded-[2.5rem] sm:rounded-[4rem] min-h-[85vh] flex items-center justify-center py-24 sm:py-32 overflow-hidden mb-0">
-            {/* Background with Overlay */}
-            <div className="absolute inset-0 z-0">
+        <section className="sticky top-0 z-[5] bg-transparent mx-4 sm:mx-6 lg:mx-10 rounded-[2.5rem] sm:rounded-[4rem] min-h-[70vh] flex items-center justify-center py-24 sm:py-32 overflow-hidden mb-0">
+            <div className="absolute inset-0 z-0 bg-transparent">
                 <img
                     src="/CTA-bg.avif"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-right lg:object-center"
                     alt="CTA Background"
                 />
-                {/* <div className="absolute inset-0 bg-gradient-to-br from-[#1E56A0]/80 to-black/60 z-[1]" /> */}
             </div>
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5 }}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-amber-500/10 blur-[120px] pointer-events-none" 
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full blur-[120px] pointer-events-none" 
             />
 
             <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

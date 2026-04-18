@@ -46,20 +46,17 @@ function Footer() {
 
     return (
         <motion.footer 
-            className="relative z-20 w-full overflow-hidden border-t border-[#455A64]/10 pt-24 pb-12 bg-[#F5F5F5] rounded-t-[3rem] sm:rounded-t-[5rem] shadow-[0_-20px_50px_-12px_rgba(0,0,0,0.1)]"
-            initial={{ opacity: 0 }}
+            className="relative z-20 w-full overflow-hidden mt-8 pt-24 pb-12 bg-[#F5F5F5] rounded-t-[3rem] sm:rounded-t-[5rem]"
+            initial={{ opacity: 1 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
         >
-            {/* <motion.div 
-                className="absolute top-20 left-10 w-40 h-40 rounded-full bg-[#1E56A0]/5 blur-3xl pointer-events-none"
-                style={{ y: y1 }}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.10] z-0" 
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                }} 
             />
-            <motion.div 
-                className="absolute bottom-20 right-10 w-60 h-60 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"
-                style={{ y: y2 }}
-            /> */}
 
             <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-20">
