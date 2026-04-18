@@ -5,37 +5,37 @@ import { AnimatedText, FadeIn } from "./AnimatedText";
 import { useState } from "react";
 
 const effects = [
-    { 
+    {
         id: 1,
-        IconComponent: Archive, 
-        title: "Eternal Storage", 
+        IconComponent: Archive,
+        title: "Eternal Storage",
         desc: "Customers physically cannot throw the box away. It becomes a permanent part of their home decor.",
         stat: "94%",
         statLabel: "Retention Rate",
         color: "#f59e0b"
     },
-    { 
+    {
         id: 2,
-        IconComponent: Zap, 
-        title: "The Viral Effect", 
+        IconComponent: Zap,
+        title: "The Viral Effect",
         desc: "Unboxing videos increase by 300%. Your brand reaches people you didn't even know existed.",
         stat: "+320%",
         statLabel: "Social Reach",
         color: "#3b82f6"
     },
-    { 
+    {
         id: 3,
-        IconComponent: Gem, 
-        title: "Luxury Perception", 
+        IconComponent: Gem,
+        title: "Luxury Perception",
         desc: "Your product feels 10x more expensive the second the lid is lifted. Instant price-tag justification.",
         stat: "10x",
         statLabel: "Value Boost",
         color: "#a855f7"
     },
-    { 
+    {
         id: 4,
-        IconComponent: Eye, 
-        title: "Competitor Envy", 
+        IconComponent: Eye,
+        title: "Competitor Envy",
         desc: "Your competitors will spend hours studying your packaging in their boardrooms. They'll be very stressed.",
         stat: "High",
         statLabel: "Stress Levels",
@@ -46,13 +46,9 @@ const effects = [
 function FunFeatureSection() {
     const [hoveredId, setHoveredId] = useState(null);
 
-return (
-        <motion.section 
+    return (
+        <motion.section
             className="relative z-10 w-full overflow-hidden py-24 sm:py-32"
-            style={{ 
-                backgroundColor: "#fcfcfc",
-                backgroundImage: `url("https://www.transparenttextures.com/patterns/white-paper-board.png")`,
-            }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -63,13 +59,13 @@ return (
                     <div className="mb-6 rounded-full p-4 border border-[#1E56A0]/30 bg-[#1E56A0]/5">
                         <AlertTriangle className="h-8 w-8 text-[#1E56A0]" />
                     </div>
-                    
+
                     <FadeIn direction="none">
                         <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-[#1E56A0]/70 font-bold">
                             Safety Warning: High Impact Packaging
                         </span>
                     </FadeIn>
-                    <AnimatedText 
+                    <AnimatedText
                         text="Documented Side Effects"
                         className="heading-font text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl lg:text-6xl"
                     />
@@ -82,15 +78,14 @@ return (
                             onMouseEnter={() => setHoveredId(effect.id)}
                             onMouseLeave={() => setHoveredId(null)}
                             whileHover={{ scale: 1.02, y: -4 }}
-                            className={`relative overflow-hidden rounded-3xl border transition-all duration-500 p-8 lg:p-10 cursor-pointer ${
-                                hoveredId === effect.id 
-                                ? "border-[#455A64]/10 bg-white" 
-                                : "border-[#455A64]/10 bg-white/60 hover:border-[#455A64]/10"
-                            }`}
+                            className={`relative overflow-hidden rounded-3xl border transition-all duration-500 p-8 lg:p-10 cursor-pointer ${hoveredId === effect.id
+                                    ? "border-[#455A64]/10 bg-white"
+                                    : "border-[#455A64]/10 bg-white/60 hover:border-[#455A64]/10"
+                                }`}
                         >
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-start justify-between mb-8">
-                                    <div 
+                                    <div
                                         className="rounded-2xl p-4 border border-[#455A64]/10"
                                         style={{ backgroundColor: `${effect.color}10` }}
                                     >
@@ -98,7 +93,7 @@ return (
                                     </div>
                                     <div className="text-right">
                                         <div className="text-xs uppercase tracking-widest text-[#455A64] mb-1">{effect.statLabel}</div>
-                                        <div 
+                                        <div
                                             className="text-3xl font-bold"
                                             style={{ color: effect.color }}
                                         >
@@ -121,19 +116,19 @@ return (
                 </div>
 
                 <FadeIn delay={0.6} direction="up">
-                    <motion.div 
+                    <motion.div
                         className="mt-20 rounded-[3rem] border border-[#455A64]/10 bg-white/80 backdrop-blur-sm p-10 lg:p-16 relative overflow-hidden"
                         style={{ borderRadius: "3rem" }}
                         whileHover={{ scale: 1.01 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <motion.div 
+                        <motion.div
                             className="absolute top-0 right-0 p-8 opacity-10"
-                            animate={{ 
+                            animate={{
                                 y: [0, -20, 0],
                                 rotate: [0, 5, 0]
                             }}
-                            transition={{ 
+                            transition={{
                                 duration: 4,
                                 repeat: Infinity,
                                 ease: "easeInOut"
@@ -141,19 +136,19 @@ return (
                         >
                             <Zap className="h-32 w-32 text-[#1E56A0]" />
                         </motion.div>
-                        
+
                         <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
                             <div>
                                 <h4 className="text-2xl font-bold text-[#1E56A0] mb-4">Ready to trigger these effects?</h4>
                                 <p className="text-[#455A64]">
-                                    Our packaging laboratory is ready to engineer your brand's next major unboxing event. 
+                                    Our packaging laboratory is ready to engineer your brand's next major unboxing event.
                                     Side effects are guaranteed.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 md:justify-end">
-                                <PrimaryButton 
+                                <PrimaryButton
                                     icon={TrendingUp}
-                                    href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20start%20engineering%20my%20custom%20packaging" 
+                                    href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20start%20engineering%20my%20custom%20packaging"
                                     className="px-10 py-5 text-lg rounded-2xl"
                                 >
                                     Start Engineering
@@ -162,7 +157,7 @@ return (
                         </div>
                     </motion.div>
                 </FadeIn>
-                
+
                 <p className="mt-12 text-center text-[#455A64] text-sm flex items-center justify-center gap-2 italic">
                     <Zap className="h-3 w-3" /> Packaging side effects may vary by brand ambition.
                 </p>

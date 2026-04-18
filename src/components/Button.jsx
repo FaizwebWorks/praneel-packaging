@@ -3,7 +3,15 @@ import { motion } from "framer-motion";
 export function PrimaryButton({ children, icon: Icon, className = "", href, onClick, ...props }) {
     const buttonContent = (
         <>
-            <span className="absolute top-0 left-1/2 h-3 w-3 -translate-x-1/2 -translate-y-full scale-0 rounded-full bg-white group-hover:text-black opacity-0 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:top-1/2 group-hover:left-1/2 group-hover:h-[calc(100%+24px)] group-hover:w-[calc(100%+24px)] group-hover:-translate-y-1/2 group-hover:scale-100 group-hover:opacity-100 group-hover:scale-[2] group-hover:rounded-none" />
+            <span className="absolute top-0 left-1/2 h-3 w-3 -translate-x-1/2 -translate-y-full scale-0 rounded-full bg-white opacity-0 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:top-1/2 group-hover:left-1/2 group-hover:h-[calc(100%+64px)] group-hover:w-[calc(100%+64px)] group-hover:-translate-y-1/2 group-hover:scale-100 group-hover:opacity-100 group-hover:rounded-none">
+                {/* Noise Overlay */}
+                <span 
+                    className="absolute inset-0 opacity-[0.40] pointer-events-none"
+                    style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                    }}
+                />
+            </span>
             <span className="relative z-10 flex items-center gap-2 text-white transition-colors duration-500 group-hover:text-[#074089]">
                 {children}
                 {Icon && <Icon className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />}
