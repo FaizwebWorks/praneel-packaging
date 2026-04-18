@@ -1,5 +1,5 @@
 import { Mail, MapPin, ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { FadeIn } from "./AnimatedText";
 
 const InstagramIcon = (props) => (
@@ -40,28 +40,38 @@ const footerLinks = {
 };
 
 function Footer() {
+    const { scrollYProgress } = useScroll({});
+    const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+    const y2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
     return (
-        <footer className="relative z-10 w-full overflow-hidden border-t border-zinc-900 bg-zinc-950/50 pt-24 pb-12">
-            {/* Massive Cinematic Watermark */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4 pointer-events-none select-none overflow-hidden w-full text-center">
-                <h2 className="heading-font text-[15vw] font-black uppercase tracking-tighter text-white/[0.02] leading-none whitespace-nowrap">
-                    Praneel Packaging
-                </h2>
-            </div>
+        <motion.footer 
+            className="relative z-10 w-full overflow-hidden border-t border-[#455A64]/10 pt-24 pb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+        >
+            {/* <motion.div 
+                className="absolute top-20 left-10 w-40 h-40 rounded-full bg-[#1E56A0]/5 blur-3xl pointer-events-none"
+                style={{ y: y1 }}
+            />
+            <motion.div 
+                className="absolute bottom-20 right-10 w-60 h-60 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"
+                style={{ y: y2 }}
+            /> */}
 
             <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-20">
                     {/* Brand Column */}
                     <FadeIn direction="up" className="lg:col-span-1">
                         <div className="mb-8">
-                            <span className="heading-font text-2xl font-bold tracking-tight text-white block mb-2">
+                            {/* <span className="heading-font text-2xl font-bold tracking-tight text-[#1E56A0] block mb-2">
                                 PRANEEL
-                            </span>
-                            <span className="text-xs uppercase tracking-[0.3em] text-amber-500 font-bold">
-                                Packaging Studio
-                            </span>
+                            </span> */}
+                            <img src="/logo.png" alt="Praneel Packaging Logo" className="h-14 w-auto mb-2" />
                         </div>
-                        <p className="text-sm leading-relaxed text-zinc-400 max-w-xs mb-8">
+                        <p className="text-sm leading-relaxed text-[#455A64] max-w-xs mb-8">
                             Engineering the art of unboxing. We create structural masterpieces that protect your product and elevate your brand's luxury perception.
                         </p>
                         <div className="flex items-center gap-4">
@@ -75,8 +85,8 @@ function Footer() {
                                     href={href} 
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ y: -3, color: "#f59e0b" }}
-                                    className="h-10 w-10 flex items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900/50 text-zinc-400 transition-colors"
+                                    whileHover={{ y: -3 }}
+                                    className="h-10 w-10 flex items-center justify-center rounded-xl border border-[#455A64]/20 bg-[#1E56A0]/5 text-[#1E56A0] transition-colors"
                                 >
                                     <Icon className="h-5 w-5" />
                                 </motion.a>
@@ -86,14 +96,14 @@ function Footer() {
 
                     {/* Links Columns */}
                     <FadeIn direction="up" delay={0.2}>
-                        <h4 className="mb-8 text-xs font-black text-white uppercase tracking-widest">Navigation</h4>
+                        <h4 className="mb-8 text-xs font-black text-[#1E56A0] uppercase tracking-widest">Navigation</h4>
                         <ul className="space-y-4">
                             {footerLinks.explore.map((link) => (
                                 <li key={link.label}>
                                     <motion.a 
                                         href={link.href}
-                                        whileHover={{ x: 5, color: "#fff" }}
-                                        className="text-sm text-zinc-500 hover:text-white transition-colors flex items-center group"
+                                        whileHover={{ x: 5 }}
+                                        className="text-sm text-[#455A64] hover:text-[#1E56A0] transition-colors flex items-center group"
                                     >
                                         {link.label}
                                         <ArrowUpRight className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-all" />
@@ -104,14 +114,14 @@ function Footer() {
                     </FadeIn>
 
                     <FadeIn direction="up" delay={0.3}>
-                        <h4 className="mb-8 text-xs font-black text-white uppercase tracking-widest">Expertise</h4>
+                        <h4 className="mb-8 text-xs font-black text-[#1E56A0] uppercase tracking-widest">Expertise</h4>
                         <ul className="space-y-4">
                             {footerLinks.services.map((link) => (
                                 <li key={link.label}>
                                     <motion.a 
                                         href={link.href}
-                                        whileHover={{ x: 5, color: "#fff" }}
-                                        className="text-sm text-zinc-500 hover:text-white transition-colors"
+                                        whileHover={{ x: 5 }}
+                                        className="text-sm text-[#455A64] hover:text-[#1E56A0] transition-colors"
                                     >
                                         {link.label}
                                     </motion.a>
@@ -122,27 +132,27 @@ function Footer() {
 
                     {/* Contact Column */}
                     <FadeIn direction="up" delay={0.4}>
-                        <h4 className="mb-8 text-xs font-black text-white uppercase tracking-widest">Inquiries</h4>
+                        <h4 className="mb-8 text-xs font-black text-[#1E56A0] uppercase tracking-widest">Inquiries</h4>
                         <ul className="space-y-6">
                             {footerLinks.contact.map((item, i) => (
                                 <li key={i} className="flex items-start gap-4">
-                                    <div className="mt-1 h-8 w-8 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/30 text-amber-500/80">
+                                    <div className="mt-1 h-8 w-8 flex items-center justify-center rounded-lg border border-[#455A64]/20 bg-[#1E56A0]/5 text-[#1E56A0]">
                                         <item.icon className="h-4 w-4" />
                                     </div>
                                     <div>
-                                        <p className="text-xs uppercase tracking-tighter text-zinc-600 mb-1">
+                                        <p className="text-xs uppercase tracking-tighter text-[#455A64]/60 mb-1">
                                             {item.icon === Mail ? "Email Us" : "Visit Us"}
                                         </p>
                                         {item.href ? (
                                             <motion.a 
                                                 href={item.href}
-                                                whileHover={{ color: "#fff" }}
-                                                className="text-sm text-zinc-300 font-medium hover:text-white transition-colors"
+                                                whileHover={{ color: "#1E56A0" }}
+                                                className="text-sm text-[#455A64] font-medium hover:text-[#1E56A0] transition-colors"
                                             >
                                                 {item.label}
                                             </motion.a>
                                         ) : (
-                                            <p className="text-sm text-zinc-300 font-medium">{item.label}</p>
+                                            <p className="text-sm text-[#455A64] font-medium">{item.label}</p>
                                         )}
                                     </div>
                                 </li>
@@ -152,26 +162,26 @@ function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <FadeIn direction="none" delay={0.6} className="pt-12 border-t border-zinc-900/50">
+                <FadeIn direction="none" delay={0.6} className="pt-12 border-t border-[#455A64]/10">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                         <div className="flex flex-col items-center md:items-start gap-2">
-                            <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-bold">
+                            <p className="text-[10px] uppercase tracking-[0.2em] text-[#455A64] font-bold">
                                 © 2024 Praneel Packaging. Precision Engineered Luxury.
                             </p>
-                            <p className="text-[10px] text-zinc-700 max-w-sm text-center md:text-left">
+                            <p className="text-[10px] text-[#455A64]/60 max-w-sm text-center md:text-left">
                                 All structural designs and intellectual property are protected.
                             </p>
                         </div>
                         
-                        <div className="flex items-center gap-8 text-[10px] uppercase tracking-widest font-black text-zinc-600">
-                            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-                            <a href="#" className="hover:text-white transition-colors">Terms</a>
-                            <a href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">Get a Quote</a>
+                        <div className="flex items-center gap-8 text-[10px] uppercase tracking-widest font-black text-[#455A64]">
+                            <a href="#" className="hover:text-[#1E56A0] transition-colors">Privacy</a>
+                            <a href="#" className="hover:text-[#1E56A0] transition-colors">Terms</a>
+                            <a href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging" target="_blank" rel="noopener noreferrer" className="hover:text-[#1E56A0] transition-colors">Get a Quote</a>
                         </div>
                     </div>
                 </FadeIn>
             </div>
-        </footer>
+        </motion.footer>
     );
 }
 

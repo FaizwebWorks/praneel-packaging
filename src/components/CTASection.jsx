@@ -8,18 +8,11 @@ function CTASection() {
         <section className="relative z-10 w-full py-24 sm:py-28 lg:py-32 overflow-hidden">
             {/* Video Background - Edge to Edge */}
             <div className="absolute inset-0 z-0">
-                <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
+                <img 
+                    src="/CTA-bg.avif"
                     className="h-full w-full object-cover"
                 >
-                    <source src="/video3.mp4" type="video/mp4" />
-                </video>
-                {/* Dark Overlays */}
-                <div className="absolute inset-0 bg-black/75 backdrop-blur-[1px]" />
-                <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-transparent to-zinc-950" />
+                </img>
             </div>
 
             <motion.div 
@@ -32,11 +25,11 @@ function CTASection() {
             <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
                 <AnimatedText 
                     text="Your Product Deserves Better Packaging."
-                    className="heading-font mx-auto max-w-3xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl justify-center"
+                    className="heading-font mx-auto max-w-3xl text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl lg:text-6xl justify-center"
                 />
 
                 <FadeIn delay={0.5}>
-                    <p className="mt-6 mx-auto max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
+                    <p className="mt-6 mx-auto max-w-xl text-base leading-relaxed text-[#455A64] sm:text-lg">
                         Stop putting premium products in average boxes.<br className="hidden sm:block" />
                         Let's upgrade your packaging game.
                     </p>

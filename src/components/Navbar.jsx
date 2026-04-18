@@ -69,14 +69,14 @@ function Navbar() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed left-0 top-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        className={`fixed left-0 top-0 right-0 z-50 transition-all duration-300 py-2 ${isScrolled
             ? "bg-white/90 backdrop-blur-xl"
             : "bg-transparent"
           }`}
       >
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 lg:px-8">
-          <a href="#" className="flex items-center gap-2">
-            <img src="/logo.png" alt="Praneel Packaging" className="h-24 w-auto" />
+        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
+          <a href="#" className="flex items-center -ml-2">
+            <img src="/logo.png" alt="Praneel Packaging" className="h-11 w-auto" />
           </a>
 
           <div className="hidden lg:flex items-center gap-8">

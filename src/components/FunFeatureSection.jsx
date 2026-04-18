@@ -46,9 +46,17 @@ const effects = [
 function FunFeatureSection() {
     const [hoveredId, setHoveredId] = useState(null);
 
-    return (
-        <section 
+return (
+        <motion.section 
             className="relative z-10 w-full overflow-hidden py-24 sm:py-32"
+            style={{ 
+                backgroundColor: "#fcfcfc",
+                backgroundImage: `url("https://www.transparenttextures.com/patterns/white-paper-board.png")`,
+            }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
         >
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center text-center mb-20">
@@ -73,7 +81,7 @@ function FunFeatureSection() {
                             key={effect.id}
                             onMouseEnter={() => setHoveredId(effect.id)}
                             onMouseLeave={() => setHoveredId(null)}
-                            // whileHover={{ scale: 1.02, y: -4 }}
+                            whileHover={{ scale: 1.02, y: -4 }}
                             className={`relative overflow-hidden rounded-3xl border transition-all duration-500 p-8 lg:p-10 cursor-pointer ${
                                 hoveredId === effect.id 
                                 ? "border-[#455A64]/10 bg-white" 
@@ -113,10 +121,26 @@ function FunFeatureSection() {
                 </div>
 
                 <FadeIn delay={0.6} direction="up">
-                    <div className="mt-20 rounded-3xl border border-[#455A64]/10 bg-white/60 backdrop-blur-sm p-8 lg:p-12 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 p-8 opacity-10">
-                            <Zap className="h-24 w-24 text-[#1E56A0]" />
-                        </div>
+                    <motion.div 
+                        className="mt-20 rounded-[3rem] border border-[#455A64]/10 bg-white/80 backdrop-blur-sm p-10 lg:p-16 relative overflow-hidden"
+                        style={{ borderRadius: "3rem" }}
+                        whileHover={{ scale: 1.01 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <motion.div 
+                            className="absolute top-0 right-0 p-8 opacity-10"
+                            animate={{ 
+                                y: [0, -20, 0],
+                                rotate: [0, 5, 0]
+                            }}
+                            transition={{ 
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        >
+                            <Zap className="h-32 w-32 text-[#1E56A0]" />
+                        </motion.div>
                         
                         <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
                             <div>
@@ -136,14 +160,14 @@ function FunFeatureSection() {
                                 </PrimaryButton>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </FadeIn>
                 
                 <p className="mt-12 text-center text-[#455A64] text-sm flex items-center justify-center gap-2 italic">
                     <Zap className="h-3 w-3" /> Packaging side effects may vary by brand ambition.
                 </p>
             </div>
-        </section>
+        </motion.section>
     );
 }
 
