@@ -30,9 +30,13 @@ function App() {
         <ServicesSection />
         <FunFeatureSection />
         <ProcessSection />
-        <CTASection />
       </div>
-      <Footer />
+      
+      {/* Parallax/Reveal Container */}
+      <div className="relative z-20 overflow-visible bg-[#F5F5F5]">
+        <CTASection />
+        <Footer />
+      </div>
     </main>
     </SmoothScroll>
   );

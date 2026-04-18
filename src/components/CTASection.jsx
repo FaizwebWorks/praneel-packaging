@@ -1,21 +1,26 @@
 import { MessageCircle } from "lucide-react";
 import { PrimaryButton, SecondaryButton } from "./Button";
 import { AnimatedText, FadeIn } from "./AnimatedText";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 function CTASection() {
+    const { scrollYProgress } = useScroll();
+    const scale = useTransform(scrollYProgress, [0.8, 1], [1, 0.9]);
+    const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0.6]);
+
     return (
-        <section className="relative z-10 w-full py-24 sm:py-28 lg:py-32 overflow-hidden">
-            {/* Video Background - Edge to Edge */}
+        <section className="sticky top-0 z-[5] mx-4 sm:mx-6 lg:mx-10 rounded-[2.5rem] sm:rounded-[4rem] min-h-[85vh] flex items-center justify-center py-24 sm:py-32 overflow-hidden mb-0">
+            {/* Background with Overlay */}
             <div className="absolute inset-0 z-0">
-                <img 
+                <img
                     src="/CTA-bg.avif"
                     className="h-full w-full object-cover"
-                >
-                </img>
+                    alt="CTA Background"
+                />
+                {/* <div className="absolute inset-0 bg-gradient-to-br from-[#1E56A0]/80 to-black/60 z-[1]" /> */}
             </div>
 
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5 }}
@@ -23,7 +28,7 @@ function CTASection() {
             />
 
             <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-                <AnimatedText 
+                <AnimatedText
                     text="Your Product Deserves Better Packaging."
                     className="heading-font mx-auto max-w-3xl text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl lg:text-6xl justify-center"
                 />

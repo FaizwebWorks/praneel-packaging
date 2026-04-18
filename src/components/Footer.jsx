@@ -46,7 +46,7 @@ function Footer() {
 
     return (
         <motion.footer 
-            className="relative z-10 w-full overflow-hidden border-t border-[#455A64]/10 pt-24 pb-12"
+            className="relative z-20 w-full overflow-hidden border-t border-[#455A64]/10 pt-24 pb-12 bg-[#F5F5F5] rounded-t-[3rem] sm:rounded-t-[5rem] shadow-[0_-20px_50px_-12px_rgba(0,0,0,0.1)]"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
