@@ -1,4 +1,4 @@
-import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FadeIn } from "./AnimatedText";
 
@@ -34,7 +34,8 @@ const footerLinks = {
         { label: "Custom Inserts", href: "#services" }
     ],
     contact: [
-        { icon: Mail, label: "hello@praneelpackaging.com", href: "mailto:hello@praneelpackaging.com" },
+        { icon: Phone, label: "+91 83208 26551", href: "tel:+918320826551" },
+        { icon: Mail, label: "info.praneelpackaging@gmail.com", href: "mailto:info.praneelpackaging@gmail.com" },
         { icon: MapPin, label: "Gujarat, India" }
     ]
 };
@@ -163,10 +164,10 @@ function Footer() {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                         <div className="flex flex-col items-center md:items-start gap-2">
                             <p className="text-[10px] uppercase tracking-[0.2em] text-[#455A64] font-bold">
-                                © 2024 Praneel Packaging. Precision Engineered Luxury.
+                                © 2024 Praneel Packaging.
                             </p>
                             <p className="text-[10px] text-[#455A64]/60 max-w-sm text-center md:text-left">
-                                All structural designs and intellectual property are protected.
+                                Designed and developed by Trovant solution.
                             </p>
                         </div>
                         

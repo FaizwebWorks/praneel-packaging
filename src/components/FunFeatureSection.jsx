@@ -117,17 +117,21 @@ function FunFeatureSection() {
 
                 <FadeIn delay={0.6} direction="up">
                     <motion.div
-                        className="mt-20 rounded-[3rem] border border-[#455A64]/10 bg-white/80 backdrop-blur-sm p-10 lg:p-16 relative overflow-hidden"
-                        style={{ borderRadius: "3rem" }}
-                        whileHover={{ scale: 1.01 }}
+                        className="mt-20 rounded-[3rem] border border-[#455A64]/10 bg-[#F8F9FA] p-10 lg:p-16 relative overflow-hidden"
+                        whileHover={{ y: -5 }}
                         transition={{ duration: 0.5 }}
                     >
+                        {/* Luxury Paper Texture Background */}
+                        <div className="absolute inset-0 z-0">
+                            <img 
+                                src="/luxury-paper.png" 
+                                className="h-full w-full object-cover mix-blend-multiply opacity-60" 
+                                alt="Texture"
+                            />
+                        </div>
+
                         <motion.div
-                            className="absolute top-0 right-0 p-8 opacity-10"
-                            animate={{
-                                y: [0, -20, 0],
-                                rotate: [0, 5, 0]
-                            }}
+                            className="absolute top-0 right-0 p-8 opacity-20 z-10"
                             transition={{
                                 duration: 4,
                                 repeat: Infinity,
