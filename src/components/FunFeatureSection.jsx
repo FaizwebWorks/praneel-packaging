@@ -54,18 +54,18 @@ function FunFeatureSection() {
         <section className="relative z-10 w-full overflow-hidden py-24 sm:py-32">
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center text-center mb-20">
-                    <div className="mb-6 rounded-full bg-amber-500/10 p-4 border border-amber-500/20">
-                        <AlertTriangle className="h-8 w-8 text-amber-500" />
+                    <div className="mb-6 rounded-full p-4 border border-[#1E56A0]/30 bg-[#1E56A0]/5">
+                        <AlertTriangle className="h-8 w-8 text-[#1E56A0]" />
                     </div>
                     
                     <FadeIn direction="none">
-                        <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-zinc-500 font-bold">
+                        <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-[#1E56A0]/70 font-bold">
                             Safety Warning: High Impact Packaging
                         </span>
                     </FadeIn>
                     <AnimatedText 
                         text="Documented Side Effects"
-                        className="heading-font text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl"
+                        className="heading-font text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl lg:text-6xl"
                     />
                 </div>
 
@@ -78,13 +78,13 @@ function FunFeatureSection() {
                             whileHover={{ scale: 1.02 }}
                             className={`relative overflow-hidden rounded-[2rem] border transition-all duration-500 p-8 lg:p-10 ${
                                 hoveredId === effect.id 
-                                ? "border-zinc-500 bg-zinc-900 shadow-2xl" 
-                                : "border-zinc-800 bg-zinc-900/90 backdrop-blur-md"
+                                ? "border-[#1E56A0]/50 bg-[#1E56A0] shadow-2xl" 
+                                : "border-[#1E56A0]/50 bg-[#1E56A0]/90 backdrop-blur-md"
                             }`}
                         >
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex items-start justify-between mb-8">
-                                    <div className={`rounded-2xl p-4 bg-zinc-800/50 border border-zinc-700`}>
+                                    <div className={`rounded-2xl p-4 bg-[#1E56A0]/10 border border-[#1E56A0]/10`}>
                                         <span className="text-4xl">{effect.emoji}</span>
                                     </div>
                                     <div className="text-right">

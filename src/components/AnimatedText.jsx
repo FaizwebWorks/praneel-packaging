@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export const AnimatedText = ({ text, className = "", delay = 0 }) => {
+export const AnimatedText = ({ text, className = "", delay = 0, style = {} }) => {
   const words = text.split(" ");
 
   const container = {
@@ -34,9 +34,14 @@ export const AnimatedText = ({ text, className = "", delay = 0 }) => {
     },
   };
 
+  const defaultStyle = {
+    fontFamily: '"Bricolage Grotesque", sans-serif',
+    ...style
+  };
+
   return (
     <motion.div
-      style={{ overflow: "hidden", display: "flex", flexWrap: "wrap" }}
+      style={{ overflow: "hidden", display: "flex", flexWrap: "wrap", ...defaultStyle }}
       variants={container}
       initial="hidden"
       whileInView="visible"
@@ -46,7 +51,7 @@ export const AnimatedText = ({ text, className = "", delay = 0 }) => {
       {words.map((word, index) => (
         <motion.span
           variants={child}
-          style={{ marginRight: "0.25em" }}
+          style={{ marginRight: "0.25em", fontFamily: 'inherit' }}
           key={index}
         >
           {word}

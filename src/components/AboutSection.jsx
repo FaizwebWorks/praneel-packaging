@@ -12,25 +12,23 @@ function AboutSection() {
                 transition={{ duration: 1.5 }}
                 className="absolute inset-0 overflow-hidden pointer-events-none"
             >
-                <div className="absolute top-1/4 left-0 h-96 w-96 rounded-full bg-gradient-to-r from-amber-500/10 to-transparent blur-3xl" />
-                <div className="absolute bottom-1/4 right-0 h-96 w-96 rounded-full bg-gradient-to-l from-cyan-500/10 to-transparent blur-3xl" />
             </motion.div>
             
             <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
                 <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
                     <div>
                         <FadeIn direction="none">
-                            <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-zinc-500">
+                            <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-[#1E56A0]/80">
                                 About Us
                             </span>
                         </FadeIn>
                         
                         <AnimatedText 
                             text="We Make Boxes… But Not 'Just Boxes'"
-                            className="heading-font mb-6 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl"
+                            className="heading-font mb-6 text-3xl font-semibold leading-tight text-[#1E56A0] sm:text-4xl lg:text-5xl"
                         />
                         
-                        <div className="space-y-5 text-base leading-relaxed text-zinc-300 sm:text-lg">
+                        <div className="space-y-5 text-base leading-relaxed text-[#455A64] sm:text-lg">
                             <FadeIn delay={0.2}>
                                 <p>
                                     Let's be honest… anyone can make a box.
@@ -39,7 +37,7 @@ function AboutSection() {
                             
                             <FadeIn delay={0.3}>
                                 <p>
-                                    But making a box that people <span className="font-medium text-white">don't want to throw away</span>? That's an art.
+                                    But making a box that people <span className="font-medium text-[#1E56A0]">don't want to throw away</span>? That's an art.
                                 </p>
                             </FadeIn>
                             
@@ -61,20 +59,20 @@ function AboutSection() {
                                         // whileHover={{ x: 10 }}
                                         className="flex items-start gap-4 group cursor-default"
                                     >
-                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800/50 group-hover:border-zinc-400 group-hover:bg-zinc-700/50 transition-all duration-300">
-                                            <item.icon className="h-4 w-4 text-zinc-300 group-hover:text-white transition-colors" />
+                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#1E56A0] bg-[#F2F2F2] transition-all duration-300">
+                                            <item.icon className="h-4 w-4 text-[#1E56A0] transition-colors" />
                                         </div>
                                         <div>
-                                            <h3 className="mb-1 font-medium text-white group-hover:text-amber-200 transition-colors">{item.title}</h3>
-                                            <p className="text-sm text-zinc-400 group-hover:text-zinc-300 transition-colors">{item.desc}</p>
+                                            <h3 className="mb-1 font-medium text-[#1E56A0]">{item.title}</h3>
+                                            <p className="text-sm text-[#455A64]">{item.desc}</p>
                                         </div>
                                     </motion.div>
                                 </FadeIn>
                             ))}
                         </div>
 
-                        <FadeIn delay={0.8} direction="up" className="mt-10 border-l-2 border-zinc-700 pl-6">
-                            <p className="text-base leading-relaxed text-zinc-400 italic">
+                        <FadeIn delay={0.8} direction="up" className="mt-10 border-l-2 border-[#455A64] pl-6">
+                            <p className="text-base leading-relaxed text-[#455A64] italic">
                                 Because rigid boxes aren't just packaging — they're your product's first impression, bodyguard, and hype man all in one.
                             </p>
                         </FadeIn>
