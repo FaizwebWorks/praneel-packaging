@@ -44,12 +44,32 @@ const linkVariants = {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // 👉 background blur wala logic (same)
+      setIsScrolled(currentScrollY > 50);
+
+      // 👉 hide/show navbar logic
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // scrolling DOWN
+        setIsVisible(false);
+      } else {
+        // scrolling UP
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const handleLinkClick = (e, href) => {
     if (href.startsWith("http")) {
@@ -69,8 +89,9 @@ function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
+        initial={{ y: 0 }}
+        animate={{ y: isVisible ? 0 : -100 }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
         className={`fixed left-0 top-0 right-0 z-50 transition-all duration-300 py-2 ${isScrolled
           ? "bg-white/90 backdrop-blur-xl"
           : "bg-transparent"

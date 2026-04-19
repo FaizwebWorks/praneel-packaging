@@ -27,6 +27,8 @@ const steps = [
 ];
 
 function ProcessSection() {
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
+
     return (
         <section id="process" className="relative z-10 w-full overflow-hidden py-24 sm:py-32">
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" />
@@ -54,14 +56,13 @@ function ProcessSection() {
                                 <div className="absolute left-8 lg:left-1/2 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-[#1E56A0] border-2 border-[#1E56A0]/70 z-20" />
                                 
                                 <div className={`w-full lg:w-1/2 pl-16 lg:pl-0 ${i % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
-                                    <FadeIn direction={i % 2 === 0 ? "right" : "left"}>
+                                    <FadeIn direction={isMobile ? "left" : (i % 2 === 0 ? "right" : "left")}>
                                         <div className="group relative">
                                             <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#455A64]/10 bg-[#1E56A0]/10 ${i % 2 === 0 ? 'lg:ml-auto' : ''}`}>
                                                 <step.icon className="h-6 w-6 text-[#1E56A0]" />
                                             </div>
                                             <div className={`flex items-center gap-3 mb-4 ${i % 2 === 0 ? 'lg:justify-end' : ''}`}>
                                                 <span className="text-xs font-black tracking-widest text-[#1E56A0]/70">{step.id}</span>
-                                                {/* <div className="h-px w-8 bg-[#1E56A0]/60" /> */}
                                             </div>
                                             <h3 className="text-2xl heading-font font-bold text-[#1E56A0] mb-4">{step.title}</h3>
                                             <p className="text-[#455A64] leading-relaxed text-sm">

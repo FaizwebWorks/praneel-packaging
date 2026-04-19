@@ -7,13 +7,6 @@ import { motion } from "framer-motion";
 function HeroSection() {
     return (
         <section className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-24 pt-32 sm:px-6 sm:pt-36 lg:px-8 lg:pt-48 overflow-hidden">
-            {/* Massive Background Watermark */}
-            {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none w-full text-center z-0 overflow-hidden">
-                <h2 className="heading-font text-[20vw] md:text-[18vw] lg:text-[15vw] font-black uppercase tracking-tighter text-black/[0.025] leading-none whitespace-nowrap">
-                    Luxury
-                </h2>
-            </div> */}
-
             <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20 relative z-10">
                 <div className="max-w-xl">
                     <AnimatedText 

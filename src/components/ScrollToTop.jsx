@@ -31,24 +31,24 @@ function ScrollToTop() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 20 }}
-                    whileHover={{ y: -5, backgroundColor: "#fff", color: "#000" }}
                     whileTap={{ scale: 0.95 }}
                     onClick={scrollToTop}
                     className="fixed bottom-8 right-8 z-[60] flex h-12 w-12 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950 text-white shadow-2xl transition-all duration-300 cursor-pointer group"
                     aria-label="Scroll to top"
                 >
-                    <svg 
-                        width="20" 
-                        height="20" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
+                    <motion.svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
                         strokeLinejoin="round"
+                        className="transition-transform duration-300 group-hover:-translate-y-1"
                     >
-                        <path d="M12 19V5M5 12l7-7 7 7"/>
-                    </svg>
+                        <path d="M12 19V5M5 12l7-7 7 7" />
+                    </motion.svg>
                 </motion.button>
             )}
         </AnimatePresence>

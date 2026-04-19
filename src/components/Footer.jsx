@@ -71,7 +71,7 @@ function Footer() {
                         </p>
                         <div className="flex items-center gap-4">
                             {[
-                                { Icon: InstagramIcon, href: "https://instagram.com/praneelpackaging" },
+                                { Icon: InstagramIcon, href: "https://instagram.com/praneel_packaging/" },
                                 { Icon: LinkedinIcon, href: "https://linkedin.com/company/praneelpackaging" },
                                 { Icon: TwitterIcon, href: "https://twitter.com/praneelpackaging" }
                             ].map(({ Icon, href }, i) => (
@@ -175,6 +175,9 @@ function Footer() {
                         </div>
                     </div>
                 </FadeIn>
+                <h1 className="absolute bottom-[-50px] left-1/2 -translate-x-1/2 text-[15vw] leading-none footer-font text-zinc-800/5 select-none pointer-events-none whitespace-nowrap z-0">
+                    PRANEEL PACKAGING
+                </h1>
             </div>
         </motion.footer>
     );
