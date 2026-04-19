@@ -12,7 +12,7 @@ const effects = [
         desc: "Customers physically cannot throw the box away. It becomes a permanent part of their home decor.",
         stat: "94%",
         statLabel: "Retention Rate",
-        color: "#f59e0b"
+        color: "#3b82f6"
     },
     {
         id: 2,
@@ -30,7 +30,7 @@ const effects = [
         desc: "Your product feels 10x more expensive the second the lid is lifted. Instant price-tag justification.",
         stat: "10x",
         statLabel: "Value Boost",
-        color: "#a855f7"
+        color: "#3b82f6"
     },
     {
         id: 4,
@@ -39,7 +39,7 @@ const effects = [
         desc: "Your competitors will spend hours studying your packaging in their boardrooms. They'll be very stressed.",
         stat: "High",
         statLabel: "Stress Levels",
-        color: "#10b981"
+        color: "#3b82f6"
     }
 ];
 
@@ -77,7 +77,7 @@ function FunFeatureSection() {
                             key={effect.id}
                             onMouseEnter={() => setHoveredId(effect.id)}
                             onMouseLeave={() => setHoveredId(null)}
-                            whileHover={{ scale: 1.02, y: -4 }}
+                            // whileHover={{ scale: 1.02, y: -4 }}
                             className={`relative overflow-hidden rounded-3xl border transition-all duration-500 p-8 lg:p-10 cursor-pointer ${hoveredId === effect.id
                                     ? "border-[#455A64]/10 bg-white"
                                     : "border-[#455A64]/10 bg-white/60 hover:border-[#455A64]/10"
@@ -118,7 +118,7 @@ function FunFeatureSection() {
                 <FadeIn delay={0.6} direction="up">
                     <motion.div
                         className="mt-20 rounded-[3rem] border border-[#455A64]/10 bg-[#F8F9FA] p-10 lg:p-16 relative overflow-hidden"
-                        whileHover={{ y: -5 }}
+                        // whileHover={{ y: -5 }}
                         transition={{ duration: 0.5 }}
                     >
                         {/* Luxury Paper Texture Background */}
