@@ -124,7 +124,7 @@ function FunFeatureSection() {
                         {/* Luxury Paper Texture Background */}
                         <div className="absolute inset-0 z-0">
                             <img 
-                                src="/luxury-paper.png" 
+                                src="/luxury-paper.webp" 
                                 className="h-full w-full object-cover mix-blend-multiply opacity-60" 
                                 alt="Texture"
                             />

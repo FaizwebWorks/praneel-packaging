@@ -64,7 +64,7 @@ function Footer() {
                     {/* Brand Column */}
                     <FadeIn direction="up" className="lg:col-span-1">
                         <div className="mb-8">
-                            <img src="/logo.png" alt="Praneel Packaging Logo" className="h-14 w-auto mb-2" />
+                            <img src="/logo.webp" alt="Praneel Packaging Logo" className="h-14 w-auto mb-2" />
                         </div>
                         <p className="text-sm leading-relaxed text-[#455A64] max-w-xs mb-8">
                             Engineering the art of unboxing. We create structural masterpieces that protect your product and elevate your brand's luxury perception.

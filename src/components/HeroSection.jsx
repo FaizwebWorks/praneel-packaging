@@ -1,5 +1,5 @@
 import { MessageCircleMore, Package, ShieldCheck, ArrowRight, Star, Trophy, Clock } from "lucide-react";
-import custom from "/custom.png";
+import custom from "/custom.webp";
 import { PrimaryButton, SecondaryButton } from "./Button";
 import { AnimatedText, FadeIn, ScaleIn } from "./AnimatedText";
 import { motion } from "framer-motion";

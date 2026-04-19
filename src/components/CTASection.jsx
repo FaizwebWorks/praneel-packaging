@@ -12,7 +12,7 @@ function CTASection() {
         <section className="sticky top-0 z-[5] bg-transparent mx-4 sm:mx-6 lg:mx-10 rounded-[2.5rem] sm:rounded-[4rem] min-h-[70vh] flex items-center justify-center py-24 sm:py-32 overflow-hidden mb-0">
             <div className="absolute inset-0 z-0 bg-transparent">
                 <img
-                    src="/CTA-bg.avif"
+                    src="/CTA-bg.webp"
                     className="h-full w-full object-cover object-right lg:object-center"
                     alt="CTA Background"
                 />

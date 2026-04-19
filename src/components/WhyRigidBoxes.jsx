@@ -2,8 +2,8 @@ import { Package, Shield, Sparkles, Box, CheckCircle2, XCircle, ArrowRight } fro
 import { PrimaryButton } from "./Button";
 import { motion } from "framer-motion";
 import { AnimatedText, FadeIn, ScaleIn } from "./AnimatedText";
-import magneticBox from "/magnetic-box.png";
-import drawerBox from "/drawer-box.png";
+import magneticBox from "/magnetic-box.webp";
+import drawerBox from "/drawer-box.webp";
 
 function WhyRigidBoxes() {
     return (

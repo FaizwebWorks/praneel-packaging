@@ -1,5 +1,5 @@
 import { Gem, Shield, Sparkles } from "lucide-react";
-import aboutImg from "/aboutimg.png";
+import aboutImg from "/aboutimg.webp";
 import { motion } from "framer-motion";
 import { AnimatedText, FadeIn, ScaleIn } from "./AnimatedText";
 

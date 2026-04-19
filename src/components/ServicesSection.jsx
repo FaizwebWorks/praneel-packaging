@@ -1,8 +1,8 @@
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import magneticBox from "/magnetic-box.png";
-import drawerBox from "/drawer-box.png";
-import giftBox from "/gift-box.png";
-import customBox from "/custom-box.png";
+import magneticBox from "/magnetic-box.webp";
+import drawerBox from "/drawer-box.webp";
+import giftBox from "/gift-box.webp";
+import customBox from "/custom-box.webp";
 import { PrimaryButton } from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedText, FadeIn } from "./AnimatedText";

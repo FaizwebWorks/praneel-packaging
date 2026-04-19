@@ -78,7 +78,7 @@ function Navbar() {
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
           <a href="#" className="flex items-center -ml-2 pl-4 lg:pl-2">
-            <img src="/logo.png" alt="Praneel Packaging" className="h-11 w-auto" />
+            <img src="/logo.webp" alt="Praneel Packaging" className="h-11 w-auto" />
           </a>
 
           <div className="hidden lg:flex items-center gap-8">
