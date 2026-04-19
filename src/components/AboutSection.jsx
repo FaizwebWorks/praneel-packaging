@@ -1,19 +1,12 @@
-import { Gem, Shield, Sparkles } from "lucide-react";
-import aboutImg from "/aboutimg.webp";
+import { Gem, Shield, Sparkles, ArrowRight } from "lucide-react";
+import aboutImg from "/about-us.png";
 import { motion } from "framer-motion";
 import { AnimatedText, FadeIn, ScaleIn } from "./AnimatedText";
+import { PrimaryButton } from "./Button";
 
 function AboutSection() {
     return (
         <section id="about" className="relative z-10 w-full overflow-hidden">
-            <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1.5 }}
-                className="absolute inset-0 overflow-hidden pointer-events-none"
-            >
-            </motion.div>
-            
             <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
                 <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
                     <div>
@@ -56,7 +49,6 @@ function AboutSection() {
                             ].map((item, i) => (
                                 <FadeIn key={i} delay={0.5 + i * 0.1} direction="left">
                                     <motion.div 
-                                        // whileHover={{ x: 10 }}
                                         className="flex items-start gap-4 group cursor-default"
                                     >
                                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#1E56A0] bg-[#F2F2F2] transition-all duration-300">
@@ -76,46 +68,29 @@ function AboutSection() {
                                 Because rigid boxes aren't just packaging — they're your product's first impression, bodyguard, and hype man all in one.
                             </p>
                         </FadeIn>
+
+                        <FadeIn delay={0.9} className="mt-8">
+                            <PrimaryButton 
+                                href="#services"
+                                icon={ArrowRight}
+                                className="px-6 py-3 text-sm"
+                            >
+                                Explore Our Services
+                            </PrimaryButton>
+                        </FadeIn>
                     </div>
 
                     <ScaleIn delay={0.4} className="relative hidden lg:block">
-                        <motion.div 
-                            animate={{ 
-                                scale: [1, 1.05, 1],
-                                rotate: [0, 1, 0]
-                            }}
-                            transition={{ 
-                                duration: 10, 
-                                repeat: Infinity, 
-                                ease: "easeInOut" 
-                            }}
-                            className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-amber-500/20 to-purple-500/20 blur-3xl" 
-                        />
-                        <motion.div 
-                            animate={{ 
-                                scale: [1, 1.1, 1],
-                                rotate: [0, -1, 0]
-                            }}
-                            transition={{ 
-                                duration: 8, 
-                                repeat: Infinity, 
-                                ease: "easeInOut" 
-                            }}
-                            className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 blur-3xl" 
-                        />
+                        <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-amber-500/20 to-purple-500/20 blur-3xl" />
+                        <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 blur-3xl" />
                         
-                        <motion.div 
-                            whileHover={{ scale: 1.02, rotateY: 5 }}
-                            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                            style={{ perspective: 1000 }}
-                            className="relative overflow-hidden rounded-3xl border border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm shadow-2xl shadow-black/40"
-                        >
+                        <div className="relative overflow-hidden rounded-3xl border border-[#455A64]/10">
                             <img
                                 src={aboutImg}
                                 alt="About Praneel Packaging"
                                 className="w-full h-full object-cover"
                             />
-                        </motion.div>
+                        </div>
                     </ScaleIn>
                 </div>
             </div>

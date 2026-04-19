@@ -1,5 +1,5 @@
 import { MessageCircleMore, Package, ShieldCheck, ArrowRight, Star, Trophy, Clock } from "lucide-react";
-import custom from "/custom.webp";
+import heroImg from "/hero-img.png";
 import { PrimaryButton, SecondaryButton } from "./Button";
 import { AnimatedText, FadeIn, ScaleIn } from "./AnimatedText";
 import { motion } from "framer-motion";
@@ -42,8 +42,8 @@ function HeroSection() {
                     <ScaleIn delay={0.5} className="relative flex justify-center items-center">
                         <div className="relative z-10 w-full">
                             <img
-                                src={custom}
-                                alt="Custom Packaging Design"
+                                src={heroImg}
+                                alt="Hero Image"
                                 className="w-full h-full"
                             />
                         </div>

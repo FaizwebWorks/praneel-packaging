@@ -93,7 +93,7 @@ function Navbar() {
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.25, ease: "easeInOut" }}
         className={`fixed left-0 top-0 right-0 z-50 transition-all duration-300 py-2 ${isScrolled
-          ? "bg-white/90 backdrop-blur-xl"
+          ? "bg-white"
           : "bg-transparent"
           }`}
       >
