@@ -108,7 +108,7 @@ function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="group relative text-sm font-medium uppercase tracking-wider text-[#1E56A0] transition-colors hover:text-[#0F2A4A]"
+                className="group relative cursor-pointer text-sm font-medium uppercase tracking-wider text-[#1E56A0] transition-colors hover:text-[#0F2A4A]"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#1E56A0] transition-all duration-300 group-hover:w-full" />

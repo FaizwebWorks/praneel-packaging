@@ -207,13 +207,20 @@ function WhyRigidBoxes() {
                                 </p>
                             </div>
 
-                            <PrimaryButton
-                                icon={ArrowRight}
+                            <motion.a
                                 href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20upgrade%20my%20brand%20with%20premium%20packaging"
-                                className="w-full justify-center border-white/10 bg-[#0D3C76] sm:w-auto"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="group relative inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-full bg-white px-8 py-4 text-base font-semibold text-[#1E56A0] transition-all duration-300 hover:border-white/10 hover:shadow-[0_8px_30px_rgba(255,255,255,0.15)]"
                             >
-                                Start Your Brand Upgrade
-                            </PrimaryButton>
+                                <span className="absolute top-0 left-1/2 h-3 w-3 -translate-x-1/2 -translate-y-full scale-0 rounded-full bg-[#F2F2F2] opacity-0 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:top-1/2 group-hover:left-1/2 group-hover:h-[calc(100%+64px)] group-hover:w-[calc(100%+64px)] group-hover:-translate-y-1/2 group-hover:scale-100 group-hover:opacity-100 group-hover:rounded-none" />
+                                <span className="relative z-10 flex items-center gap-2 text-[#1E56A0] transition-colors duration-500">
+                                    <span>Start Your Brand Upgrade</span>
+                                    <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+                                </span>
+                            </motion.a>
                         </div>
                     </div>
                 </FadeIn>
