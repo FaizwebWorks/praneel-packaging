@@ -73,7 +73,7 @@ function AboutSection() {
                             <PrimaryButton 
                                 href="#services"
                                 icon={ArrowRight}
-                                className="px-6 py-3 text-sm"
+                                className="px-8 py-4 text-base"
                             >
                                 Explore Our Services
                             </PrimaryButton>
