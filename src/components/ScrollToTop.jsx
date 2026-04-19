@@ -46,6 +46,7 @@ function ScrollToTop() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         className="transition-transform duration-300 group-hover:-translate-y-1"
+                        onClick={scrollToTop}
                     >
                         <path d="M12 19V5M5 12l7-7 7 7" />
                     </motion.svg>
