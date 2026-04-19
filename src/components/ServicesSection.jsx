@@ -1,10 +1,9 @@
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import magneticBox from "/magnetic-box.png";
-import drawerBox from "/drawer-box.png";
-import topBottomBox from "/top-bottom-box.png";
-import collapsibleBox from "/collapsible-box.png";
-import shoulderNeckBox from "/shoulder-neck-box.png";
-import customBox from "/custom-box.webp";
+import magneticBox from "/magnetic-box.webp";
+import drawerBox from "/drawer-box.webp";
+import topBottomBox from "/top-bottom-box.webp";
+import collapsibleBox from "/collapsible-box.webp";
+import shoulderNeckBox from "/shoulder-neck-box.webp";
 import { PrimaryButton } from "./Button";
 import { motion } from "framer-motion";
 import { AnimatedText, FadeIn } from "./AnimatedText";
