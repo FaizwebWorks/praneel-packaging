@@ -1,5 +1,5 @@
 import { Gem, Shield, Sparkles, ArrowRight } from "lucide-react";
-import aboutImg from "/about-us.png";
+import aboutImg from "/about-us.webp";
 import { motion } from "framer-motion";
 import { AnimatedText, FadeIn, ScaleIn } from "./AnimatedText";
 import { PrimaryButton } from "./Button";
