@@ -25,7 +25,7 @@ const footerLinks = {
         { label: "About Us", href: "#about" },
         { label: "Our Process", href: "#process" },
         { label: "Box Gallery", href: "#services" },
-        { label: "Contact", href: "#process" }
+        { label: "Contact", href: "https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services" }
     ],
     services: [
         { label: "Magnetic Boxes", href: "#services" },

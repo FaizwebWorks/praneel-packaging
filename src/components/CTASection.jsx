@@ -9,7 +9,7 @@ function CTASection() {
     const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0.6]);
 
     return (
-        <section className="sticky top-0 z-[5] bg-transparent mx-4 sm:mx-6 lg:mx-10 rounded-[2.5rem] sm:rounded-[4rem] min-h-[70vh] flex items-center justify-center py-24 sm:py-32 overflow-hidden mb-0">
+        <section id="contact" className="sticky top-0 z-[5] bg-transparent mx-4 sm:mx-6 lg:mx-10 rounded-[2.5rem] sm:rounded-[4rem] min-h-[70vh] flex items-center justify-center py-24 sm:py-32 overflow-hidden mb-0">
             <div className="absolute inset-0 z-0 bg-transparent">
                 <img
                     src="/CTA-bg.webp"
