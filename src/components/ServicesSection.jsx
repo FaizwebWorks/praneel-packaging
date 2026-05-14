@@ -118,7 +118,7 @@ function ServicesSection() {
     };
 
     return (
-        <section id="services" className="relative z-10 w-full overflow-hidden py-16 sm:py-20 lg:py-24">
+        <section id="services" className="gsap-section relative z-10 w-full overflow-hidden py-16 sm:py-20 lg:py-24">
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 lg:mb-12 gap-4 lg:gap-6">
                     <div className="max-w-2xl">
@@ -129,7 +129,7 @@ function ServicesSection() {
                         </FadeIn>
                         <AnimatedText
                             text="Packaging Styles"
-                            className="heading-font text-3xl lg:text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl"
+                            className="gsap-heading heading-font text-3xl lg:text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl"
                         />
                     </div>
 
@@ -157,7 +157,7 @@ function ServicesSection() {
                     {services.map((service, i) => (
                         <div
                             key={service.id}
-                            className="min-w-[75%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[30%] xl:min-w-[24%] snap-start lg:snap-center"
+                            className="gsap-card min-w-[75%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[30%] xl:min-w-[24%] snap-start lg:snap-center"
                         >
                             <motion.div
                                 onMouseEnter={() => setActiveIndex(i)}
@@ -168,7 +168,7 @@ function ServicesSection() {
                                     <img
                                         src={service.img}
                                         alt={service.title}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        className="gsap-parallax w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 </div>
 
@@ -212,7 +212,7 @@ function ServicesSection() {
                     ))}
                 </div>
 
-                <div className="mt-12 lg:mt-16 text-center">
+                <div className="gsap-rise mt-12 lg:mt-16 text-center">
                     <PrimaryButton icon={ArrowRight} href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20build%20a%20custom%20packaging%20design" className="px-10 lg:px-12 py-4 lg:py-5 text-base lg:text-lg rounded-2xl">
                         Build Your Custom Design
                     </PrimaryButton>

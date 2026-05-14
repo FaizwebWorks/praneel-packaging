@@ -9,11 +9,11 @@ function CTASection() {
     const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0.6]);
 
     return (
-        <section id="contact" className="sticky top-0 z-[5] bg-transparent mx-4 sm:mx-6 lg:mx-10 rounded-[2.5rem] sm:rounded-[4rem] min-h-[70vh] flex items-center justify-center py-24 sm:py-32 overflow-hidden mb-0">
+        <section id="contact" className="gsap-section sticky top-0 z-[5] bg-transparent mx-4 sm:mx-6 lg:mx-10 rounded-[2.5rem] sm:rounded-[4rem] min-h-[70vh] flex items-center justify-center py-20 sm:py-28 overflow-hidden mb-0">
             <div className="absolute inset-0 z-0 bg-transparent">
                 <img
                     src="/CTA-bg.webp"
-                    className="h-full w-full object-cover object-right lg:object-center"
+                    className="gsap-parallax h-full w-full object-cover object-right lg:object-center"
                     alt="CTA Background"
                 />
             </div>
@@ -28,7 +28,7 @@ function CTASection() {
             <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
                 <AnimatedText
                     text="Your Product Deserves Better Packaging."
-                    className="heading-font mx-auto max-w-3xl text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl lg:text-6xl justify-center"
+                    className="gsap-heading heading-font mx-auto max-w-3xl text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl lg:text-6xl justify-center"
                 />
 
                 <FadeIn delay={0.5}>

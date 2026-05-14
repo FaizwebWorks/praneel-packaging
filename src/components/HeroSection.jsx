@@ -35,7 +35,7 @@ function HeroSection() {
                 <img
                     src="/hero-desktop.png"
                     alt="Premium Praneel rigid packaging boxes"
-                    className="h-full w-full object-cover object-center max-[767px]:object-[50%_61%]"
+                    className="h-full w-full object-cover object-center max-[767px]:object-[50%_61%] md:gsap-parallax"
                 />
             </picture>
 

@@ -48,7 +48,7 @@ function FunFeatureSection() {
 
     return (
         <motion.section
-            className="relative z-10 w-full overflow-hidden py-24 sm:py-32"
+            className="gsap-section relative z-10 w-full overflow-hidden py-20 sm:py-24 lg:py-28"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -67,7 +67,7 @@ function FunFeatureSection() {
                     </FadeIn>
                     <AnimatedText
                         text="Documented Side Effects"
-                        className="heading-font text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl lg:text-6xl"
+                        className="gsap-heading heading-font text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl lg:text-6xl"
                     />
                 </div>
 
@@ -78,7 +78,7 @@ function FunFeatureSection() {
                             onMouseEnter={() => setHoveredId(effect.id)}
                             onMouseLeave={() => setHoveredId(null)}
                             // whileHover={{ scale: 1.02, y: -4 }}
-                            className={`relative overflow-hidden rounded-3xl border transition-all duration-500 p-8 lg:p-10 cursor-pointer ${hoveredId === effect.id
+                            className={`gsap-card relative overflow-hidden rounded-3xl border transition-all duration-500 p-8 lg:p-10 cursor-pointer ${hoveredId === effect.id
                                     ? "border-[#455A64]/10 bg-white"
                                     : "border-[#455A64]/10 bg-white/60 hover:border-[#455A64]/10"
                                 }`}
@@ -117,7 +117,7 @@ function FunFeatureSection() {
 
                 <FadeIn delay={0.6} direction="up">
                     <motion.div
-                        className="mt-20 rounded-[3rem] border border-[#455A64]/10 bg-[#F8F9FA] p-10 lg:p-16 relative overflow-hidden"
+                        className="gsap-rise mt-16 rounded-[3rem] border border-[#455A64]/10 bg-[#F8F9FA] p-10 lg:p-16 relative overflow-hidden"
                         // whileHover={{ y: -5 }}
                         transition={{ duration: 0.5 }}
                     >
@@ -125,7 +125,7 @@ function FunFeatureSection() {
                         <div className="absolute inset-0 z-0">
                             <img 
                                 src="/luxury-paper.webp" 
-                                className="h-full w-full object-cover mix-blend-multiply opacity-60" 
+                                className="gsap-parallax h-full w-full object-cover mix-blend-multiply opacity-60" 
                                 alt="Texture"
                             />
                         </div>

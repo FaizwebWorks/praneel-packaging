@@ -31,7 +31,7 @@ const STATS = [
 
 function AboutSection() {
     return (
-        <section id="about" className="relative z-10 overflow-hidden bg-[#FFFDF5] text-[#1D1D1B]">
+        <section id="about" className="gsap-section relative z-10 overflow-hidden bg-[#FFFDF5] text-[#1D1D1B]">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFDF5]/0 via-[#FFFDF5]/84 to-[#FFFDF5]" />
             <div className="pointer-events-none absolute -left-[12vw] top-[8rem] h-[34rem] w-[52vw] rounded-full bg-[#F07020]/[0.045] blur-3xl" />
             <div className="pointer-events-none absolute right-[-18vw] top-[4rem] h-[30rem] w-[48vw] rounded-full bg-[#1E56A0]/[0.035] blur-3xl" />
@@ -48,7 +48,7 @@ function AboutSection() {
                         {/* <p className="mb-5 text-sm font-[400] uppercase tracking-[0.22em] text-[#1E56A0]">
                             About Praneel
                         </p> */}
-                        <h2 className="heading-font max-w-[10.8ch] text-[clamp(3rem,7.2vw,6.9rem)] font-[200] leading-[0.92] tracking-[-0.03em]">
+                        <h2 className="gsap-heading heading-font max-w-[10.8ch] text-[clamp(3rem,7.2vw,6.9rem)] font-[200] leading-[0.92] tracking-[-0.03em]">
                             We make boxes people keep.
                         </h2>
                     </Motion.div>
@@ -90,7 +90,7 @@ function AboutSection() {
                         <img
                             src={aboutImg}
                             alt="Premium rigid boxes made by Praneel Packaging"
-                            className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.035]"
+                            className="gsap-parallax absolute inset-0 h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.035]"
                         />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,253,245,0.05)_0%,rgba(255,253,245,0.08)_45%,rgba(29,29,27,0.42)_100%)]" />
 
@@ -121,7 +121,7 @@ function AboutSection() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                                    className="border-r border-[#1D1D1B]/12 p-4 last:border-r-0 sm:p-5"
+                                    className="gsap-card border-r border-[#1D1D1B]/12 p-4 last:border-r-0 sm:p-5"
                                 >
                                     <p className="text-[1.55rem] font-[300] leading-none tracking-[-0.03em] text-[#1E56A0] sm:text-[2.1rem]">
                                         {value}
@@ -137,24 +137,33 @@ function AboutSection() {
                             {CAPABILITIES.map((item, index) => (
                                 <Motion.div
                                     key={item.title}
-                                    initial={{ opacity: 0, x: 24 }}
+                                    initial={{ opacity: 0, x: 18 }}
                                     whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true, margin: "-90px" }}
-                                    transition={{ delay: index * 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                                    whileHover={{ backgroundColor: "rgba(245,245,245,0.78)" }}
-                                    className="group cursor-pointer border-b border-[#1D1D1B]/12 bg-transparent p-5 transition-colors duration-500 last:border-b-0 hover:bg-[#F5F5F5]/80 sm:p-6"
+                                    viewport={{ once: true, margin: "-80px" }}
+                                    transition={{
+                                        delay: index * 0.06,
+                                        duration: 0.55,
+                                        ease: [0.22, 1, 0.36, 1],
+                                    }}
+                                    className="group cursor-pointer border-b border-[#1D1D1B]/12 bg-transparent p-5 transition-colors duration-300 last:border-b-0 hover:bg-[#F5F5F5]/80 sm:p-6"
                                 >
                                     <div className="flex items-start gap-4">
-                                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#1D1D1B]/14 bg-[#FFFDF5] text-[#1E56A0] transition duration-500 group-hover:border-[#1E56A0]/35 group-hover:bg-[#1E56A0] group-hover:text-[#FFFDF5]">
+                                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#1D1D1B]/14 bg-[#FFFDF5] text-[#1E56A0] transition-[background-color,color,border-color] duration-300 will-change-auto group-hover:border-[#1E56A0]/35 group-hover:bg-[#1E56A0] group-hover:text-[#FFFDF5]">
                                             <item.icon className="h-5 w-5" strokeWidth={1.45} />
                                         </span>
+
                                         <div className="min-w-0 flex-1">
                                             <div className="flex items-center justify-between gap-4">
                                                 <h3 className="text-[1.45rem] font-[300] leading-none tracking-[-0.02em] text-[#1D1D1B] sm:text-[1.9rem]">
                                                     {item.title}
                                                 </h3>
-                                                <ArrowRight className="h-6 w-6 shrink-0 text-[#1E56A0] transition duration-500 group-hover:translate-x-1" strokeWidth={1.45} />
+
+                                                <ArrowRight
+                                                    className="h-6 w-6 shrink-0 text-[#1E56A0] transition-transform duration-300 will-change-transform group-hover:translate-x-1"
+                                                    strokeWidth={1.45}
+                                                />
                                             </div>
+
                                             <p className="mt-3 max-w-xl text-sm font-[300] leading-6 text-[#1D1D1B]/62 sm:text-base">
                                                 {item.text}
                                             </p>
@@ -172,13 +181,12 @@ function AboutSection() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.18 + index * 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                                    whileHover={{ y: -6 }}
-                                    className="aspect-[4/3] overflow-hidden rounded-[1rem] border border-[#1D1D1B]/12 bg-[#F6F0E4]"
+                                    className="gsap-card aspect-[4/3] overflow-hidden rounded-[1rem] border border-[#1D1D1B]/12 bg-[#F6F0E4]"
                                 >
                                     <img
                                         src={src}
                                         alt={index === 0 ? "Drawer rigid box" : "Magnetic rigid box"}
-                                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                                        className="gsap-parallax h-full w-full object-cover transition duration-700 group-hover:scale-105"
                                     />
                                 </Motion.div>
                             ))}

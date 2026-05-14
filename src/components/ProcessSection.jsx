@@ -30,7 +30,7 @@ function ProcessSection() {
     const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
     return (
-        <section id="process" className="relative z-10 w-full overflow-hidden py-24 sm:py-32">
+        <section id="process" className="gsap-section relative z-10 w-full overflow-hidden py-20 sm:py-24 lg:py-28">
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" />
 
             <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -42,7 +42,7 @@ function ProcessSection() {
                     </FadeIn>
                     <FadeIn direction="none" delay={0.2}>
                         <h2 className="heading-font text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl">
-                            From Vision to Unboxing
+                            <span className="gsap-heading inline-block">From Vision to Unboxing</span>
                         </h2>
                     </FadeIn>
                 </div>
@@ -52,7 +52,7 @@ function ProcessSection() {
 
                     <div className="space-y-24">
                         {steps.map((step, i) => (
-                            <div key={step.id} className={`relative flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24`}>
+                            <div key={step.id} className={`gsap-card relative flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24`}>
                                 <div className="absolute left-8 lg:left-1/2 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-[#1E56A0] border-2 border-[#1E56A0]/70 z-20" />
                                 
                                 <div className={`w-full lg:w-1/2 pl-16 lg:pl-0 ${i % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
@@ -79,7 +79,7 @@ function ProcessSection() {
                 </div>
 
                 <FadeIn delay={0.8} direction="up">
-                    <div className="mt-24 flex flex-col items-center">
+                    <div className="gsap-rise mt-20 flex flex-col items-center">
                         <div className="inline-flex items-center gap-2 rounded-full border border-[#455A64]/10 bg-[#1E56A0]/10 px-6 py-2 text-sm text-[#455A64] backdrop-blur-sm mb-10">
                             <CheckCircle2 className="h-4 w-4 text-[#1E56A0]" />
                             <span className="text-[#1E56A0] heading-font">Average turnaround: <span className="text-[#455A64] font-medium">12-15 business days</span></span>
