@@ -1,44 +1,22 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Package, Info, Phone, Settings, Send } from "lucide-react";
-import { useState, useEffect } from "react";
-import { PrimaryButton } from "./Button";
+import { AnimatePresence, motion as Motion } from "framer-motion";
+import { ArrowRight, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import YuccaButton from "./YuccaButton";
 
 const NAV_LINKS = [
-  { label: "About", href: "#about", icon: Info },
-  { label: "Services", href: "#services", icon: Settings },
-  { label: "Process", href: "#process", icon: Package },
-  { label: "Contact", href: "https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services", icon: Phone },
+  { label: "About", href: "#about" },
+  { label: "Boxes", href: "#services" },
+  { label: "Process", href: "#process" },
+  { label: "Contact", href: "https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services" },
 ];
 
-const customEase = [0.4, 0.0, 0.2, 1];
-
-const menuVariants = {
-  closed: { x: "100%", opacity: 0 },
-  open: {
-    x: 0,
-    opacity: 1,
-    transition: { type: "spring", stiffness: 180, damping: 22, mass: 0.8 }
-  },
-  exit: {
-    x: "100%",
-    opacity: 0,
-    transition: { duration: 0.35, ease: customEase }
-  }
-};
-
-const backdropVariants = {
-  closed: { opacity: 0 },
-  open: { opacity: 1, transition: { duration: 0.3 } },
-  exit: { opacity: 0, transition: { duration: 0.2 } }
-};
-
 const linkVariants = {
-  closed: { opacity: 0, x: 40 },
+  closed: { opacity: 0, y: 24 },
   open: (i) => ({
     opacity: 1,
-    x: 0,
-    transition: { delay: 0.25 + i * 0.12, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
-  })
+    y: 0,
+    transition: { delay: 0.18 + i * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  }),
 };
 
 function Navbar() {
@@ -51,23 +29,12 @@ function Navbar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // 👉 background blur wala logic (same)
-      setIsScrolled(currentScrollY > 50);
-
-      // 👉 hide/show navbar logic
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // scrolling DOWN
-        setIsVisible(false);
-      } else {
-        // scrolling UP
-        setIsVisible(true);
-      }
-
+      setIsScrolled(currentScrollY > 24);
+      setIsVisible(!(currentScrollY > lastScrollY && currentScrollY > 140));
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
-
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
@@ -76,120 +43,111 @@ function Navbar() {
       setIsOpen(false);
       return;
     }
-    if (href.startsWith("#")) {
-      e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+
+    e.preventDefault();
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
   };
 
   return (
     <>
-      <motion.header
+      <Motion.header
         initial={{ y: 0 }}
-        animate={{ y: isVisible ? 0 : -100 }}
-        transition={{ duration: 0.25, ease: "easeInOut" }}
-        className={`fixed left-0 top-0 right-0 z-50 transition-all duration-300 py-2 ${isScrolled
-          ? "bg-white"
-          : "bg-transparent"
-          }`}
+        animate={{ y: isVisible ? 0 : -110 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-500 ${
+          isScrolled ? "border-[#1D1D1B]/14 bg-[#FFFDF5]/90 backdrop-blur-xl" : "border-transparent bg-transparent"
+        }`}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
-          <a href="#" className="flex items-center -ml-2 pl-4 lg:pl-2">
-            <img src="/logo.webp" alt="Praneel Packaging" className="h-11 w-auto" />
+        <nav className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 sm:px-8 lg:h-24 lg:px-12 xl:px-14">
+          <a href="#" aria-label="Praneel Packaging home" className="flex items-center">
+            <img src="/logo.webp" alt="Praneel Packaging" className="h-10 w-auto sm:h-11" />
           </a>
 
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden items-center gap-11 lg:flex">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="group relative cursor-pointer text-sm font-medium uppercase tracking-wider text-[#1E56A0] transition-colors hover:text-[#0F2A4A]"
+                className="group relative text-[0.98rem] font-[300] tracking-[-0.005em] text-[#1D1D1B]/86 transition-colors hover:text-[#1E56A0]"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#1E56A0] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-2 left-0 h-px w-full origin-left scale-x-0 bg-[#F07020] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
               </a>
             ))}
-            <PrimaryButton
-              href="https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services"
-              icon={Send}
-              className="text-sm px-5"
-            >
-              Get Quote
-            </PrimaryButton>
           </div>
 
-          <motion.button
-            whileTap={{ scale: 0.85 }}
+          <div className="hidden lg:block">
+            <YuccaButton
+              href="https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20get%20a%20quote%20for%20premium%20packaging"
+              external
+            >
+              Get Quote
+            </YuccaButton>
+          </div>
+
+          <Motion.button
+            whileTap={{ scale: 0.92 }}
             onClick={() => setIsOpen(true)}
-            className="relative flex items-center justify-center lg:hidden text-[#1E56A0]"
+            className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-[0.25rem] border border-[#1D1D1B] text-[#1D1D1B] transition-colors duration-500 active:bg-[#1D1D1B] active:text-[#FFFDF5] lg:hidden"
+            aria-label="Open menu"
           >
-            <Menu className="h-8 w-8" />
-          </motion.button>
+            <Menu className="h-5 w-5" strokeWidth={1.8} />
+          </Motion.button>
         </nav>
-      </motion.header>
+      </Motion.header>
 
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={backdropVariants}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 z-[60] bg-black/20 backdrop-blur-sm lg:hidden"
-            />
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-              className="fixed left-0 right-0 top-0 bottom-0 z-[70] w-full bg-[#F5F5F5] shadow-2xl lg:hidden flex flex-col"
-            >
-              <div className="flex h-20 items-center justify-between px-6">
-                <span className="text-sm font-bold text-[#1E56A0] tracking-widest">MENU</span>
-                <motion.button
-                  whileTap={{ scale: 0.85, rotate: 90 }}
+          <Motion.div
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[80] bg-[#FFFDF5] text-[#1D1D1B] lg:hidden"
+          >
+            <div className="flex h-full flex-col px-5 py-5">
+              <div className="flex items-center justify-between">
+                <img src="/logo.webp" alt="Praneel Packaging" className="h-11 w-auto" />
+                <Motion.button
+                  whileTap={{ scale: 0.92 }}
                   onClick={() => setIsOpen(false)}
-                  className="text-[#1E56A0]"
+                  className="grid h-10 w-10 place-items-center rounded-[0.25rem] border border-[#1D1D1B]/18"
+                  aria-label="Close menu"
                 >
-                  <X className="h-8 w-8" />
-                </motion.button>
+                  <X className="h-5 w-5" strokeWidth={1.8} />
+                </Motion.button>
               </div>
 
-              <div className="flex flex-1 flex-col items-center justify-center gap-10 py-8">
+              <div className="flex flex-1 flex-col justify-center gap-3">
                 {NAV_LINKS.map((link, i) => (
-                  <motion.a
+                  <Motion.a
                     key={link.label}
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link.href)}
                     custom={i}
                     variants={linkVariants}
-                    className="text-4xl heading-font font-light text-[#1E56A0] transition-colors hover:text-[#0F2A4A]"
+                    initial="closed"
+                    animate="open"
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    className="group flex items-center justify-between border-b border-[#1D1D1B]/14 py-5 text-[clamp(2.6rem,15vw,5.8rem)] font-[200] leading-none tracking-[-0.04em]"
                   >
                     {link.label}
-                  </motion.a>
+                    <ArrowRight className="h-7 w-7 text-[#F07020] transition-transform duration-500 group-hover:translate-x-1" strokeWidth={1.25} />
+                  </Motion.a>
                 ))}
               </div>
 
-              <div className="px-6 pb-8">
-                <motion.div custom={NAV_LINKS.length + 1} variants={linkVariants}>
-                  <PrimaryButton
-                    href="https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services"
-                    icon={Send}
-                    className="w-full justify-center text-lg py-4"
-                  >
-                    Get Quote
-                  </PrimaryButton>
-                </motion.div>
-              </div>
-            </motion.div>
-          </>
+              <YuccaButton
+                href="https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20get%20a%20quote%20for%20premium%20packaging"
+                external
+                variant="blue"
+                className="mb-2 w-full"
+              >
+                Get Quote
+              </YuccaButton>
+            </div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </>

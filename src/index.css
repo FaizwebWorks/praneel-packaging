@@ -1,8 +1,40 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
 
+@font-face {
+  font-family: "Magnetik";
+  src: url("/fonts/Magnetik-Thin.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnetik";
+  src: url("/fonts/Magnetik-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnetik";
+  src: url("/fonts/Magnetik-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnetik";
+  src: url("/fonts/Magnetik-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 *{
-    font-family: "Montserrat", sans-serif;
+    font-family: "Magnetik", "Inter", sans-serif;
     box-sizing: border-box;
 }
 
@@ -31,7 +63,7 @@ html.lenis, html.lenis body {
 }
 
 .heading-font {
-    font-family: 'Bricolage Grotesque', sans-serif !important;
+    font-family: "Magnetik", "Inter", sans-serif !important;
 }
 
 .footer-font{
@@ -39,7 +71,230 @@ html.lenis, html.lenis body {
 }
 
 .body-font {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Magnetik", "Inter", sans-serif;
+}
+
+.pp-btn {
+  position: relative;
+  display: inline-flex;
+  height: 2.65rem;
+  min-width: 6.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  font-size: 0.84rem;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  transition: color 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pp-btn span {
+  pointer-events: none;
+}
+
+.pp-btn-fill {
+  position: absolute;
+  inset: -1%;
+  transform: translateY(104%);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pp-btn-text-wrapper {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.pp-btn-text,
+.pp-btn-text-hover {
+  display: block;
+  line-height: 1.2;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pp-btn-text-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: scale(0.9) translateY(100%);
+}
+
+.pp-btn:hover .pp-btn-fill {
+  transform: translateY(-1%);
+}
+
+.pp-btn:hover .pp-btn-text {
+  opacity: 0;
+  transform: scale(0.9) translateY(-100%);
+}
+
+.pp-btn:hover .pp-btn-text-hover {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.pp-btn-primary {
+  background: #104080;
+  color: #FFFDF5;
+}
+
+.pp-btn-primary .pp-btn-fill {
+  background: #F07020;
+}
+
+.pp-btn-blue {
+  background: #104080;
+  color: #FFFDF5;
+}
+
+.pp-btn-blue .pp-btn-fill {
+  background: #F07020;
+}
+
+.pp-btn-outline {
+  border: 1px solid rgba(16, 64, 128, 0.34);
+  color: #104080;
+  background: rgba(255, 253, 245, 0.42);
+  backdrop-filter: blur(12px);
+}
+
+.pp-btn-outline .pp-btn-fill {
+  background: #104080;
+}
+
+.pp-btn-outline:hover {
+  color: #FFFDF5;
+}
+
+.yucca-arrow {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.yucca-arrow svg {
+  grid-area: 1 / 1;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .yucca-arrow svg:first-child {
+  opacity: 0;
+  transform: translateX(120%) scale(0.85);
+}
+
+.yucca-arrow svg:last-child {
+  opacity: 0;
+  transform: translateX(-120%) scale(0.85);
+}
+
+.group:hover .yucca-arrow svg:last-child {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.pp-compare-wipe {
+  animation: pp-compare-wipe 5.8s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+}
+
+.pp-luxury-shimmer {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 36%,
+    rgba(255, 253, 245, 0.22) 47%,
+    transparent 58%,
+    transparent 100%
+  );
+  animation: pp-luxury-shimmer 4.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  mix-blend-mode: screen;
+}
+
+.pp-before-drift {
+  animation: pp-before-drift 9s ease-in-out infinite alternate;
+}
+
+.pp-premium-drift {
+  animation: pp-premium-drift 9s ease-in-out infinite alternate;
+}
+
+.pp-ordinary-scan {
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(29, 29, 27, 0.08) 0,
+    rgba(29, 29, 27, 0.08) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  animation: pp-ordinary-scan 6s linear infinite;
+}
+
+@keyframes pp-compare-wipe {
+  0% {
+    transform: translateX(8%);
+  }
+  44% {
+    transform: translateX(92%);
+  }
+  56% {
+    transform: translateX(92%);
+  }
+  100% {
+    transform: translateX(8%);
+  }
+}
+
+@keyframes pp-before-drift {
+  from {
+    transform: scale(1.04) translate3d(-1.2%, -0.8%, 0);
+  }
+  to {
+    transform: scale(1.09) translate3d(1.4%, 1%, 0);
+  }
+}
+
+@keyframes pp-premium-drift {
+  from {
+    transform: scale(1.03) translate3d(1%, -0.8%, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(-1.4%, 1.1%, 0);
+  }
+}
+
+@keyframes pp-ordinary-scan {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 80px;
+  }
+}
+
+@keyframes pp-luxury-shimmer {
+  0%,
+  18% {
+    transform: translateX(-110%);
+  }
+  64%,
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-compare-wipe,
+  .pp-luxury-shimmer,
+  .pp-before-drift,
+  .pp-premium-drift,
+  .pp-ordinary-scan {
+    animation: none;
+  }
 }
 
 @layer utilities {

@@ -1,229 +1,163 @@
-import {
-    ArrowRight,
-    Box,
-    CheckCircle2,
-    ShieldCheck,
-    Sparkles,
-    Star,
-    XCircle,
-} from "lucide-react";
-import { motion } from "framer-motion";
-import { AnimatedText, FadeIn } from "./AnimatedText";
-import { PrimaryButton } from "./Button";
-import topBottomBox from "/top-bottom-box.webp";
-import shoulderNeckBox from "/shoulder-neck-box.webp";
-import collapsibleBox from "/collapsible-box.webp";
+import { ArrowRight, CheckCircle2, PackageCheck, RotateCw, Sparkles, XCircle } from "lucide-react";
+import { motion as Motion } from "framer-motion";
+import after from "/praneel.png";
+import before from "/ordinary.png";
+import YuccaButton from "./YuccaButton";
 
-const differentiators = [
+const MOMENTS = [
     {
-        icon: ShieldCheck,
-        title: "Holds shape beautifully",
-        desc: "High-density rigid construction keeps corners crisp through storage, shipping, and gifting.",
+        icon: PackageCheck,
+        label: "Shipping",
+        from: "Parcel protected",
+        to: "Gift-like arrival",
     },
     {
         icon: Sparkles,
-        title: "Feels like part of the product",
-        desc: "Texture, weight, and closure detail create a premium first impression before the product is touched.",
+        label: "Unboxing",
+        from: "Quick tear",
+        to: "Slower reveal",
     },
     {
-        icon: Box,
-        title: "Built for custom storytelling",
-        desc: "From inserts to foil, ribbon, and layered reveals, every detail can match your brand language.",
+        icon: RotateCw,
+        label: "After use",
+        from: "Thrown away",
+        to: "Kept on display",
     },
 ];
 
-// const highlights = [
-//     { label: "Rigid board core", value: "Structure" },
-//     { label: "Luxury unboxing", value: "Experience" },
-//     { label: "Kept, reused, displayed", value: "Retention" },
-// ];
-
 function WhyRigidBoxes() {
     return (
-        <section className="relative z-10 w-full overflow-hidden py-20 sm:py-24 lg:py-32">
-            {/* <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                <div className="absolute left-[-8rem] top-20 h-56 w-56 rounded-full bg-[#1E56A0]/10 blur-3xl sm:h-72 sm:w-72" />
-                <div className="absolute bottom-0 right-[-6rem] h-64 w-64 rounded-full bg-amber-300/20 blur-3xl sm:h-80 sm:w-80" />
-            </div> */}
+        <section className="relative z-10 overflow-hidden bg-[#FFFDF5] text-[#1D1D1B]">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#FFFDF5] via-[#FFFDF5]/92 to-[#FFFDF5]/0" />
+            <div className="pointer-events-none absolute -right-[18vw] top-24 h-[34rem] w-[52vw] rounded-full bg-[#1E56A0]/[0.045] blur-3xl" />
+            <div className="pointer-events-none absolute -left-[18vw] bottom-20 h-[36rem] w-[54vw] rounded-full bg-[#F07020]/[0.04] blur-3xl" />
 
-            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="mb-10 flex flex-col gap-4 text-center sm:mb-14 lg:mb-16">
-                    <FadeIn direction="none">
-                        <span className="inline-block text-xs uppercase tracking-[0.24em] text-[#1E56A0]/70">
-                            Why Rigid Boxes
-                        </span>
-                    </FadeIn>
-                    <AnimatedText
-                        text="Packaging That Looks Expensive Because It Feels Intentional"
-                        className="heading-font mx-auto max-w-4xl justify-center text-3xl font-semibold leading-tight text-[#1E56A0] sm:text-4xl lg:text-5xl"
-                    />
-                    <FadeIn delay={0.15} direction="up">
-                        <p className="mx-auto max-w-2xl text-sm leading-relaxed text-[#455A64] sm:text-base">
-                            Rigid boxes do more than protect the product. They frame it, slow the moment down,
-                            and turn packaging into something customers notice, keep, and remember.
+            <div className="relative mx-auto max-w-[1440px] px-6 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-28 xl:px-14">
+                <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-end lg:gap-16">
+                    <Motion.div
+                        initial={{ opacity: 0, y: 28 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-120px" }}
+                        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                        {/* <p className="mb-5 text-sm font-[400] uppercase tracking-[0.22em] text-[#1E56A0]">
+                            Why rigid boxes
+                        </p> */}
+                        <h2 className="heading-font max-w-[11ch] text-[clamp(3rem,7.4vw,7rem)] font-[200] leading-[0.92] tracking-[-0.035em]">
+                            A box can change the price in your customer's head.
+                        </h2>
+                    </Motion.div>
+
+                    <Motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-120px" }}
+                        transition={{ delay: 0.12, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                        className="max-w-2xl lg:ml-auto"
+                    >
+                        <p className="text-xl font-[300] leading-8 text-[#1D1D1B]/72 sm:text-2xl sm:leading-9">
+                            Ordinary packaging disappears after delivery. Rigid packaging performs like a stage: it protects, frames, and makes the reveal feel worth keeping.
                         </p>
-                    </FadeIn>
+                        <div className="mt-8 flex flex-wrap items-center gap-3">
+                            <YuccaButton href="#services" variant="blue">
+                                See Box Types
+                            </YuccaButton>
+                            <YuccaButton
+                                href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20compare%20ordinary%20packaging%20with%20premium%20rigid%20boxes"
+                                external
+                                variant="outline"
+                            >
+                                Upgrade Mine
+                            </YuccaButton>
+                        </div>
+                    </Motion.div>
                 </div>
 
-                <div className="grid items-start gap-5 lg:grid-cols-12 lg:gap-7">
-                    <FadeIn delay={0.2} direction="up" className="h-full lg:col-span-7">
-                        <div className="relative overflow-hidden rounded-[2rem] border border-[#1E56A0]/12 bg-white/80 p-5 shadow-[0_30px_80px_rgba(30,86,160,0.08)] backdrop-blur-sm sm:p-6 lg:p-6">
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(30,86,160,0.10),_transparent_45%),radial-gradient(circle_at_bottom_right,_rgba(245,158,11,0.10),_transparent_35%)]" />
+                <Motion.div
+                    initial={{ opacity: 0, y: 34 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-120px" }}
+                    transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                    className="group relative mt-12 min-h-[46rem] overflow-hidden rounded-[1.35rem] border border-[#1D1D1B]/14 bg-[#101820] shadow-[0_28px_90px_rgba(29,29,27,0.1)] lg:mt-16 lg:min-h-[42rem]"
+                >
+                    <img
+                        src={after}
+                        alt="Premium rigid packaging box"
+                        className="absolute inset-0 h-full w-full object-cover pp-premium-drift"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(29,29,27,0.68)_0%,rgba(29,29,27,0.30)_37%,rgba(29,29,27,0.08)_70%,rgba(29,29,27,0.30)_100%)]" />
+                    <div className="absolute inset-0 pp-luxury-shimmer" />
 
-                            <div className="relative z-10">
-                                <div className="mx-auto w-full max-w-4xl">
-                                    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1E56A0]/15 bg-[#1E56A0]/6 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-[#1E56A0]">
-                                        <Star className="h-3.5 w-3.5" />
-                                        Premium Perception
-                                    </div>
+                    <div className="absolute left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-[#FFFDF5]/24 bg-[#FFFDF5]/14 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[#FFFDF5]/78 backdrop-blur-xl sm:left-8 sm:top-8">
+                        <CheckCircle2 className="h-4 w-4 text-[#F07020]" strokeWidth={1.5} />
+                        Premium rigid box
+                    </div>
 
-                                    <h3 className="heading-font max-w-3xl text-[1.7rem] font-semibold leading-[1.08] text-[#1E56A0] sm:text-[2rem] lg:text-[2.2rem]">
-                                        Your packaging should raise the product value before the lid even opens.
-                                    </h3>
-
-                                    <p className="mt-3 max-w-[38rem] text-[14px] leading-relaxed text-[#455A64] sm:text-[15px]">
-                                        Corrugated packaging solves shipping. Rigid packaging solves presentation,
-                                        protection, and brand recall at the same time.
-                                    </p>
-
-                                    <div className="relative mt-5 overflow-hidden rounded-[1.65rem] border border-[#1E56A0]/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(247,248,250,0.9))] px-4 py-5 sm:px-5 lg:px-6">
-                                        <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#1E56A0]/12 to-transparent md:block" />
-                                        <div className="absolute inset-x-[20%] top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-[#EF4444]/20 via-[#1E56A0]/10 to-[#10B981]/20 md:block" />
-
-                                        <div className="relative grid gap-6 md:grid-cols-[1fr_auto_1fr] md:items-center">
-                                            <div className="text-left">
-                                                <div className="mb-2 flex items-center gap-2 text-red-500">
-                                                    <XCircle className="h-4 w-4" />
-                                                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] sm:text-[11px]">
-                                                        Ordinary Box
-                                                    </span>
-                                                </div>
-                                                <p className="max-w-sm text-[14px] font-medium leading-relaxed text-[#455A64] sm:text-[15px]">
-                                                    Lightweight, crush-prone, and quickly forgotten once the order is opened.
-                                                </p>
-                                            </div>
-
-                                            <div className="flex items-center justify-center">
-                                                <div className="rounded-full border border-[#1E56A0]/12 bg-white px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#1E56A0] shadow-[0_10px_24px_rgba(30,86,160,0.08)] sm:text-[10px]">
-                                                    vs upgrade
-                                                </div>
-                                            </div>
-
-                                            <div className="text-left md:text-right">
-                                                <div className="mb-2 flex items-center gap-2 text-emerald-600 md:justify-end">
-                                                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] sm:text-[11px]">
-                                                        Rigid Box
-                                                    </span>
-                                                    <CheckCircle2 className="h-4 w-4" />
-                                                </div>
-                                                <p className="ml-auto max-w-sm text-[14px] font-medium leading-relaxed text-[#1E56A0] sm:text-[15px]">
-                                                    Sturdy, tactile, and premium enough to become part of the gift itself.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="relative mt-4 min-h-[15rem] sm:min-h-[18rem] lg:min-h-[14rem]">
-                                    <div className="pointer-events-none absolute inset-x-0 top-4 h-px bg-gradient-to-r from-transparent via-[#1E56A0]/10 to-transparent" />
-                                    <motion.div
-                                        whileHover={{ y: -6, rotate: -1 }}
-                                        transition={{ type: "spring", stiffness: 180, damping: 18 }}
-                                        className="absolute left-0 top-5 w-[34%] overflow-hidden rounded-[1.5rem] border border-white/80 shadow-2xl shadow-[#1E56A0]/15"
-                                    >
-                                        <img
-                                            src={topBottomBox}
-                                            alt="Top and bottom rigid box"
-                                            className="h-32 w-full object-cover sm:h-36 lg:h-40"
-                                        />
-                                    </motion.div>
-
-                                    <motion.div
-                                        whileHover={{ y: -6, rotate: 1.5 }}
-                                        transition={{ type: "spring", stiffness: 180, damping: 18 }}
-                                        className="absolute left-1/2 top-0 z-10 w-[32%] -translate-x-1/2 overflow-hidden rounded-[1.5rem] border border-white/80 shadow-2xl shadow-black/10"
-                                    >
-                                        <img
-                                            src={collapsibleBox}
-                                            alt="Collapsible rigid box"
-                                            className="h-40 w-full object-cover sm:h-44 lg:h-48"
-                                        />
-                                    </motion.div>
-
-                                    <motion.div
-                                        whileHover={{ y: -6, scale: 1.01 }}
-                                        transition={{ type: "spring", stiffness: 180, damping: 18 }}
-                                        className="absolute right-0 top-7 w-[34%] overflow-hidden rounded-[1.5rem] border border-white/80 shadow-[0_24px_60px_rgba(0,0,0,0.14)]"
-                                    >
-                                        <img
-                                            src={shoulderNeckBox}
-                                            alt="Shoulder neck rigid box"
-                                            className="h-32 w-full object-cover sm:h-36 lg:h-40"
-                                        />
-                                    </motion.div>
-                                    </div>
-                                </div>
-                            </div>
+                    <Motion.div
+                        initial={{ opacity: 0, x: -34, rotate: -4 }}
+                        whileInView={{ opacity: 1, x: 0, rotate: -2 }}
+                        whileHover={{ y: -8, rotate: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute left-5 top-[7rem] z-10 w-[min(24rem,calc(100%-2.5rem))] overflow-hidden rounded-[1.1rem] border border-[#FFFDF5]/28 bg-[#FFFDF5]/74 shadow-[0_28px_80px_rgba(29,29,27,0.22)] backdrop-blur-xl sm:left-8 lg:top-[8rem]"
+                    >
+                        <div className="relative aspect-[4/3] overflow-hidden">
+                            <img src={before} alt="Ordinary cardboard box" className="h-full w-full object-cover pp-before-drift" />
+                            <div className="absolute inset-0 bg-[#FFFDF5]/28" />
+                            <div className="absolute inset-0 pp-ordinary-scan opacity-35" />
                         </div>
-                    </FadeIn>
+                        <div className="flex items-center justify-between border-t border-[#1D1D1B]/10 px-4 py-3 text-[#1D1D1B]/62">
+                            <span className="flex items-center gap-2 text-xs uppercase tracking-[0.18em]">
+                                <XCircle className="h-4 w-4" strokeWidth={1.5} />
+                                Ordinary box
+                            </span>
+                            <span className="text-sm line-through decoration-[#F07020]/70">Forgotten fast</span>
+                        </div>
+                    </Motion.div>
 
-                    <div className="grid gap-6 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
-                        {differentiators.map((item, index) => (
-                            <FadeIn
-                                key={item.title}
-                                delay={0.3 + index * 0.1}
-                                direction="up"
-                                className="h-full"
-                            >
-                                <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] border border-[#1E56A0]/10 bg-[#FCFCFC]/90 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(30,86,160,0.10)] sm:p-7">
-                                    <div className="absolute right-0 top-0 h-28 w-28 translate-x-1/3 -translate-y-1/3 rounded-full bg-[#1E56A0]/6 blur-2xl transition-transform duration-500 group-hover:scale-125" />
-                                    <div className="relative z-10">
-                                        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#1E56A0]/12 bg-white text-[#1E56A0] shadow-sm">
-                                            <item.icon className="h-5 w-5" />
-                                        </div>
-                                        <h3 className="text-xl font-semibold text-[#1E56A0]">{item.title}</h3>
-                                        <p className="mt-3 text-sm leading-relaxed text-[#455A64] sm:text-[15px]">
-                                            {item.desc}
+                    <div className="relative z-10 flex min-h-[46rem] flex-col justify-end p-5 sm:p-8 lg:min-h-[42rem] lg:p-10">
+                        <div className="ml-auto max-w-[40rem] text-[#FFFDF5]">
+                            <p className="mb-5 text-sm uppercase tracking-[0.22em] text-[#F07020]">
+                                Value shift
+                            </p>
+                            <h3 className="heading-font text-[clamp(3rem,7vw,7.2rem)] font-[200] leading-[0.9] tracking-[-0.045em]">
+                                Same product. Better first impression.
+                            </h3>
+                        </div>
+
+                        <div className="mt-8 grid gap-3 lg:grid-cols-3">
+                            {MOMENTS.map((moment, index) => (
+                                <Motion.div
+                                    key={moment.label}
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ delay: 0.18 + index * 0.08, duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
+                                    className="group/card rounded-[1rem] border border-[#FFFDF5]/22 bg-[#FFFDF5]/13 p-4 text-[#FFFDF5] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:bg-[#FFFDF5]/18 sm:p-5"
+                                >
+                                    <div className="mb-8 flex items-center justify-between">
+                                        <span className="grid h-10 w-10 place-items-center rounded-full border border-[#FFFDF5]/20 bg-[#FFFDF5]/12 text-[#F07020]">
+                                            <moment.icon className="h-5 w-5" strokeWidth={1.45} />
+                                        </span>
+                                        <span className="text-sm text-[#F07020]">0{index + 1}</span>
+                                    </div>
+                                    <h4 className="text-[1.7rem] font-[300] leading-none tracking-[-0.025em]">
+                                        {moment.label}
+                                    </h4>
+                                    <div className="mt-5 border-t border-[#FFFDF5]/18 pt-4">
+                                        <p className="text-sm font-[300] text-[#FFFDF5]/46 line-through decoration-[#F07020]/70">
+                                            {moment.from}
                                         </p>
+                                        <div className="mt-2 flex items-center justify-between text-base font-[300]">
+                                            <span>{moment.to}</span>
+                                            <ArrowRight className="h-4 w-4 text-[#F07020] transition duration-500 group-hover/card:translate-x-1" strokeWidth={1.45} />
+                                        </div>
                                     </div>
-                                </div>
-                            </FadeIn>
-                        ))}
-                    </div>
-                </div>
-
-                <FadeIn delay={0.65} direction="up">
-                    <div className="relative mt-8 overflow-hidden rounded-[2rem] border border-[#1E56A0]/12 bg-[linear-gradient(135deg,#103D77_0%,#1E56A0_42%,#345B84_72%,#56718C_100%)] px-5 py-6 text-white shadow-[0_28px_60px_rgba(30,86,160,0.18)] sm:px-7 sm:py-7 lg:mt-10 lg:px-8">
-                        <div className="pointer-events-none absolute inset-0">
-                            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent_35%,transparent_62%,rgba(255,255,255,0.06)_100%)]" />
-                            <div className="absolute -left-10 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
-                            <div className="absolute right-0 top-0 h-28 w-28 translate-x-1/4 -translate-y-1/4 rounded-full bg-amber-200/20 blur-3xl" />
-                        </div>
-
-                        <div className="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-                            <div className="max-w-2xl">
-                                <p className="text-xs uppercase tracking-[0.2em] text-white/65">Designed To Be Remembered</p>
-                                <p className="mt-2 text-lg font-semibold leading-snug sm:text-xl">
-                                    Strong enough for transit. Refined enough for gifting. Custom enough to feel unmistakably yours.
-                                </p>
-                            </div>
-
-                            <motion.a
-                                href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20upgrade%20my%20brand%20with%20premium%20packaging"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="group relative inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-full bg-white px-8 py-4 text-base font-semibold text-[#1E56A0] transition-all duration-300 hover:border-white/10 hover:shadow-[0_8px_30px_rgba(255,255,255,0.15)]"
-                            >
-                                <span className="absolute top-0 left-1/2 h-3 w-3 -translate-x-1/2 -translate-y-full scale-0 rounded-full bg-[#F2F2F2] opacity-0 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:top-1/2 group-hover:left-1/2 group-hover:h-[calc(100%+64px)] group-hover:w-[calc(100%+64px)] group-hover:-translate-y-1/2 group-hover:scale-100 group-hover:opacity-100 group-hover:rounded-none" />
-                                <span className="relative z-10 flex items-center gap-2 text-[#1E56A0] transition-colors duration-500">
-                                    <span>Start Your Brand Upgrade</span>
-                                    <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
-                                </span>
-                            </motion.a>
+                                </Motion.div>
+                            ))}
                         </div>
                     </div>
-                </FadeIn>
+                </Motion.div>
             </div>
         </section>
     );

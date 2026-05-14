@@ -1,97 +1,189 @@
-import { Gem, Shield, Sparkles, ArrowRight } from "lucide-react";
-import aboutImg from "/about-us.webp";
-import { motion } from "framer-motion";
-import { AnimatedText, FadeIn, ScaleIn } from "./AnimatedText";
-import { PrimaryButton } from "./Button";
+import { ArrowRight, Gem, Layers3, ShieldCheck, Sparkles } from "lucide-react";
+import { motion as Motion } from "framer-motion";
+import aboutImg from "/about-img.png";
+import aboutImg2 from "/about2.png";
+import aboutImg3 from "/about3.png";
+import YuccaButton from "./YuccaButton";
+
+const CAPABILITIES = [
+    {
+        icon: Gem,
+        title: "Premium feel",
+        text: "Textures, paper, inserts, and closures selected to make the first touch feel expensive.",
+    },
+    {
+        icon: Layers3,
+        title: "Built around product",
+        text: "Every structure is shaped around the product, opening moment, and brand story.",
+    },
+    {
+        icon: ShieldCheck,
+        title: "Protective by design",
+        text: "Rigid construction keeps the product presentation sharp from factory to customer.",
+    },
+];
+
+const STATS = [
+    ["Rigid", "box specialists"],
+    ["Custom", "finishes & inserts"],
+    ["Brand", "ready structures"],
+];
 
 function AboutSection() {
     return (
-        <section id="about" className="relative z-10 w-full overflow-hidden">
-            <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-                <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-                    <div>
-                        <FadeIn direction="none">
-                            <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-[#1E56A0]/80">
-                                About Us
-                            </span>
-                        </FadeIn>
-                        
-                        <AnimatedText 
-                            text="We Make Boxes… But Not 'Just Boxes'"
-                            className="heading-font mb-6 text-3xl font-semibold leading-tight text-[#1E56A0] sm:text-4xl lg:text-5xl"
-                        />
-                        
-                        <div className="space-y-5 text-base leading-relaxed text-[#455A64] sm:text-lg">
-                            <FadeIn delay={0.2}>
-                                <p>
-                                    Let's be honest… anyone can make a box.
-                                </p>
-                            </FadeIn>
-                            
-                            <FadeIn delay={0.3}>
-                                <p>
-                                    But making a box that people <span className="font-medium text-[#1E56A0]">don't want to throw away</span>? That's an art.
-                                </p>
-                            </FadeIn>
-                            
-                            <FadeIn delay={0.4}>
-                                <p>
-                                    At Praneel Packaging, we craft rigid boxes that feel premium, look luxurious, and make your product more valuable.
-                                </p>
-                            </FadeIn>
-                        </div>
+        <section id="about" className="relative z-10 overflow-hidden bg-[#FFFDF5] text-[#1D1D1B]">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FFFDF5]/0 via-[#FFFDF5]/84 to-[#FFFDF5]" />
+            <div className="pointer-events-none absolute -left-[12vw] top-[8rem] h-[34rem] w-[52vw] rounded-full bg-[#F07020]/[0.045] blur-3xl" />
+            <div className="pointer-events-none absolute right-[-18vw] top-[4rem] h-[30rem] w-[48vw] rounded-full bg-[#1E56A0]/[0.035] blur-3xl" />
 
-                        <div className="mt-8 space-y-4">
-                            {[
-                                { icon: Gem, title: "Feel Premium", desc: "Luxurious textures that elevate the unboxing experience" },
-                                { icon: Sparkles, title: "Look Luxurious", desc: "Stunning visuals that capture attention instantly" },
-                                { icon: Shield, title: "Add Value", desc: "Make your product look more expensive" }
-                            ].map((item, i) => (
-                                <FadeIn key={i} delay={0.5 + i * 0.1} direction="left">
-                                    <motion.div 
-                                        className="flex items-start gap-4 group cursor-default"
-                                    >
-                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#1E56A0] bg-[#F2F2F2] transition-all duration-300">
-                                            <item.icon className="h-4 w-4 text-[#1E56A0] transition-colors" />
-                                        </div>
-                                        <div>
-                                            <h3 className="mb-1 font-medium text-[#1E56A0]">{item.title}</h3>
-                                            <p className="text-sm text-[#455A64]">{item.desc}</p>
-                                        </div>
-                                    </motion.div>
-                                </FadeIn>
+            <div className="relative mx-auto max-w-[1440px] px-6 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-28 xl:px-14">
+                <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+                    <Motion.div
+                        initial={{ opacity: 0, y: 26 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-120px" }}
+                        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                        className="max-w-3xl"
+                    >
+                        {/* <p className="mb-5 text-sm font-[400] uppercase tracking-[0.22em] text-[#1E56A0]">
+                            About Praneel
+                        </p> */}
+                        <h2 className="heading-font max-w-[10.8ch] text-[clamp(3rem,7.2vw,6.9rem)] font-[200] leading-[0.92] tracking-[-0.03em]">
+                            We make boxes people keep.
+                        </h2>
+                    </Motion.div>
+
+                    <Motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-120px" }}
+                        transition={{ delay: 0.12, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                        className="flex max-w-2xl flex-col justify-end lg:ml-auto"
+                    >
+                        <p className="text-xl font-[300] leading-8 text-[#1D1D1B]/76 sm:text-2xl sm:leading-9">
+                            Anyone can manufacture a box. We engineer the reveal: the grip, the lift, the finish, and the moment your customer decides the product feels worth more.
+                        </p>
+
+                        <div className="mt-8 flex flex-wrap items-center gap-3">
+                            <YuccaButton href="#services" variant="blue">
+                                Explore Boxes
+                            </YuccaButton>
+                            <YuccaButton
+                                href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20discuss%20a%20custom%20rigid%20box%20with%20Praneel%20Packaging"
+                                external
+                                variant="outline"
+                            >
+                                Talk to us
+                            </YuccaButton>
+                        </div>
+                    </Motion.div>
+                </div>
+
+                <div className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-stretch">
+                    <Motion.div
+                        initial={{ opacity: 0, y: 32 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-120px" }}
+                        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                        className="group relative min-h-[28rem] overflow-hidden rounded-[1.35rem] border border-[#1D1D1B]/14 bg-[#F6F0E4]"
+                    >
+                        <img
+                            src={aboutImg}
+                            alt="Premium rigid boxes made by Praneel Packaging"
+                            className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.035]"
+                        />
+                        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,253,245,0.05)_0%,rgba(255,253,245,0.08)_45%,rgba(29,29,27,0.42)_100%)]" />
+
+                        <Motion.div
+                            initial={{ opacity: 0, y: 22, rotate: -2 }}
+                            whileInView={{ opacity: 1, y: 0, rotate: -1 }}
+                            whileHover={{ y: -8, rotate: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.25, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                            className="absolute bottom-5 left-5 right-5 overflow-hidden rounded-[1rem] border border-[#FFFDF5]/35 bg-[#FFFDF5]/82 p-5 shadow-[0_24px_60px_rgba(29,29,27,0.18)] backdrop-blur-xl sm:bottom-6 sm:left-6 sm:right-auto sm:w-[20rem]"
+                        >
+                            <div className="mb-4 flex items-center justify-between">
+                                <Sparkles className="h-5 w-5 text-[#F07020]" strokeWidth={1.5} />
+                                <span className="h-px w-20 bg-[#1D1D1B]/16" />
+                            </div>
+                            <p className="text-2xl font-[300] leading-tight tracking-[-0.025em] text-[#1D1D1B]">
+                                Designed to look valuable before the product is even opened.
+                            </p>
+                        </Motion.div>
+                    </Motion.div>
+
+                    <div className="flex flex-col justify-between gap-8">
+                        <div className="grid grid-cols-3 overflow-hidden rounded-[1.15rem] border border-[#1D1D1B]/14">
+                            {STATS.map(([value, label]) => (
+                                <Motion.div
+                                    key={value}
+                                    initial={{ opacity: 0, y: 18 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                                    className="border-r border-[#1D1D1B]/12 p-4 last:border-r-0 sm:p-5"
+                                >
+                                    <p className="text-[1.55rem] font-[300] leading-none tracking-[-0.03em] text-[#1E56A0] sm:text-[2.1rem]">
+                                        {value}
+                                    </p>
+                                    <p className="mt-2 text-xs font-[300] uppercase leading-4 tracking-[0.12em] text-[#1D1D1B]/58">
+                                        {label}
+                                    </p>
+                                </Motion.div>
                             ))}
                         </div>
 
-                        <FadeIn delay={0.8} direction="up" className="mt-10 border-l-2 border-[#455A64] pl-6">
-                            <p className="text-base leading-relaxed text-[#455A64] italic">
-                                Because rigid boxes aren't just packaging — they're your product's first impression, bodyguard, and hype man all in one.
-                            </p>
-                        </FadeIn>
-
-                        <FadeIn delay={0.9} className="mt-8">
-                            <PrimaryButton 
-                                href="#services"
-                                icon={ArrowRight}
-                                className="px-8 py-4 text-base"
-                            >
-                                Explore Our Services
-                            </PrimaryButton>
-                        </FadeIn>
-                    </div>
-
-                    <ScaleIn delay={0.4} className="relative hidden lg:block">
-                        <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-amber-500/20 to-purple-500/20 blur-3xl" />
-                        <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 blur-3xl" />
-                        
-                        <div className="relative overflow-hidden rounded-3xl border border-[#455A64]/10">
-                            <img
-                                src={aboutImg}
-                                alt="About Praneel Packaging"
-                                className="w-full h-full object-cover"
-                            />
+                        <div className="overflow-hidden rounded-[1.15rem] border border-[#1D1D1B]/14 bg-[#FFFDF5]/70">
+                            {CAPABILITIES.map((item, index) => (
+                                <Motion.div
+                                    key={item.title}
+                                    initial={{ opacity: 0, x: 24 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true, margin: "-90px" }}
+                                    transition={{ delay: index * 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                                    whileHover={{ backgroundColor: "rgba(245,245,245,0.78)" }}
+                                    className="group cursor-pointer border-b border-[#1D1D1B]/12 bg-transparent p-5 transition-colors duration-500 last:border-b-0 hover:bg-[#F5F5F5]/80 sm:p-6"
+                                >
+                                    <div className="flex items-start gap-4">
+                                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#1D1D1B]/14 bg-[#FFFDF5] text-[#1E56A0] transition duration-500 group-hover:border-[#1E56A0]/35 group-hover:bg-[#1E56A0] group-hover:text-[#FFFDF5]">
+                                            <item.icon className="h-5 w-5" strokeWidth={1.45} />
+                                        </span>
+                                        <div className="min-w-0 flex-1">
+                                            <div className="flex items-center justify-between gap-4">
+                                                <h3 className="text-[1.45rem] font-[300] leading-none tracking-[-0.02em] text-[#1D1D1B] sm:text-[1.9rem]">
+                                                    {item.title}
+                                                </h3>
+                                                <ArrowRight className="h-6 w-6 shrink-0 text-[#1E56A0] transition duration-500 group-hover:translate-x-1" strokeWidth={1.45} />
+                                            </div>
+                                            <p className="mt-3 max-w-xl text-sm font-[300] leading-6 text-[#1D1D1B]/62 sm:text-base">
+                                                {item.text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Motion.div>
+                            ))}
                         </div>
-                    </ScaleIn>
+
+                        <div className="grid grid-cols-2 gap-4">
+                            {[aboutImg2, aboutImg3].map((src, index) => (
+                                <Motion.div
+                                    key={src}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.18 + index * 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                                    whileHover={{ y: -6 }}
+                                    className="aspect-[4/3] overflow-hidden rounded-[1rem] border border-[#1D1D1B]/12 bg-[#F6F0E4]"
+                                >
+                                    <img
+                                        src={src}
+                                        alt={index === 0 ? "Drawer rigid box" : "Magnetic rigid box"}
+                                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                                    />
+                                </Motion.div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
