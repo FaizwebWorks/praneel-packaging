@@ -35,7 +35,7 @@ function HeroSection() {
                 <img
                     src="/hero-desktop.png"
                     alt="Premium Praneel rigid packaging boxes"
-                    className="h-full w-full object-cover object-center max-[767px]:object-[50%_61%] md:gsap-parallax"
+                    className="gsap-image-parallax h-full w-full object-cover object-center max-[767px]:object-[50%_61%]"
                 />
             </picture>
 
@@ -106,11 +106,11 @@ function HeroSection() {
 
                             <div className="flex h-full flex-col justify-between gap-4 max-[767px]:flex-row max-[767px]:items-center max-[767px]:gap-3">
                                 <div>
-                                    <h3 className="relative h-8 overflow-hidden text-[1.28rem] font-[300] leading-none tracking-[-0.015em] text-[#1D1D1B] max-[767px]:h-7 max-[767px]:text-[1.35rem] md:text-[1.75rem]">
-                                        <span className="block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
+                                    <h3 className="relative h-9 overflow-hidden text-[1.28rem] font-[300] leading-[1.18] tracking-[-0.015em] text-[#1D1D1B] max-[767px]:h-9 max-[767px]:text-[1.35rem] md:h-11 md:text-[1.75rem]">
+                                        <span className="block pb-[0.5] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
                                             {solution.title}
                                         </span>
-                                        <span className="absolute left-0 top-full block text-[#1E56A0] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
+                                        <span className="absolute left-0 top-full block pb-1 text-[#1E56A0] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
                                             {solution.title}
                                         </span>
                                     </h3>

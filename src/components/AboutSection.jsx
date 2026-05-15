@@ -90,14 +90,14 @@ function AboutSection() {
                         <img
                             src={aboutImg}
                             alt="Premium rigid boxes made by Praneel Packaging"
-                            className="gsap-parallax absolute inset-0 h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.035]"
+                            className="gsap-image-parallax absolute inset-0 h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.035]"
                         />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,253,245,0.05)_0%,rgba(255,253,245,0.08)_45%,rgba(29,29,27,0.42)_100%)]" />
 
                         <Motion.div
-                            initial={{ opacity: 0, y: 22, rotate: -2 }}
-                            whileInView={{ opacity: 1, y: 0, rotate: -1 }}
-                            whileHover={{ y: -8, rotate: 0 }}
+                            initial={{ opacity: 0, y: 22,  }}
+                            whileInView={{ opacity: 1, y: 0,  }}
+                            whileHover={{ y: -8,  }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.25, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
                             className="absolute bottom-5 left-5 right-5 overflow-hidden rounded-[1rem] border border-[#FFFDF5]/35 bg-[#FFFDF5]/82 p-5 shadow-[0_24px_60px_rgba(29,29,27,0.18)] backdrop-blur-xl sm:bottom-6 sm:left-6 sm:right-auto sm:w-[20rem]"
@@ -186,7 +186,7 @@ function AboutSection() {
                                     <img
                                         src={src}
                                         alt={index === 0 ? "Drawer rigid box" : "Magnetic rigid box"}
-                                        className="gsap-parallax h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                                        className="gsap-image-parallax h-full w-full object-cover transition duration-700 group-hover:scale-105"
                                     />
                                 </Motion.div>
                             ))}

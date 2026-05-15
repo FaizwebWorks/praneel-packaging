@@ -44,19 +44,19 @@ function ScrollEffects() {
                 );
             });
 
-            gsap.utils.toArray(".gsap-parallax").forEach((media) => {
+            gsap.utils.toArray(".gsap-image-parallax").forEach((media) => {
                 gsap.fromTo(
                     media,
-                    { yPercent: -5, scale: 1.05 },
+                    { yPercent: -4, scale: 1.04 },
                     {
-                        yPercent: 5,
-                        scale: 1.08,
+                        yPercent: 4,
+                        scale: 1.07,
                         ease: "none",
                         scrollTrigger: {
-                            trigger: media.closest("section") || media,
+                            trigger: media.parentElement || media,
                             start: "top bottom",
                             end: "bottom top",
-                            scrub: 0.85,
+                            scrub: 1.50,
                         },
                     }
                 );
