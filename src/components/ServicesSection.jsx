@@ -13,6 +13,7 @@ const services = [
         title: "Magnetic Rigid Box",
         meta: "Quote on request",
         note: "Hidden closure, premium reveal",
+        detail: "Best for gifting",
         img: magneticBox,
         badge: "Popular",
     },
@@ -21,6 +22,7 @@ const services = [
         title: "Drawer Rigid Box",
         meta: "Custom size",
         note: "Slide-out tray, insert ready",
+        detail: "Best for kits",
         img: drawerBox,
     },
     {
@@ -28,6 +30,7 @@ const services = [
         title: "Top & Bottom Box",
         meta: "Custom finish",
         note: "Classic lid-and-base structure",
+        detail: "Best for retail",
         img: topBottomBox,
     },
     {
@@ -35,6 +38,7 @@ const services = [
         title: "Collapsible Box",
         meta: "Space saving",
         note: "Flat-pack luxury structure",
+        detail: "Best for shipping",
         img: collapsibleBox,
     },
     {
@@ -42,6 +46,7 @@ const services = [
         title: "Shoulder Neck Box",
         meta: "Premium reveal",
         note: "Layered depth for gifting",
+        detail: "Best for launches",
         img: shoulderNeckBox,
     },
 ];
@@ -83,7 +88,7 @@ function ServicesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-90px" }}
                             transition={{ ...cardTransition, delay: index * 0.045 }}
-                            className="gsap-card group min-w-0"
+                            className="gsap-card group min-w-0 transition duration-500 hover:-translate-y-1"
                         >
                             <a
                                 href={`https://wa.me/919023827460?text=Hi,%20I%20want%20details%20for%20${encodeURIComponent(service.title)}`}
@@ -91,11 +96,15 @@ function ServicesSection() {
                                 rel="noopener noreferrer"
                                 className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E56A0]/45 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDF5]"
                             >
-                                <div className="relative aspect-square overflow-hidden rounded-[0.55rem] bg-[#F4EFE6] shadow-[inset_0_0_0_1px_rgba(29,29,27,0.035)]">
+                                <div className="relative aspect-square overflow-hidden rounded-[0.55rem] bg-[#F4EFE6] shadow-[inset_0_0_0_1px_rgba(29,29,27,0.035)] transition duration-500 group-hover:bg-[#F1E9DC] group-hover:shadow-[0_18px_45px_rgba(29,29,27,0.08),inset_0_0_0_1px_rgba(29,29,27,0.055)]">
+                                    <div className="absolute left-3 top-3 z-10 text-[0.62rem] font-[500] uppercase tracking-[0.16em] text-[#1D1D1B]/34 transition duration-500 group-hover:text-[#1E56A0]/70 sm:left-4 sm:top-4">
+                                        {String(index + 1).padStart(2, "0")}
+                                    </div>
+
                                     <img
                                         src={service.img}
                                         alt={service.title}
-                                        className="h-full w-full object-contain p-4 transition duration-700 ease-out group-hover:scale-[1.045] sm:p-6"
+                                        className="h-full w-full object-contain p-4 transition duration-700 ease-out group-hover:-translate-y-1.5 group-hover:scale-[1.045] sm:p-6"
                                     />
 
                                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,253,245,0)_0%,rgba(255,253,245,0.18)_74%,rgba(29,29,27,0.045)_100%)] opacity-80" />
@@ -105,19 +114,24 @@ function ServicesSection() {
                                             {service.badge}
                                         </div>
                                     )}
-
-                                    <div className="absolute bottom-3 right-3 grid h-8 w-8 translate-y-2 place-items-center rounded-full border border-[#1D1D1B]/10 bg-[#FFFDF5]/82 text-[#1E56A0] opacity-0 shadow-[0_12px_30px_rgba(29,29,27,0.12)] backdrop-blur-md transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:h-9 sm:w-9">
-                                        <ArrowRight className="h-4 w-4 -rotate-45" strokeWidth={1.55} />
-                                    </div>
                                 </div>
 
                                 <div className="pt-3 sm:pt-4">
-                                    <h3 className="text-[1.05rem] font-[300] leading-[1.15] tracking-[-0.02em] text-[#1D1D1B] transition duration-500 group-hover:text-[#1E56A0] sm:text-[1.28rem] lg:text-[1.18rem] xl:text-[1.25rem]">
-                                        {service.title}
-                                    </h3>
+                                    <div className="flex items-start justify-between gap-2">
+                                        <h3 className="text-[1.05rem] font-[300] leading-[1.15] tracking-[-0.02em] text-[#1D1D1B] transition duration-500 group-hover:text-[#1E56A0] sm:text-[1.28rem] lg:text-[1.18rem] xl:text-[1.25rem]">
+                                            {service.title}
+                                        </h3>
+                                        <ArrowRight className="mt-1 hidden h-4 w-4 flex-none -rotate-45 text-[#F07020] opacity-0 transition duration-500 group-hover:translate-x-0.5 group-hover:opacity-100 sm:block" strokeWidth={1.45} />
+                                    </div>
                                     <p className="mt-2 text-[0.92rem] leading-snug text-[#1D1D1B]/78 sm:text-base">
                                         <span className="font-[500] text-[#1D1D1B]">{service.meta}</span>
                                         <span className="hidden text-[#1D1D1B]/52 sm:inline"> / {service.note}</span>
+                                    </p>
+                                    <div className="mt-3 hidden h-px overflow-hidden bg-[#1D1D1B]/10 sm:block">
+                                        <span className="block h-full w-full origin-left scale-x-0 bg-[#F07020]/70 transition duration-700 group-hover:scale-x-100" />
+                                    </div>
+                                    <p className="mt-2 hidden translate-y-1 text-xs font-[300] uppercase tracking-[0.16em] text-[#1D1D1B]/42 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:block">
+                                        {service.detail}
                                     </p>
                                 </div>
                             </a>
