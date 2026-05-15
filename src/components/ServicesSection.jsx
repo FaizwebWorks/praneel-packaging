@@ -96,7 +96,7 @@ function ServicesSection() {
                                 rel="noopener noreferrer"
                                 className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E56A0]/45 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDF5]"
                             >
-                                <div className="relative aspect-square overflow-hidden rounded-[0.55rem] bg-[#F4EFE6] shadow-[inset_0_0_0_1px_rgba(29,29,27,0.035)] transition duration-500 group-hover:bg-[#F1E9DC] group-hover:shadow-[0_18px_45px_rgba(29,29,27,0.08),inset_0_0_0_1px_rgba(29,29,27,0.055)]">
+                                <div className="relative aspect-square overflow-hidden rounded-[0.55rem] bg-[#F1E9DC]  transition duration-500 ">
                                     <div className="absolute left-3 top-3 z-10 text-[0.62rem] font-[500] uppercase tracking-[0.16em] text-[#1D1D1B]/34 transition duration-500 group-hover:text-[#1E56A0]/70 sm:left-4 sm:top-4">
                                         {String(index + 1).padStart(2, "0")}
                                     </div>
