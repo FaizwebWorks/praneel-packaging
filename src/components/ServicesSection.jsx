@@ -1,221 +1,153 @@
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import magneticBox from "/magnetic-box.webp";
-import drawerBox from "/drawer-box.webp";
-import topBottomBox from "/top-bottom-box.webp";
-import collapsibleBox from "/collapsible-box.webp";
-import shoulderNeckBox from "/shoulder-neck-box.webp";
-import { PrimaryButton } from "./Button";
-import { motion } from "framer-motion";
-import { AnimatedText, FadeIn } from "./AnimatedText";
-import { useState, useRef } from "react";
+import { ArrowRight, Box, Sparkles } from "lucide-react";
+import { motion as Motion } from "framer-motion";
+import collapsibleBox from "/collapsible-box.png";
+import drawerBox from "/drawer-box.png";
+import magneticBox from "/magnetic-box.png";
+import shoulderNeckBox from "/shoulder-neck-box.png";
+import topBottomBox from "/top-bottom-box.png";
+import YuccaButton from "./YuccaButton";
 
 const services = [
     {
         id: "magnetic",
-        title: "Magnetic Box",
-        tagline: "The Premium Snap",
-        desc: "Experience the satisfying 'click' that defines luxury packaging. Engineered with precision magnets for perfect alignment and repeated use.",
+        title: "Magnetic Rigid Box",
+        meta: "Quote on request",
+        note: "Hidden closure, premium reveal",
         img: magneticBox,
-        features: ["Hidden Magnets", "Seamless Finish", "Reusable"]
+        badge: "Popular",
     },
     {
         id: "drawer",
-        title: "Drawer Box",
-        tagline: "Smooth Discovery",
-        desc: "A sliding experience that feels effortless and premium. Ideal for showcasing jewelry, electronics, and luxury accessories.",
+        title: "Drawer Rigid Box",
+        meta: "Custom size",
+        note: "Slide-out tray, insert ready",
         img: drawerBox,
-        features: ["Ribbon Pull", "Smooth Sliding", "Rigid Structure"]
     },
     {
         id: "top-bottom",
         title: "Top & Bottom Box",
-        tagline: "Classic Elegance",
-        desc: "A timeless packaging style with a perfect lift-off lid. Built for durability and designed to elevate premium products.",
+        meta: "Custom finish",
+        note: "Classic lid-and-base structure",
         img: topBottomBox,
-        features: ["Perfect Fit Lid", "Sturdy Build", "Premium Finish"]
     },
     {
         id: "collapsible",
         title: "Collapsible Box",
-        tagline: "Smart Luxury",
-        desc: "Space-saving design meets premium feel. Easy to assemble while maintaining the strength and elegance of rigid packaging.",
+        meta: "Space saving",
+        note: "Flat-pack luxury structure",
         img: collapsibleBox,
-        features: ["Foldable Design", "Magnetic Assembly", "Space Efficient"]
     },
     {
         id: "shoulder-neck",
         title: "Shoulder Neck Box",
-        tagline: "Layered Luxury",
-        desc: "A distinctive structure with an elevated inner neck that adds depth and sophistication to your packaging presentation.",
+        meta: "Premium reveal",
+        note: "Layered depth for gifting",
         img: shoulderNeckBox,
-        features: ["Elevated Neck", "Premium Structure", "Luxury Appeal"]
-    }
+    },
 ];
 
+const cardTransition = {
+    duration: 0.68,
+    ease: [0.22, 1, 0.36, 1],
+};
+
 function ServicesSection() {
-    const [activeIndex, setActiveIndex] = useState(-1);
-    const [scrollIndex, setScrollIndex] = useState(0);
-    const scrollRef = useRef(null);
-
-    const scrollTo = (index) => {
-        const container = scrollRef.current;
-        if (!container) return;
-
-        // 👉 Desktop behavior
-        if (window.innerWidth >= 1024) {
-            if (index > scrollIndex) {
-                // RIGHT click → scroll to END
-                container.scrollTo({
-                    left: container.scrollWidth,
-                    behavior: "smooth",
-                });
-                setScrollIndex(services.length - 1);
-            } else {
-                // LEFT click → scroll to START
-                container.scrollTo({
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setScrollIndex(0);
-            }
-            return;
-        }
-
-        // 👉 Mobile behavior (same as before)
-        setScrollIndex(index);
-
-        const child = container.children[index];
-        if (child) {
-            child.scrollIntoView({
-                behavior: "smooth",
-                inline: "center",
-                block: "nearest",
-            });
-        }
-    };
-
-    const handleScroll = () => {
-        const container = scrollRef.current;
-        if (!container) return;
-
-        const children = Array.from(container.children);
-        const containerCenter = container.scrollLeft + container.offsetWidth / 2;
-
-        let closestIndex = 0;
-        let closestDistance = Infinity;
-
-        children.forEach((child, i) => {
-            const childCenter = child.offsetLeft + child.offsetWidth / 2;
-            const distance = Math.abs(containerCenter - childCenter);
-
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestIndex = i;
-            }
-        });
-
-        setScrollIndex(closestIndex);
-    };
-
     return (
-        <section id="services" className="gsap-section relative z-10 w-full overflow-hidden py-16 sm:py-20 lg:py-24">
-            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 lg:mb-12 gap-4 lg:gap-6">
-                    <div className="max-w-2xl">
-                        <FadeIn direction="none">
-                            <span className="mb-3 lg:mb-4 inline-block text-xs uppercase tracking-[0.2em] text-[#1E56A0]/70">
-                                Engineering Luxury
-                            </span>
-                        </FadeIn>
-                        <AnimatedText
-                            text="Packaging Styles"
-                            className="gsap-heading heading-font text-3xl lg:text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl"
-                        />
+        <section id="services" className="gsap-section relative z-10 overflow-hidden bg-[#FFFDF5] py-14 text-[#1D1D1B] sm:py-20 lg:py-24">
+            <div className="pointer-events-none absolute -left-[14vw] top-16 h-[24rem] w-[42vw] rounded-full bg-[#F07020]/[0.028] blur-3xl" />
+            <div className="pointer-events-none absolute -right-[16vw] bottom-10 h-[28rem] w-[46vw] rounded-full bg-[#1E56A0]/[0.035] blur-3xl" />
+
+            <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-14">
+                <div className="mb-8 grid gap-5 sm:mb-10 lg:mb-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+                    <div>
+                        {/* <p className="mb-3 text-xs font-[500] uppercase tracking-[0.28em] text-[#1E56A0] sm:text-sm">
+                            Packaging styles
+                        </p> */}
+                        <h2 className="gsap-heading heading-font max-w-[11ch] text-[clamp(2.75rem,7vw,6.6rem)] font-[200] leading-[0.92] tracking-[-0.035em]">
+                            Choose your box.
+                        </h2>
                     </div>
 
-                    <div className="flex items-center gap-2 lg:gap-4">
-                        <button
-                            onClick={() => scrollTo(Math.max(0, scrollIndex - 1))}
-                            className="p-2 lg:p-3 group rounded-full border border-[#1E56A0]/30 bg-[#1E56A0]/5 text-[#1E56A0] hover:bg-[#1E56A0] hover:text-white transition-all duration-300"
-                        >
-                            <ChevronLeft className="h-5 w-5 lg:h-6 lg:w-6 group-hover:scale-[1.2] transition-all duration-300 ease-in" />
-                        </button>
-                        <button
-                            onClick={() => scrollTo(Math.min(services.length - 1, scrollIndex + 1))}
-                            className="p-2 lg:p-3 group rounded-full border border-[#1E56A0]/30 bg-[#1E56A0]/5 text-[#1E56A0] hover:bg-[#1E56A0] hover:text-white transition-all duration-300"
-                        >
-                            <ChevronRight className="h-5 w-5 lg:h-6 lg:w-6 group-hover:scale-[1.2] transition-all duration-300 ease-in" />
-                        </button>
+                    <div className="max-w-2xl lg:ml-auto">
+                        <p className="text-base font-[300] leading-7 text-[#1D1D1B]/68 sm:text-xl sm:leading-8">
+                            Clean rigid structures for gifting, cosmetics, jewelry, electronics, brand launches, and premium retail moments.
+                        </p>
                     </div>
                 </div>
 
-                <div
-                    ref={scrollRef}
-                    onScroll={handleScroll}
-                    className="flex gap-4 lg:gap-6 overflow-x-auto pb-10 lg:pb-12 no-scrollbar snap-x snap-mandatory"
-                >
-                    {services.map((service, i) => (
-                        <div
+                <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-5 sm:gap-y-10 lg:grid-cols-4 xl:grid-cols-5">
+                    {services.map((service, index) => (
+                        <Motion.article
                             key={service.id}
-                            className="gsap-card min-w-[75%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[30%] xl:min-w-[24%] snap-start lg:snap-center"
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-90px" }}
+                            transition={{ ...cardTransition, delay: index * 0.045 }}
+                            className="gsap-card group min-w-0"
                         >
-                            <motion.div
-                                onMouseEnter={() => setActiveIndex(i)}
-                                onMouseLeave={() => setActiveIndex(-1)}
-                                className="group relative h-[380px] sm:h-[420px] overflow-hidden rounded-2xl lg:rounded-3xl bg-white border border-gray-100 shadow-lg shadow-gray-100/30 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-500"
+                            <a
+                                href={`https://wa.me/919023827460?text=Hi,%20I%20want%20details%20for%20${encodeURIComponent(service.title)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E56A0]/45 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDF5]"
                             >
-                                <div className="absolute top-0 left-0 right-0 h-[45%] z-0 overflow-hidden rounded-t-2xl lg:rounded-t-3xl">
+                                <div className="relative aspect-square overflow-hidden rounded-[0.55rem] bg-[#F4EFE6] shadow-[inset_0_0_0_1px_rgba(29,29,27,0.035)]">
                                     <img
                                         src={service.img}
                                         alt={service.title}
-                                        className="gsap-parallax w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        className="h-full w-full object-contain p-4 transition duration-700 ease-out group-hover:scale-[1.045] sm:p-6"
                                     />
-                                </div>
 
-                                <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-white z-10 rounded-b-2xl lg:rounded-b-3xl" />
+                                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,253,245,0)_0%,rgba(255,253,245,0.18)_74%,rgba(29,29,27,0.045)_100%)] opacity-80" />
 
-                                <div className="absolute inset-0 z-20 p-4 lg:p-6 flex flex-col justify-end h-full">
-                                    <div className="space-y-2">
-                                        <span
-                                            className="block text-xs uppercase tracking-widest font-medium text-[#1E56A0]/70"
-                                        >
-                                            {service.tagline}
-                                        </span>
-                                        <h3 className="text-lg lg:text-xl font-bold text-[#1E56A0]">{service.title}</h3>
-
-                                        <p className="text-[#455A64] text-xs lg:text-sm leading-relaxed line-clamp-2">
-                                            {service.desc}
-                                        </p>
-
-                                        <div className="flex flex-wrap gap-1.5 lg:gap-2 pt-1">
-                                            {service.features.map(f => (
-                                                <span key={f} className="text-[9px] lg:text-[10px] px-2 lg:px-2.5 py-1 rounded-full bg-gray-50 border border-gray-100 text-[#455A64]">
-                                                    {f}
-                                                </span>
-                                            ))}
+                                    {service.badge && (
+                                        <div className="absolute right-0 top-5 flex h-[6.8rem] w-8 items-center justify-center rounded-l-[0.35rem] bg-[#B7653B] text-[0.64rem] font-[500] uppercase tracking-[0.12em] text-[#FFFDF5] [writing-mode:vertical-rl] sm:h-[7.4rem] sm:w-9 sm:text-xs">
+                                            {service.badge}
                                         </div>
+                                    )}
+
+                                    <div className="absolute bottom-3 right-3 grid h-8 w-8 translate-y-2 place-items-center rounded-full border border-[#1D1D1B]/10 bg-[#FFFDF5]/82 text-[#1E56A0] opacity-0 shadow-[0_12px_30px_rgba(29,29,27,0.12)] backdrop-blur-md transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:h-9 sm:w-9">
+                                        <ArrowRight className="h-4 w-4 -rotate-45" strokeWidth={1.55} />
                                     </div>
                                 </div>
-                            </motion.div>
-                        </div>
+
+                                <div className="pt-3 sm:pt-4">
+                                    <h3 className="text-[1.05rem] font-[300] leading-[1.15] tracking-[-0.02em] text-[#1D1D1B] transition duration-500 group-hover:text-[#1E56A0] sm:text-[1.28rem] lg:text-[1.18rem] xl:text-[1.25rem]">
+                                        {service.title}
+                                    </h3>
+                                    <p className="mt-2 text-[0.92rem] leading-snug text-[#1D1D1B]/78 sm:text-base">
+                                        <span className="font-[500] text-[#1D1D1B]">{service.meta}</span>
+                                        <span className="hidden text-[#1D1D1B]/52 sm:inline"> / {service.note}</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </Motion.article>
                     ))}
                 </div>
 
-                <div className="mt-8 flex lg:hidden lg:mt-12 justify-center items-center gap-2 lg:gap-3">
-                    {services.map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => scrollTo(i)}
-                            className={`h-1.5 lg:h-2 transition-all duration-300 rounded-full ${scrollIndex === i ? "w-6 lg:w-8 bg-[#1E56A0]" : "w-1.5 lg:w-2 bg-[#1E56A0]/20 hover:bg-[#1E56A0]"
-                                }`}
-                        />
-                    ))}
+                <div className="mt-10 flex flex-col gap-4 border-t border-[#1D1D1B]/10 pt-6 sm:mt-12 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex max-w-2xl items-start gap-3 text-sm font-[300] leading-6 text-[#1D1D1B]/62 sm:text-base">
+                        <span className="mt-0.5 grid h-8 w-8 flex-none place-items-center rounded-full border border-[#1D1D1B]/10 bg-[#F4EFE6] text-[#F07020]">
+                            <Sparkles className="h-4 w-4" strokeWidth={1.5} />
+                        </span>
+                        <span>
+                            Need a different structure? We can build custom inserts, papers, foils, ribbons, closures, and finishes around your product.
+                        </span>
+                    </div>
+
+                    <YuccaButton
+                        href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20build%20a%20custom%20packaging%20design"
+                        external
+                        variant="blue"
+                        className="w-fit"
+                    >
+                        Build Custom Design
+                    </YuccaButton>
                 </div>
 
-                <div className="gsap-rise mt-12 lg:mt-16 text-center">
-                    <PrimaryButton icon={ArrowRight} href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20build%20a%20custom%20packaging%20design" className="px-10 lg:px-12 py-4 lg:py-5 text-base lg:text-lg rounded-2xl">
-                        Build Your Custom Design
-                    </PrimaryButton>
+                <div className="mt-7 flex items-center gap-2 text-xs font-[300] uppercase tracking-[0.18em] text-[#1D1D1B]/42">
+                    <Box className="h-4 w-4 text-[#1E56A0]/70" strokeWidth={1.5} />
+                    Made for premium rigid packaging
                 </div>
             </div>
         </section>
