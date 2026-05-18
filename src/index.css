@@ -234,6 +234,19 @@ html.lenis, html.lenis body {
   animation: pp-ordinary-scan 6s linear infinite;
 }
 
+.pp-assembly-float {
+  animation: pp-assembly-float 5.2s ease-in-out infinite alternate;
+}
+
+.pp-assembly-delay {
+  animation-delay: -1.4s;
+}
+
+.pp-assembly-slow {
+  animation-duration: 6.4s;
+  animation-delay: -2.2s;
+}
+
 @keyframes pp-compare-wipe {
   0% {
     transform: translateX(8%);
@@ -287,12 +300,22 @@ html.lenis, html.lenis body {
   }
 }
 
+@keyframes pp-assembly-float {
+  from {
+    filter: drop-shadow(0 16px 26px rgba(29, 29, 27, 0.10));
+  }
+  to {
+    filter: drop-shadow(0 22px 34px rgba(29, 29, 27, 0.16));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pp-compare-wipe,
   .pp-luxury-shimmer,
   .pp-before-drift,
   .pp-premium-drift,
-  .pp-ordinary-scan {
+  .pp-ordinary-scan,
+  .pp-assembly-float {
     animation: none;
   }
 }

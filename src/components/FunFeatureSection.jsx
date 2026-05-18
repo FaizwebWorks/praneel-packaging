@@ -1,172 +1,147 @@
-import { AlertTriangle, TrendingUp, Zap, Archive, Gem, Eye } from "lucide-react";
-import { PrimaryButton } from "./Button";
-import { motion } from "framer-motion";
-import { AnimatedText, FadeIn } from "./AnimatedText";
-import { useState } from "react";
+import { Archive, Camera, Gem, Repeat2 } from "lucide-react";
+import { motion as Motion } from "framer-motion";
+import YuccaButton from "./YuccaButton";
 
 const effects = [
     {
-        id: 1,
+        id: "01",
         IconComponent: Archive,
-        title: "Eternal Storage",
-        desc: "Customers physically cannot throw the box away. It becomes a permanent part of their home decor.",
-        stat: "94%",
-        statLabel: "Retention Rate",
-        color: "#3b82f6"
+        title: "It stays in the room",
+        desc: "A rigid box becomes storage, display, and a small reminder of the brand long after delivery.",
+        stat: "Keep",
+        metric: "after use",
     },
     {
-        id: 2,
-        IconComponent: Zap,
-        title: "The Viral Effect",
-        desc: "Unboxing videos increase by 300%. Your brand reaches people you didn't even know existed.",
-        stat: "+320%",
-        statLabel: "Social Reach",
-        color: "#3b82f6"
+        id: "02",
+        IconComponent: Camera,
+        title: "It photographs better",
+        desc: "Cleaner edges, slower reveals, and richer textures make the product feel more premium on camera.",
+        stat: "Share",
+        metric: "the reveal",
     },
     {
-        id: 3,
+        id: "03",
         IconComponent: Gem,
-        title: "Luxury Perception",
-        desc: "Your product feels 10x more expensive the second the lid is lifted. Instant price-tag justification.",
-        stat: "10x",
-        statLabel: "Value Boost",
-        color: "#3b82f6"
+        title: "It raises perceived value",
+        desc: "The first touch makes the same product feel more considered, more giftable, and easier to price up.",
+        stat: "Lift",
+        metric: "brand value",
     },
     {
-        id: 4,
-        IconComponent: Eye,
-        title: "Competitor Envy",
-        desc: "Your competitors will spend hours studying your packaging in their boardrooms. They'll be very stressed.",
-        stat: "High",
-        statLabel: "Stress Levels",
-        color: "#3b82f6"
-    }
+        id: "04",
+        IconComponent: Repeat2,
+        title: "It keeps working",
+        desc: "Every time the box is opened again, the brand gets another quiet impression without buying attention.",
+        stat: "Repeat",
+        metric: "brand recall",
+    },
 ];
 
+const reveal = {
+    hidden: { opacity: 0, y: 24 },
+    visible: (index = 0) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: index * 0.06,
+            duration: 0.68,
+            ease: [0.22, 1, 0.36, 1],
+        },
+    }),
+};
+
 function FunFeatureSection() {
-    const [hoveredId, setHoveredId] = useState(null);
-
     return (
-        <motion.section
-            className="gsap-section relative z-10 w-full overflow-hidden py-20 sm:py-24 lg:py-28"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-        >
-            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col items-center text-center mb-20">
-                    <div className="mb-6 rounded-full p-4 border border-[#1E56A0]/30 bg-[#1E56A0]/5">
-                        <AlertTriangle className="h-8 w-8 text-[#1E56A0]" />
-                    </div>
+        <section className="gsap-section relative z-10 overflow-hidden bg-[#FFFDF5] py-14 text-[#1D1D1B] sm:py-20 lg:py-24">
+            <div className="pointer-events-none absolute -left-[18vw] top-20 h-[28rem] w-[46vw] rounded-full bg-[#1E56A0]/[0.03] blur-3xl" />
+            <div className="pointer-events-none absolute -right-[16vw] bottom-10 h-[26rem] w-[42vw] rounded-full bg-[#F07020]/[0.028] blur-3xl" />
 
-                    <FadeIn direction="none">
-                        <span className="mb-4 inline-block text-xs uppercase tracking-[0.2em] text-[#1E56A0]/70 font-bold">
-                            Safety Warning: High Impact Packaging
-                        </span>
-                    </FadeIn>
-                    <AnimatedText
-                        text="Documented Side Effects"
-                        className="gsap-heading heading-font text-4xl font-semibold leading-tight text-[#1E56A0] sm:text-5xl lg:text-6xl"
-                    />
+            <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-14">
+                <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:gap-16">
+                    <Motion.h2
+                        initial={{ opacity: 0, y: 26 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-120px" }}
+                        transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
+                        className="gsap-heading heading-font max-w-[11ch] text-[clamp(2.9rem,7vw,6.8rem)] font-[200] leading-[0.9] tracking-[-0.04em]"
+                    >
+                        The box keeps selling.
+                    </Motion.h2>
+
+                    <Motion.p
+                        initial={{ opacity: 0, y: 22 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-120px" }}
+                        transition={{ delay: 0.08, duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
+                        className="max-w-2xl text-base font-[300] leading-7 text-[#1D1D1B]/68 sm:text-xl sm:leading-8 lg:ml-auto"
+                    >
+                        Premium packaging does not finish at delivery. It keeps creating touchpoints in photos, shelves, gifting, and memory.
+                    </Motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                    {effects.map((effect) => (
-                        <motion.div
+                <div className="mt-10 grid gap-px overflow-hidden rounded-[0.75rem] border border-[#1D1D1B]/10 bg-[#1D1D1B]/10 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+                    {effects.map((effect, index) => (
+                        <Motion.article
                             key={effect.id}
-                            onMouseEnter={() => setHoveredId(effect.id)}
-                            onMouseLeave={() => setHoveredId(null)}
-                            // whileHover={{ scale: 1.02, y: -4 }}
-                            className={`gsap-card relative overflow-hidden rounded-3xl border transition-all duration-500 p-8 lg:p-10 cursor-pointer ${hoveredId === effect.id
-                                    ? "border-[#455A64]/10 bg-white"
-                                    : "border-[#455A64]/10 bg-white/60 hover:border-[#455A64]/10"
-                                }`}
+                            custom={index}
+                            variants={reveal}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-90px" }}
+                            className="gsap-card group relative flex min-h-[19rem] flex-col bg-[#FFFDF5] p-5 transition duration-500 hover:bg-[#F8F2E8] sm:min-h-[21rem] lg:p-6"
                         >
-                            <div className="relative z-10 flex flex-col h-full">
-                                <div className="flex items-start justify-between mb-8">
-                                    <div
-                                        className="rounded-2xl p-4 border border-[#455A64]/10"
-                                        style={{ backgroundColor: `${effect.color}10` }}
-                                    >
-                                        <effect.IconComponent className="w-8 h-8" style={{ color: effect.color }} />
-                                    </div>
-                                    <div className="text-right">
-                                        <div className="text-xs uppercase tracking-widest text-[#455A64] mb-1">{effect.statLabel}</div>
-                                        <div
-                                            className="text-3xl font-bold"
-                                            style={{ color: effect.color }}
-                                        >
-                                            {effect.stat}
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className="flex items-start justify-between gap-4">
+                                <span className="grid h-11 w-11 place-items-center rounded-full border border-[#1D1D1B]/10 bg-[#F4EFE6] text-[#F07020] transition duration-500 group-hover:-rotate-6 group-hover:border-[#1E56A0]/18 group-hover:bg-[#1E56A0] group-hover:text-[#FFFDF5]">
+                                    <effect.IconComponent className="h-5 w-5" strokeWidth={1.45} />
+                                </span>
+                                <span className="text-xs font-[500] uppercase tracking-[0.2em] text-[#1D1D1B]/34">
+                                    {effect.id}
+                                </span>
+                            </div>
 
-                                <h3 className="text-2xl font-bold text-[#1E56A0] mb-4">{effect.title}</h3>
-                                <p className="text-[#455A64] leading-relaxed mb-8 flex-grow">
+                            <div className="mt-auto pt-10">
+                                <h3 className="text-[2rem] font-[300] leading-[0.96] tracking-[-0.035em] text-[#1D1D1B] sm:text-[2.35rem] lg:text-[2.45rem]">
+                                    {effect.title}
+                                </h3>
+                                <p className="mt-4 text-sm font-[300] leading-6 text-[#1D1D1B]/62 sm:text-base">
                                     {effect.desc}
                                 </p>
                             </div>
 
-                            <span className="absolute -right-4 -top-8 text-[12rem] font-black text-[#455A64]/5 pointer-events-none select-none">
-                                0{effect.id}
-                            </span>
-                        </motion.div>
+                            <div className="mt-6 border-t border-[#1D1D1B]/10 pt-4">
+                                <p className="text-[1.85rem] font-[300] leading-none tracking-[-0.03em] text-[#1E56A0]">
+                                    {effect.stat}
+                                </p>
+                                <p className="mt-1 text-xs font-[300] uppercase tracking-[0.16em] text-[#1D1D1B]/42">
+                                    {effect.metric}
+                                </p>
+                            </div>
+                        </Motion.article>
                     ))}
                 </div>
 
-                <FadeIn delay={0.6} direction="up">
-                    <motion.div
-                        className="gsap-rise mt-16 rounded-[3rem] border border-[#455A64]/10 bg-[#F8F9FA] p-10 lg:p-16 relative overflow-hidden"
-                        // whileHover={{ y: -5 }}
-                        transition={{ duration: 0.5 }}
+                <Motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ delay: 0.15, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                    className="gsap-rise mt-10 flex flex-col gap-4 border-t border-[#1D1D1B]/10 pt-6 sm:mt-12 sm:flex-row sm:items-center sm:justify-between"
+                >
+                    <p className="max-w-2xl text-sm font-[300] leading-6 text-[#1D1D1B]/62 sm:text-base">
+                        Design the structure, finish, insert, and reveal around the moment your customer first opens it.
+                    </p>
+
+                    <YuccaButton
+                        href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20engineer%20a%20premium%20unboxing%20experience"
+                        external
+                        variant="blue"
+                        className="w-fit"
                     >
-                        {/* Luxury Paper Texture Background */}
-                        <div className="absolute inset-0 z-0">
-                            <img 
-                                src="/luxury-paper.webp" 
-                                className="gsap-parallax h-full w-full object-cover mix-blend-multiply opacity-60" 
-                                alt="Texture"
-                            />
-                        </div>
-
-                        <motion.div
-                            className="absolute top-0 right-0 p-8 opacity-20 z-10"
-                            transition={{
-                                duration: 4,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                        >
-                            <Zap className="h-32 w-32 text-[#1E56A0]" />
-                        </motion.div>
-
-                        <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
-                            <div>
-                                <h4 className="text-2xl font-bold text-[#1E56A0] mb-4">Ready to trigger these effects?</h4>
-                                <p className="text-[#455A64]">
-                                    Our packaging laboratory is ready to engineer your brand's next major unboxing event.
-                                    Side effects are guaranteed.
-                                </p>
-                            </div>
-                            <div className="flex flex-col sm:flex-row gap-4 md:justify-end">
-                                <PrimaryButton
-                                    icon={TrendingUp}
-                                    href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20start%20engineering%20my%20custom%20packaging"
-                                    className="px-10 py-5 text-lg rounded-2xl"
-                                >
-                                    Start Engineering
-                                </PrimaryButton>
-                            </div>
-                        </div>
-                    </motion.div>
-                </FadeIn>
-
-                <p className="mt-12 text-center text-[#455A64] text-sm flex items-center justify-center gap-2 italic">
-                    <Zap className="h-3 w-3" /> Packaging side effects may vary by brand ambition.
-                </p>
+                        Engineer the Reveal
+                    </YuccaButton>
+                </Motion.div>
             </div>
-        </motion.section>
+        </section>
     );
 }
 
