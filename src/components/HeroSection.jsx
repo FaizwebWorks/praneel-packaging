@@ -71,7 +71,7 @@ function HeroSection() {
                             className="mt-7 flex flex-wrap items-center gap-2.5 max-[767px]:mt-6"
                         >
                             <YuccaButton
-                                href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20start%20a%20premium%20packaging%20project%20with%20Praneel%20Packaging"
+                                href="https://wa.me/918320826551?text=Hi,%20I%20want%20to%20start%20a%20premium%20packaging%20project%20with%20Praneel%20Packaging"
                                 external
                                 variant="blue"
                                 className="max-[767px]:h-10 max-[767px]:min-w-[5.8rem] max-[767px]:text-[0.78rem]"

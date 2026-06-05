@@ -69,7 +69,7 @@ function AboutSection() {
                                 Explore Boxes
                             </YuccaButton>
                             <YuccaButton
-                                href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20discuss%20a%20custom%20rigid%20box%20with%20Praneel%20Packaging"
+                                href="https://wa.me/918320826551?text=Hi,%20I%20want%20to%20discuss%20a%20custom%20rigid%20box%20with%20Praneel%20Packaging"
                                 external
                                 variant="outline"
                             >

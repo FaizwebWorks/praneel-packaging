@@ -209,7 +209,7 @@ function ProcessSection() {
                         </div>
 
                         <YuccaButton
-                            href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20start%20the%20discovery%20process%20for%20my%20packaging%20project"
+                            href="https://wa.me/918320826551?text=Hi,%20I%20want%20to%20start%20the%20discovery%20process%20for%20my%20packaging%20project"
                             external
                             variant="blue"
                             className="w-fit"
@@ -290,7 +290,7 @@ function ProcessSection() {
                     </div>
 
                     <YuccaButton
-                        href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20start%20the%20discovery%20process%20for%20my%20packaging%20project"
+                        href="https://wa.me/918320826551?text=Hi,%20I%20want%20to%20start%20the%20discovery%20process%20for%20my%20packaging%20project"
                         external
                         variant="blue"
                         className="w-fit"

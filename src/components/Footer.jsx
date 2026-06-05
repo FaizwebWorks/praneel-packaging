@@ -25,7 +25,7 @@ const footerLinks = {
     { label: "About Us", href: "#about" },
     { label: "Our Process", href: "#process" },
     { label: "Box Gallery", href: "#services" },
-    { label: "Contact", href: "https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services" }
+    { label: "Contact", href: "https://wa.me/918320826551?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services" }
   ],
   services: [
     { label: "Magnetic Boxes", href: "#services" },
@@ -59,7 +59,7 @@ function Footer() {
               </p>
             </div>
             <motion.a
-              href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging"
+              href="https://wa.me/918320826551?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ x: 4 }}
@@ -209,7 +209,7 @@ function Footer() {
               <div className="flex items-center gap-6">
                 {["Privacy", "Terms", "Get a Quote"].map((label, i) => {
                   const href = i === 2
-                    ? "https://wa.me/919023827460?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging"
+                    ? "https://wa.me/918320826551?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging"
                     : "#";
                   return (
                     <a

@@ -151,7 +151,7 @@ function WhyRigidBoxes() {
                             </YuccaButton>
 
                             <YuccaButton
-                                href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20compare%20ordinary%20packaging%20with%20premium%20rigid%20boxes"
+                                href="https://wa.me/918320826551?text=Hi,%20I%20want%20to%20compare%20ordinary%20packaging%20with%20premium%20rigid%20boxes"
                                 external
                                 variant="outline"
                             >

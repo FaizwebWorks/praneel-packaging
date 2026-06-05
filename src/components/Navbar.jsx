@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Boxes", href: "#services" },
   { label: "Process", href: "#process" },
-  { label: "Contact", href: "https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services" },
+  { label: "Contact", href: "https://wa.me/918320826551?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services" },
 ];
 
 const linkVariants = {
@@ -80,7 +80,7 @@ function Navbar() {
 
           <div className="hidden lg:block">
             <YuccaButton
-              href="https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20get%20a%20quote%20for%20premium%20packaging"
+              href="https://wa.me/918320826551?text=Hi,%20I%20would%20like%20to%20get%20a%20quote%20for%20premium%20packaging"
               external
             >
               Get Quote
@@ -139,7 +139,7 @@ function Navbar() {
               </div>
 
               <YuccaButton
-                href="https://wa.me/919023827460?text=Hi,%20I%20would%20like%20to%20get%20a%20quote%20for%20premium%20packaging"
+                href="https://wa.me/918320826551?text=Hi,%20I%20would%20like%20to%20get%20a%20quote%20for%20premium%20packaging"
                 external
                 variant="blue"
                 className="mb-2 w-full"

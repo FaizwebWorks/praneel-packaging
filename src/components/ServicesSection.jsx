@@ -91,7 +91,7 @@ function ServicesSection() {
                             className="gsap-card group min-w-0 transition duration-500 hover:-translate-y-1"
                         >
                             <a
-                                href={`https://wa.me/919023827460?text=Hi,%20I%20want%20details%20for%20${encodeURIComponent(service.title)}`}
+                                href={`https://wa.me/918320826551?text=Hi,%20I%20want%20details%20for%20${encodeURIComponent(service.title)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E56A0]/45 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDF5]"
@@ -150,7 +150,7 @@ function ServicesSection() {
                     </div>
 
                     <YuccaButton
-                        href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20build%20a%20custom%20packaging%20design"
+                        href="https://wa.me/918320826551?text=Hi,%20I%20want%20to%20build%20a%20custom%20packaging%20design"
                         external
                         variant="blue"
                         className="w-fit"

@@ -5,8 +5,8 @@ import YuccaButton from "./YuccaButton";
 const contactLinks = [
     {
         label: "WhatsApp",
-        value: "+91 90238 27460",
-        href: "https://wa.me/919023827460?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging",
+        value: "+91 83208 26551",
+        href: "https://wa.me/918320826551?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging",
         icon: MessageCircle,
     },
     {
@@ -62,7 +62,7 @@ function CTASection() {
 
                             <div className="flex flex-wrap gap-3 lg:justify-end">
                                 <YuccaButton
-                                    href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging"
+                                    href="https://wa.me/918320826551?text=Hi,%20I%20want%20to%20get%20a%20quote%20for%20custom%20packaging"
                                     external
                                     variant="blue"
                                 >

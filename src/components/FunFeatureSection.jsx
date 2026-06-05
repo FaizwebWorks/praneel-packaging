@@ -132,7 +132,7 @@ function FunFeatureSection() {
                     </p>
 
                     <YuccaButton
-                        href="https://wa.me/919023827460?text=Hi,%20I%20want%20to%20engineer%20a%20premium%20unboxing%20experience"
+                        href="https://wa.me/918320826551?text=Hi,%20I%20want%20to%20engineer%20a%20premium%20unboxing%20experience"
                         external
                         variant="blue"
                         className="w-fit"
