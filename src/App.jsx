@@ -15,7 +15,7 @@ import ScrollEffects from "./components/ScrollEffects";
 function App() {
   return (
     <SmoothScroll>
-    <main className="relative min-h-screen bg-[#F5F5F5] text-black">
+    <main className="relative min-h-screen bg-[#FFFDF5] text-black">
       <ScrollToTop />
       <ScrollEffects />
       <div className="absolute inset-0 pointer-events-none opacity-[0.10] z-0" 

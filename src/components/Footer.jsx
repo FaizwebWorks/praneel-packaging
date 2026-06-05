@@ -73,8 +73,8 @@ function Footer() {
           </div>
         </FadeIn> */}
 
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-10 lg:grid-cols-12 lg:gap-8">
-          <FadeIn direction="up" className="sm:col-span-2 lg:col-span-4">
+        <div className="grid grid-cols-2 gap-10 sm:gap-10 lg:grid-cols-12 lg:gap-8">
+          <FadeIn direction="up" className="col-span-2 lg:col-span-4">
             <img src="/logo.webp" alt="Praneel Packaging Logo" className="mb-5 h-11 w-auto sm:h-12" />
             <p className="mb-7 max-w-sm text-sm leading-relaxed text-[#1D1D1B]/55 sm:text-[15px]">
               Engineering the art of unboxing. We create structural masterpieces that protect your product and elevate your brand's luxury perception.
@@ -147,7 +147,7 @@ function Footer() {
             </ul>
           </FadeIn>
 
-          <FadeIn direction="up" delay={0.3} className="lg:col-span-3">
+          <FadeIn direction="up" delay={0.3} className="col-span-2 lg:col-span-3">
             <div className="mb-5 flex items-center gap-2.5">
               <span className="h-3 w-0.5 rounded-full bg-[#F07020]/60" />
               <h4 className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#1D1D1B]/40">
