@@ -31,9 +31,9 @@ function HeroSection() {
     return (
         <section className="relative z-10 min-h-screen overflow-hidden bg-[#FFFDF5] text-[#1D1D1B]">
             <picture className="absolute inset-0 block">
-                <source media="(max-width: 767px)" srcSet="/hero-mobile.png" />
+                <source media="(max-width: 767px)" srcSet="/hero-mobile.webp" />
                 <img
-                    src="/hero-desktop.png"
+                    src="/hero-desktop.webp"
                     alt="Premium Praneel rigid packaging boxes"
                     className="gsap-image-parallax h-full w-full object-cover object-center max-[767px]:object-[50%_61%]"
                 />

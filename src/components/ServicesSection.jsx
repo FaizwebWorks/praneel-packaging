@@ -1,10 +1,10 @@
 import { ArrowRight, Box, Sparkles } from "lucide-react";
 import { motion as Motion } from "framer-motion";
-import collapsibleBox from "/collapsible-box.png";
-import drawerBox from "/drawer-box.png";
-import magneticBox from "/magnetic-box.png";
-import shoulderNeckBox from "/shoulder-neck-box.png";
-import topBottomBox from "/top-bottom-box.png";
+import collapsibleBox from "/collapsible-box.webp";
+import drawerBox from "/drawer-box.webp";
+import magneticBox from "/magnetic-box.webp";
+import shoulderNeckBox from "/shoulder-neck-box.webp";
+import topBottomBox from "/top-bottom-box.webp";
 import YuccaButton from "./YuccaButton";
 
 const services = [

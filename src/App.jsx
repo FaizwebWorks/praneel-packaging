@@ -35,10 +35,10 @@ function App() {
       </div>
       
       {/* Parallax/Reveal Container */}
-      <div className="relative z-20 overflow-visible bg-[#F5F5F5]">
+      {/* <div className="relative z-20 overflow-visible"> */}
         <CTASection />
         <Footer />
-      </div>
+      {/* </div> */}
     </main>
     </SmoothScroll>
   );

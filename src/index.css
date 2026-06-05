@@ -247,6 +247,10 @@ html.lenis, html.lenis body {
   animation-delay: -2.2s;
 }
 
+.pp-footer-scan {
+  animation: pp-footer-scan 7.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
 @keyframes pp-compare-wipe {
   0% {
     transform: translateX(8%);
@@ -309,13 +313,31 @@ html.lenis, html.lenis body {
   }
 }
 
+@keyframes pp-footer-scan {
+  0%,
+  12% {
+    transform: translateX(-70%);
+    opacity: 0;
+  }
+  32%,
+  68% {
+    opacity: 1;
+  }
+  88%,
+  100% {
+    transform: translateX(70%);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pp-compare-wipe,
   .pp-luxury-shimmer,
   .pp-before-drift,
   .pp-premium-drift,
   .pp-ordinary-scan,
-  .pp-assembly-float {
+  .pp-assembly-float,
+  .pp-footer-scan {
     animation: none;
   }
 }

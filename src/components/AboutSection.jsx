@@ -1,8 +1,8 @@
 import { ArrowRight, Gem, Layers3, ShieldCheck, Sparkles } from "lucide-react";
 import { motion as Motion } from "framer-motion";
-import aboutImg from "/about-img.png";
-import aboutImg2 from "/about2.png";
-import aboutImg3 from "/about3.png";
+import aboutImg from "/about-img.webp";
+import aboutImg2 from "/about2.webp";
+import aboutImg3 from "/about3.webp";
 import YuccaButton from "./YuccaButton";
 
 const CAPABILITIES = [

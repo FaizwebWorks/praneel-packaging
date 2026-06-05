@@ -10,8 +10,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion as Motion } from "framer-motion";
-import after from "/praneel.png";
-import before from "/ordinary.png";
+import after from "/praneel.webp";
+import before from "/ordinary.webp";
 import YuccaButton from "./YuccaButton";
 
 gsap.registerPlugin(ScrollTrigger);
