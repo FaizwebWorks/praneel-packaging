@@ -1,4 +1,5 @@
 import { ArrowRight, Box, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import collapsibleBox from "/collapsible-box.webp";
 import drawerBox from "/drawer-box.webp";
@@ -10,6 +11,7 @@ import YuccaButton from "./YuccaButton";
 const services = [
     {
         id: "magnetic",
+        slug: "magnetic-box",
         title: "Magnetic Rigid Box",
         meta: "Quote on request",
         note: "Hidden closure, premium reveal",
@@ -19,6 +21,7 @@ const services = [
     },
     {
         id: "drawer",
+        slug: "drawer-box",
         title: "Drawer Rigid Box",
         meta: "Custom size",
         note: "Slide-out tray, insert ready",
@@ -27,6 +30,7 @@ const services = [
     },
     {
         id: "top-bottom",
+        slug: "top-bottom-box",
         title: "Top & Bottom Box",
         meta: "Custom finish",
         note: "Classic lid-and-base structure",
@@ -35,6 +39,7 @@ const services = [
     },
     {
         id: "collapsible",
+        slug: "collapsible-box",
         title: "Collapsible Box",
         meta: "Space saving",
         note: "Flat-pack luxury structure",
@@ -43,6 +48,7 @@ const services = [
     },
     {
         id: "shoulder-neck",
+        slug: "shoulder-neck-box",
         title: "Shoulder Neck Box",
         meta: "Premium reveal",
         note: "Layered depth for gifting",
@@ -90,10 +96,8 @@ function ServicesSection() {
                             transition={{ ...cardTransition, delay: index * 0.045 }}
                             className="gsap-card group min-w-0 transition duration-500 hover:-translate-y-1"
                         >
-                            <a
-                                href={`https://wa.me/918320826551?text=Hi,%20I%20want%20details%20for%20${encodeURIComponent(service.title)}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <Link
+                                to={`/rigid-boxes/${service.slug}`}
                                 className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E56A0]/45 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDF5]"
                             >
                                 <div className="relative aspect-square overflow-hidden rounded-[0.55rem] bg-[#F1E9DC]  transition duration-500 ">
@@ -134,7 +138,7 @@ function ServicesSection() {
                                         {service.detail}
                                     </p>
                                 </div>
-                            </a>
+                            </Link>
                         </Motion.article>
                     ))}
                 </div>

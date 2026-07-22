@@ -22,16 +22,22 @@ const XIcon = (props) => (
 
 const footerLinks = {
   explore: [
-    { label: "About Us", href: "#about" },
-    { label: "Our Process", href: "#process" },
-    { label: "Box Gallery", href: "#services" },
+    { label: "About Us", href: "/#about" },
+    { label: "Our Process", href: "/#process" },
+    { label: "Rigid Boxes", href: "/rigid-boxes/magnetic-box" },
     { label: "Contact", href: "https://wa.me/918320826551?text=Hi,%20I%20would%20like%20to%20contact%20you%20about%20packaging%20services" }
   ],
   services: [
-    { label: "Magnetic Boxes", href: "#services" },
-    { label: "Drawer Boxes", href: "#services" },
-    { label: "Gift Packaging", href: "#services" },
-    { label: "Custom Inserts", href: "#services" }
+    { label: "Magnetic Boxes", href: "/rigid-boxes/magnetic-box" },
+    { label: "Drawer Boxes", href: "/rigid-boxes/drawer-box" },
+    { label: "Collapsible Boxes", href: "/rigid-boxes/collapsible-box" },
+    { label: "Shoulder Neck Boxes", href: "/rigid-boxes/shoulder-neck-box" }
+  ],
+  industries: [
+    { label: "Cosmetics Packaging", href: "/industries/cosmetics-packaging" },
+    { label: "Jewelry Packaging", href: "/industries/jewelry-packaging" },
+    { label: "Gift Packaging", href: "/industries/gift-packaging" },
+    { label: "Electronics Packaging", href: "/industries/electronics-packaging" }
   ],
   contact: [
     { icon: Phone, label: "+91 83208 26551", href: "tel:+918320826551", desc: "Phone" },
@@ -74,7 +80,7 @@ function Footer() {
         </FadeIn> */}
 
         <div className="grid grid-cols-2 gap-10 sm:gap-10 lg:grid-cols-12 lg:gap-8">
-          <FadeIn direction="up" className="col-span-2 lg:col-span-4">
+          <FadeIn direction="up" className="col-span-2 lg:col-span-3">
             <img src="/logo.webp" alt="Praneel Packaging Logo" className="mb-5 h-11 w-auto sm:h-12" />
             <p className="mb-7 max-w-sm text-sm leading-relaxed text-[#1D1D1B]/55 sm:text-[15px]">
               Engineering the art of unboxing. We create structural masterpieces that protect your product and elevate your brand's luxury perception.
@@ -101,7 +107,7 @@ function Footer() {
             </div>
           </FadeIn>
 
-          <FadeIn direction="up" delay={0.1} className="lg:col-span-3">
+          <FadeIn direction="up" delay={0.1} className="lg:col-span-2">
             <div className="mb-5 flex items-center gap-2.5">
               <span className="h-3 w-0.5 rounded-full bg-[#F07020]/60" />
               <h4 className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#1D1D1B]/40">
@@ -130,11 +136,32 @@ function Footer() {
             <div className="mb-5 flex items-center gap-2.5">
               <span className="h-3 w-0.5 rounded-full bg-[#F07020]/60" />
               <h4 className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#1D1D1B]/40">
-                Expertise
+                Box Types
               </h4>
             </div>
             <ul className="space-y-2.5">
               {footerLinks.services.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="relative inline-block text-sm text-[#1D1D1B]/60 transition-colors duration-300 hover:text-[#104080]"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </FadeIn>
+
+          <FadeIn direction="up" delay={0.25} className="lg:col-span-2">
+            <div className="mb-5 flex items-center gap-2.5">
+              <span className="h-3 w-0.5 rounded-full bg-[#F07020]/60" />
+              <h4 className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#1D1D1B]/40">
+                Industries
+              </h4>
+            </div>
+            <ul className="space-y-2.5">
+              {footerLinks.industries.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
